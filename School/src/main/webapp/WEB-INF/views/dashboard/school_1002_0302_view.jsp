@@ -1,16 +1,6 @@
 <template:basic htmlTitle="New Student" bodyTitle="People">
 	<!-- ============================================================== -->
-	
-<div class="row">
-	<div class="col-md-6">												
-		<div class="btn-group open">
-               <button type="button" id="actionStudent" class="btn btn-info dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">Actions <span class="caret"></span></button>
-               <ul class="dropdown-menu" role="menu" id="dropDownResult" >
-               </ul>
-          	</div>
-	</div>
-	<div class="clearfix"></div>
-</div>
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -46,7 +36,7 @@
                         </div>
                      	<div class="col-md-6">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="firstName">Last name in Khmer:</label>
+                            	<label class="control-label col-sm-4" for="lastName">Last name in Khmer:</label>
                              	<div class="col-sm-8">
 									<input type="text" class="form-control" id="lastName" placeholder="Last name in Khmer">
 						 		</div>
@@ -161,6 +151,8 @@
 					</fieldset>                        							 
                         <div class="clearfix"></div>
                         <input id="btnSave" type="button" class="btn btn-info " value="Save">
+                        <input id="btnClear" type="button" class="btn btn-danger " value="Clear">
+                        <input id="btnCancel" type="button" class="btn btn-warning " value="Cancel">
 					  <!-- <button type="submit" class="btn btn-default">Submit</button> -->
 					</form>
 					</div>
@@ -169,6 +161,9 @@
 		</div>
 	</div>
 </div>
+<script>
+ var url = "school_1002_0301.act";
+</script>
     <%@include file="../../views/dashboard/footer.jsp" %>
     <script src="<c:url value="/static/school/js/school_1002_0302.js" />"></script>
 </template:basic>

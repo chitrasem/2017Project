@@ -4,8 +4,9 @@ if(!school.ui) {
 	
 	school.ui.openWindow = function(url){
 		window.location.href = url;
-	}
-	school.ui.sweetConfrim = function(msg,callback){
+	};
+	school.ui.sweetConfrim = function(msg){
+		var isConfirmed = false;
 		swal({
 			  title: "Are you sure?",
 			  text: msg,
@@ -15,14 +16,16 @@ if(!school.ui) {
 			  confirmButtonText: "Yes, save it!",
 			  closeOnConfirm: false
 			},
-			function(){
-			  swal("Save!", "New student has been save into database.", "success");
+			function(isConfirm){
+				if(isConfirm){
+					swal("Save!", "New student has been save into database.", "success");	
+					isConfirmed = true;
+				}else{
+					swal("Cancelled", "error");
+					isConfirmed = false;
+				}
 			});
-		
-		if(typeof callback === 'function' && callback()){
-			callback();
-		}
-		
-	}
+		return isConfirmed;		
+	};
 		
 }

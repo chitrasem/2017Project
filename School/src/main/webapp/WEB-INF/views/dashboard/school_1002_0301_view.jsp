@@ -81,7 +81,7 @@
 										<th>Khmer Name</th>
 										<th>English Name</th>
 										<th>Gender</th>
-										<th>Date of Birth»</th>
+										<th>Age</th>
 										<th>Status</th>
 									</tr>
 								</thead>
@@ -109,7 +109,7 @@
 				Female
 			{{/if}}
 			</td>
-			<td>20</td>
+			<td>{{= birthDate }}</td>
 			<td>Active</td>
 		</tr>
 	</script>

@@ -3,7 +3,6 @@ package com.chitra.school.dao;
 import java.util.List;
 
 import com.chitra.school.model.Student;
-import com.chitra.school.model.User;
 
 public interface StudentDao {
 	

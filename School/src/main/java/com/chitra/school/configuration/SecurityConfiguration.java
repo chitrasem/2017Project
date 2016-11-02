@@ -71,8 +71,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         */
         .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
         .usernameParameter("ssoId").passwordParameter("password")
-        .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository());
         /*.and().csrf()*/
+        .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository())
+      .and().csrf().disable();
   
     }
     @Bean

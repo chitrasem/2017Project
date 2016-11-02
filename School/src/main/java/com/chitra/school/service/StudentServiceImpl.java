@@ -20,7 +20,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	public void save(Student student) {
-		
+		studentDao.save(student);
 		
 	}
 

@@ -61,9 +61,9 @@ public class StudentExcelBuilder extends AbstractExcelView {
 		
 		for (Student aStudent : listStudents) {
 			HSSFRow aRow = sheet.createRow(rowCount++);
-			aRow.createCell(0).setCellValue(aStudent.getFirstName());
-			aRow.createCell(1).setCellValue(aStudent.getLastName());
-			aRow.createCell(2).setCellValue(aStudent.getGender());
+			/*aRow.createCell(0).setCellValue(aStudent.getFirstName() );
+			aRow.createCell(1).setCellValue(aStudent.getLastName() );
+			aRow.createCell(2).setCellValue(aStudent.getGender() );*/
 		}
 	}
 

@@ -1,157 +1,316 @@
 package com.chitra.school.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDate;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="APP_STUDENT")
+@Table(name="TB_STUDENT")
 public class Student {
 
     @Id 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "STUDENT_ID")
-	private int id;
-    
-    @Column(name = "FIRST_NAME", nullable=false)
-	private String firstName;
-    
-    @Column(name = "LAST_NAME", nullable=false)
+    @Column(name = "STU_ID", length=13)
+	private long id;    
+    //Basic Info
+    @NotEmpty
+    @Column(name = "FIRST_NAME", nullable=false, length=20)
+	private String firstName;    
+    @NotEmpty
+    @Column(name = "LAST_NAME", nullable=false, length=20)
 	private String lastName;
-    
+    @NotEmpty
+    @Column(name="KM_FIRST_NAME", nullable=false, length=20)
     private String kmFirstName;
-    private String kmLastName;
+    @NotEmpty
+    @Column(name="KM_LAST_NAME", nullable=false, length=20)
+    private String kmLastName;  
+    @NotEmpty
+    @Column(name="GENDER", nullable=false, length=1)
+    private String gender;
+    @Column(name="BIRTH_DATE", length=10)
+    private String birthDate;
+    @Column(name="BIRTH_PLACE", length=200)
+    private String birthPlace;
+    @Column(name="BIOGRAPHY", length=500)
+    private String biography;
     
-    @DateTimeFormat(pattern="dd/MM/yyyy") 
-    @Column(name = "BIRTHDATE", nullable = false)
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-    private LocalDate dateOfBirth;
+    //Contact Info
+    @Column(name="PHONE1", length=10)
+    private String phone1;
+    @Column(name="PHONE2", length=10)
+    private String phone2;
+    @Column(name="EMAIL", length=50)
+    private String email;
+    @Column(name="CURRENT_ADDR", length=200)
+    private String currentAddr;    
     
-    @Column(name = "GENDER", nullable=false)
-	private String gender;
-    private String nationality;
-    private boolean isMarried;
-    private String stu_id;
+    // Family Contact
+    @Column(name="MOTHER_NAME", length=20)
+    private String motherName;
+    @Column(name="MOTHER_PHONE", length=20)
+    private String motherPhone;
+    @Column(name="FATHER_NAME", length=20)
+    private String fatherName;
+    @Column(name="FATHER_PHONE", length=20)
+    private String fatherPhone;
     
+    @Column(name="ENROLL_DATE")
+    private String enroll_date;
+
+    @Column(name="REGISTER_PERSON")
+    private String registerPerson;
+    @Column(name="REGISTER_DATE")
+    private String registerDate;
+    @Column(name="CHANGE_PERSON")
+    private String changePerson;
+    @Column(name="CHANGE_DATE")
+    private String changeDate;
     
-    private String phoneNumber;
-    private String emailaddress;
-    private String currentAddress;
-    
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "USER_ID")
-    private User user;
-    
-    
- 
-	@ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "APP_STUDENT_SUBJECT",
-    		joinColumns = { @JoinColumn(name = "STUDENT_ID")},
-    		inverseJoinColumns = { @JoinColumn(name = "SUBJECT_ID")}
-    		)
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	public int getId() {
+
+    @NotEmpty
+    @Column(name="STATE", nullable=false)
+    private String state=State.INACTIVE.getState();
+
+
+	public long getId() {
 		return id;
 	}
-	public String getKmFirstName() {
-		return kmFirstName;
-	}
-	public void setKmFirstName(String kmFirstName) {
-		this.kmFirstName = kmFirstName;
-	}
-	public String getKmLastName() {
-		return kmLastName;
-	}
-	public void setKmLastName(String kmLastName) {
-		this.kmLastName = kmLastName;
-	}
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-	public String getNationality() {
-		return nationality;
-	}
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
-	}
-	public boolean getMaritalStatus() {
-		return isMarried;
-	}
-	public void setMaritalStatus(boolean isMarried) {
-		this.isMarried = isMarried;
-	}
-	public boolean isMarried() {
-		return isMarried;
-	}
-	public void setMarried(boolean isMarried) {
-		this.isMarried = isMarried;
-	}
-	public String getStu_id() {
-		return stu_id;
-	}
-	public void setStu_id(String stu_id) {
-		this.stu_id = stu_id;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public String getEmailaddress() {
-		return emailaddress;
-	}
-	public void setEmailaddress(String emailaddress) {
-		this.emailaddress = emailaddress;
-	}
-	public String getCurrentAddress() {
-		return currentAddress;
-	}
-	public void setCurrentAddress(String currentAddress) {
-		this.currentAddress = currentAddress;
-	}
-	public void setId(int id) {
+
+
+	public void setId(long id) {
 		this.id = id;
 	}
+
+
 	public String getFirstName() {
 		return firstName;
 	}
+
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+
 	public String getLastName() {
 		return lastName;
 	}
+
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+
+	public String getKmFirstName() {
+		return kmFirstName;
+	}
+
+
+	public void setKmFirstName(String kmFirstName) {
+		this.kmFirstName = kmFirstName;
+	}
+
+
+	public String getKmLastName() {
+		return kmLastName;
+	}
+
+
+	public void setKmLastName(String kmLastName) {
+		this.kmLastName = kmLastName;
+	}
+
+
 	public String getGender() {
 		return gender;
 	}
+
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
+
+	public String getBirthDate() {
+		return birthDate;
+	}
+
+
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
+
+	public String getBirthPlace() {
+		return birthPlace;
+	}
+
+
+	public void setBirthPlace(String birthPlace) {
+		this.birthPlace = birthPlace;
+	}
+
+
+	public String getBiography() {
+		return biography;
+	}
+
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+
+	public String getPhone1() {
+		return phone1;
+	}
+
+
+	public void setPhone1(String phone1) {
+		this.phone1 = phone1;
+	}
+
+
+	public String getPhone2() {
+		return phone2;
+	}
+
+
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getCurrentAddr() {
+		return currentAddr;
+	}
+
+
+	public void setCurrentAddr(String currentAddr) {
+		this.currentAddr = currentAddr;
+	}
+
+
+	public String getMotherName() {
+		return motherName;
+	}
+
+
+	public void setMotherName(String motherName) {
+		this.motherName = motherName;
+	}
+
+
+	public String getMotherPhone() {
+		return motherPhone;
+	}
+
+
+	public void setMotherPhone(String motherPhone) {
+		this.motherPhone = motherPhone;
+	}
+
+
+	public String getFatherName() {
+		return fatherName;
+	}
+
+
+	public void setFatherName(String fatherName) {
+		this.fatherName = fatherName;
+	}
+
+
+	public String getFatherPhone() {
+		return fatherPhone;
+	}
+
+
+	public void setFatherPhone(String fatherPhone) {
+		this.fatherPhone = fatherPhone;
+	}
+
+
+	public String getEnroll_date() {
+		return enroll_date;
+	}
+
+
+	public void setEnroll_date(String enroll_date) {
+		this.enroll_date = enroll_date;
+	}
+
+
+	public String getRegisterPerson() {
+		return registerPerson;
+	}
+
+
+	public void setRegisterPerson(String registerPerson) {
+		this.registerPerson = registerPerson;
+	}
+
+
+	public String getRegisterDate() {
+		return registerDate;
+	}
+
+
+	public void setRegisterDate(String registerDate) {
+		this.registerDate = registerDate;
+	}
+
+
+	public String getChangePerson() {
+		return changePerson;
+	}
+
+
+	public void setChangePerson(String changePerson) {
+		this.changePerson = changePerson;
+	}
+
+
+	public String getChangeDate() {
+		return changeDate;
+	}
+
+
+	public void setChangeDate(String changeDate) {
+		this.changeDate = changeDate;
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+    
+   
+	
+	
+
+
 
 }

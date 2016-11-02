@@ -45,7 +45,7 @@ school_1002_0301.loadData = function(input){
 		url: url,
 		type: "get",
 		success: function(dat){
-			console.log(dat);
+			
 			if(dat.success && dat["StudentRec"].length>0){
 				$("#STUDENT_TMPL").tmpl(dat.StudentRec).appendTo("#STUDENT_RESULT");
 			}
