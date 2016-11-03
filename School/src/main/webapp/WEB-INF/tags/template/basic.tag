@@ -21,9 +21,9 @@
                             </li>
                             
                              <li class="has_sub">
-                                <a href="#" class="waves-effect active"><i class="md md-people"></i><span> People </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <a href="<c:url value="/school_1002_0101.act"/>" class="waves-effect"><i class="md md-people"></i><span> People </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li class="active"><a href="<c:url value="/school_1002_0101.act"/>">Manage Users</a></li>
+                                    <li><a href="<c:url value="/school_1002_0101.act"/>">Manage Users</a></li>
                                     <li><a href="<c:url value="/school_1002_0201.act"/>">Manage Teachers</a></li>
                                     <li><a href="<c:url value="/school_1002_0301.act"/>">Manage Students</a></li>
                                 </ul>

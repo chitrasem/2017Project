@@ -42,5 +42,9 @@ public class StudentServiceImpl implements StudentService{
 		return studentDao.findAll();
 	}
 
+	public String getStudentId() {
+		return studentDao.getStudentId();
+	}
+
 
 }

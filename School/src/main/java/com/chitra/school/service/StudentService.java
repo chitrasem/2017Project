@@ -5,6 +5,7 @@ import java.util.List;
 import com.chitra.school.model.Student;
 
 public interface StudentService {
+	String getStudentId();
 	List<Student> findAll();
 	List<Student> findAll(int userId, String firstName, String lastName, String searchName, int maxResult, int firstResult);
 	long countRecordListl(int userId, String firstName, String lastName, String searchName);

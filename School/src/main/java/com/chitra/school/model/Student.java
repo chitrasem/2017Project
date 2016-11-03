@@ -15,7 +15,7 @@ public class Student {
 
     @Id 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "STU_ID", length=13)
+    @Column(name = "id", length=13)
 	private long id;    
     //Basic Info
     @NotEmpty
@@ -71,11 +71,19 @@ public class Student {
     private String changePerson;
     @Column(name="CHANGE_DATE")
     private String changeDate;
+
+    @Column(name = "STUDENT_ID", nullable=false, length=10, unique= true)
+    private String studentId;
     
 
     @NotEmpty
     @Column(name="STATE", nullable=false)
     private String state=State.INACTIVE.getState();
+    
+    
+    // New Field appended
+    @Column(name="AGE")
+    private String age;
 
 
 	public long getId() {
@@ -298,6 +306,16 @@ public class Student {
 	}
 
 
+	public String getStudentId() {
+		return studentId;
+	}
+
+
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
+	}
+
+
 	public String getState() {
 		return state;
 	}
@@ -306,11 +324,18 @@ public class Student {
 	public void setState(String state) {
 		this.state = state;
 	}
-    
-   
+
+
+	public String getAge() {
+		return age;
+	}
+
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+
 	
 	
-
-
-
-}
+	}

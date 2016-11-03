@@ -67,8 +67,10 @@
 						<div class="table-responsive">
 							<div class="row">
 								<div class="col-md-6">
-									<div class="btn-group open">
-                                          <button type="button" id="actionStudent" class="btn btn-info dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">Actions <span class="caret"></span></button>
+									<div class="btn-group">
+                                          <button type="button" id="actionStudent" class="btn btn-success dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">Actions 
+                                          <span class="caret"></span>
+                                          </button>
                                           <ul class="dropdown-menu" role="menu" id="dropDownResult" >
                                           </ul>
                                       </div>
@@ -77,12 +79,15 @@
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th ><input type="checkbox"> </th>
+										<th >
+												<input type="checkbox">
+										</th>
 										<th>Khmer Name</th>
 										<th>English Name</th>
 										<th>Gender</th>
 										<th>Age</th>
 										<th>Status</th>
+										<th>Memo</th>
 									</tr>
 								</thead>
 								<tbody id="STUDENT_RESULT">
@@ -97,9 +102,9 @@
 	</div>
 </div>
 <!-- End row -->
-	<script type="text/jquery-tmpl" id="STUDENT_TMPL">
+	<script type="text/jquery-tmpl" id="STUDENT_TMPL">                                       
 		<tr>
-			<td><input type="checkbox"></td>
+			<td><input  type="checkbox"></td>
 			<td>{{= kmLastName }}&nbsp;{{= kmFirstName }}</td>
 			<td>{{= firstName }}&nbsp{{= lastName }}</td>
             <td>
@@ -111,6 +116,7 @@
 			</td>
 			<td>{{= birthDate }}</td>
 			<td>Active</td>
+			<td>{{= biography }}</td>
 		</tr>
 	</script>
 	

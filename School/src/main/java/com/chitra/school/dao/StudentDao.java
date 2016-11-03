@@ -6,6 +6,8 @@ import com.chitra.school.model.Student;
 
 public interface StudentDao {
 	
+	String getStudentId();
+	
 	List<Student> findAll();
 	
 	List findAll(int userId, String firstName, String lastName, String searchName, int maxResult, int firstResult);

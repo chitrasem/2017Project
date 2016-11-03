@@ -3,6 +3,11 @@ if(!school) school = {};
 if(!school.string){
 	school.string = {};
 	
+	school.string.formatBirthDate = function(str){
+		
+		return "";
+	}
+	
 	school.string.appendAction = function(target){
 		var li = "";
 		li += '<li><a href="javascript:" id="downloadExcel">Export excel</a></li>'

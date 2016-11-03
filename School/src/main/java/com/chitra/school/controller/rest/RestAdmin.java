@@ -7,16 +7,21 @@ import java.util.Map;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chitra.school.model.Memo;
 import com.chitra.school.model.Student;
 import com.chitra.school.model.User;
+import com.chitra.school.service.MemoService;
 import com.chitra.school.service.StudentService;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/service")
@@ -26,6 +31,9 @@ public class RestAdmin {
 	UserService userService;
 	@Autowired
 	StudentService studentService;
+	@Autowired 
+	MemoService memoService;
+	SSOIdUtil ssoIdUtil = new SSOIdUtil();
 
 	@RequestMapping(value = "/school_1002_0101_r001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<Object, Object> getUsers(SSOIdUtil ssoIdUtil) {
@@ -48,31 +56,31 @@ public class RestAdmin {
 		
 		return map;
 	}
-	
+	@ResponseBody
 	@RequestMapping(value="/school_1002_0302_c001.chitra", method=RequestMethod.POST)
-	public Map<Object, Object> addStudents( 
-			@RequestParam("firstName") String firstName
-			,@RequestParam("lastName") String lastName
-			,@RequestParam("kmFirstName") String kmFirstName
-			,@RequestParam("kmLastName") String kmLastName
-			,@RequestParam("gender") String gender
-			,@RequestParam("birthDate") String birthDate
-			){
+	public Map<Object, Object> addStudents( 			
+			@RequestBody String str
+			)throws Exception{
+		
 		Map<Object, Object> map = new HashMap<Object, Object>();
-		Student student = new Student();
-		student.setFirstName(firstName);
-		student.setLastName(lastName);
-		student.setKmFirstName(kmFirstName);
-		student.setKmLastName(kmLastName);
-		student.setGender(gender);
-		student.setBirthDate(birthDate);
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode node = mapper.readTree(str);
+		
+		Student student = mapper.convertValue(node.get("student"), Student.class);		
+		User user = userService.findBySso(ssoIdUtil.getPrincipal());
+		student.setRegisterPerson(user.getSsoId());		
+		student.setRegisterDate("");
+		
+		Memo memo = mapper.convertValue(node.get("memo"), Memo.class);
+		memo.setRegisterPerson(user.getSsoId());
+		memo.setStudent(student);	
 
-		map.put("abc", student.getFirstName());
+		student.setStudentId(studentService.getStudentId());
 		
 		try{
-			studentService.save(student);			
+			studentService.save(student);	
+			memoService.save(memo);
 			map.put("success", true);		
-			map.put("abc", student.getFirstName());
 		}catch(HibernateException e){
 			map.put("success", false);
 			map.put("message", e.getMessage());
