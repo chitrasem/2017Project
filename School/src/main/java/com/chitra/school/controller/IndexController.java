@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chitra.school.model.Book;
@@ -43,7 +44,7 @@ public class IndexController {
 		return "dashboard/school_1001_0101_view";
 	}
 	
-	@RequestMapping(value="/school_1002_0101.act")
+	@RequestMapping(value="/school_1002_0101.act", method = RequestMethod.POST)
 	public String showUsersForm(Model m){
 		m.addAttribute("user", getUser());		
 		User user = getUser();
@@ -62,7 +63,6 @@ public class IndexController {
 	 */
 	@RequestMapping(value="/school_1002_0301.act")
 	public String showStudentsForm(Model m){
-		
 		m.addAttribute("user", getUser());		
 		return "dashboard/school_1002_0301_view";
 	}
@@ -72,9 +72,10 @@ public class IndexController {
 	 * @return
 	 */
 	@RequestMapping(value="/school_1002_0302.act")
-	public String addStudentForm(Model m){
-		
-		m.addAttribute("user", getUser());		
+	public String addStudentForm(Model m,
+			@RequestParam(required = false) String studentId){
+		m.addAttribute("user", getUser());
+		m.addAttribute("studentId", studentId);
 		return "dashboard/school_1002_0302_view";
 	}
 	

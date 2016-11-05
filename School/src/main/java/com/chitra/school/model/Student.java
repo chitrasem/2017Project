@@ -3,23 +3,26 @@ package com.chitra.school.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="TB_STUDENT")
 public class Student {
-
+	//    @GenericGenerator(name = "sequence_stu_id", strategy = "com.chitra.school.utils.StudentIdGenerator")
+	
     @Id 
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "id", length=13)
-	private long id;    
+    @GenericGenerator(name = "sequence_stu_id", strategy = "com.chitra.school.utils.StudentIdGenerator")
+    @GeneratedValue(generator = "sequence_stu_id")
+    @Column(name = "STUDENT_ID",unique = true, nullable = false, length = 10)
+	private String id;
+	
     //Basic Info
     @NotEmpty
-    @Column(name = "FIRST_NAME", nullable=false, length=20)
+    @Column(name = "FIRST_NAME", nullable=false)
 	private String firstName;    
     @NotEmpty
     @Column(name = "LAST_NAME", nullable=false, length=20)
@@ -65,6 +68,9 @@ public class Student {
 
     @Column(name="REGISTER_PERSON")
     private String registerPerson;
+
+    @GenericGenerator(name = "register_date", strategy = "com.chitra.school.utils.DateGenerator")
+    @GeneratedValue(generator = "register_date")
     @Column(name="REGISTER_DATE")
     private String registerDate;
     @Column(name="CHANGE_PERSON")
@@ -72,8 +78,6 @@ public class Student {
     @Column(name="CHANGE_DATE")
     private String changeDate;
 
-    @Column(name = "STUDENT_ID", nullable=false, length=10, unique= true)
-    private String studentId;
     
 
     @NotEmpty
@@ -86,12 +90,12 @@ public class Student {
     private String age;
 
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -306,16 +310,6 @@ public class Student {
 	}
 
 
-	public String getStudentId() {
-		return studentId;
-	}
-
-
-	public void setStudentId(String studentId) {
-		this.studentId = studentId;
-	}
-
-
 	public String getState() {
 		return state;
 	}
@@ -336,6 +330,7 @@ public class Student {
 	}
 
 
+	
 	
 	
 	}

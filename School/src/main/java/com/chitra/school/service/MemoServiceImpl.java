@@ -1,5 +1,7 @@
 package com.chitra.school.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +20,10 @@ public class MemoServiceImpl implements MemoService{
 	public void save(Memo memo) {
 		memoDao.save(memo);
 		
+	}
+
+	public List<Memo> listMemoByStudentId(String studentId) {
+		
+		return memoDao.listMemoByStudentId(studentId);
 	}
 }

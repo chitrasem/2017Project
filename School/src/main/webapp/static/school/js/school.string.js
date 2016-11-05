@@ -22,7 +22,7 @@ if(!school.string){
 			+'<li><a href="javascript:" id="addNew">New registeration</a></li>'
 			+'<li class="divider"></li>'
 			+'<li><a href="javascript:"><i>More actions</i></a></li>'
-			+'<li><a href="javascript:">View</a></li>'
+			+'<li><a href="javascript:" id="btnView">View</a></li>'
 			+'<li><a href="javascript:">Delete</i></a></li>';
 		$(target).html(li);		
 	};

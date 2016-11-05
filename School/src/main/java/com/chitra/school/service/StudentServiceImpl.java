@@ -24,7 +24,7 @@ public class StudentServiceImpl implements StudentService{
 		
 	}
 
-	public Student findById(int id) {
+	public Student findById(String id) {
 		return studentDao.findById(id);
 	}
 
@@ -40,10 +40,6 @@ public class StudentServiceImpl implements StudentService{
 
 	public List<Student> findAll() {
 		return studentDao.findAll();
-	}
-
-	public String getStudentId() {
-		return studentDao.getStudentId();
 	}
 
 

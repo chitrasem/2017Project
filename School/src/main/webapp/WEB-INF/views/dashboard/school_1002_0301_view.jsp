@@ -65,6 +65,8 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="table-responsive">
+						   <form id="school_1002_0301" action="school_1002_0302.act" method="post">
+						   <input type="hidden" name="studentId" id="studentId" value="0">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="btn-group">
@@ -76,12 +78,14 @@
                                       </div>
 								</div>
 							</div>
+						   </form>
 							<table class="table table-hover">
 								<thead>
 									<tr>
 										<th >
 												<input type="checkbox">
 										</th>
+										<th>Student ID</th>
 										<th>Khmer Name</th>
 										<th>English Name</th>
 										<th>Gender</th>
@@ -104,7 +108,10 @@
 <!-- End row -->
 	<script type="text/jquery-tmpl" id="STUDENT_TMPL">                                       
 		<tr>
-			<td><input  type="checkbox"></td>
+			<td><input  type="checkbox">
+				<input type="hidden" value="{{= id }}" class="STUDENT_ID">
+			</td>
+			<td>{{= id }}</td>
 			<td>{{= kmLastName }}&nbsp;{{= kmFirstName }}</td>
 			<td>{{= firstName }}&nbsp{{= lastName }}</td>
             <td>

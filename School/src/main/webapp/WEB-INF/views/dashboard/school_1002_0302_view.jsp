@@ -23,7 +23,7 @@
                      		<div class="form-group">
                             	<label class="control-label col-sm-4" for="firstName">First name:</label>
                              	<div class="col-sm-8">
-									<input type="text" class="form-control" name="firstName" id="firstName" placeholder="Enter first name">
+									<input type="text" class="form-control" data-firstName name="firstName" id="firstName" placeholder="Enter first name">
 						 		</div>
                             </div>
                         </div>
@@ -171,7 +171,10 @@
 	</div>
 </div>
 <script>
+
+ var studentId = "${studentId}";
  var url = "school_1002_0301.act";
+ var getStudentUrl = "service/school_1002_0302_r001.chitra/"+studentId;
 </script>
     <%@include file="../../views/dashboard/footer.jsp" %>
     <script src="<c:url value="/static/school/js/school_1002_0302.js" />"></script>

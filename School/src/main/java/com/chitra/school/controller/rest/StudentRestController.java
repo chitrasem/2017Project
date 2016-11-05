@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,26 +86,6 @@ public class StudentRestController {
 		return new ModelAndView("excelViewStudents", "students",students);
 		
 		//return new ModelAndView();
-	}
-	/**
-	 * Retrive single student********************************************************************************************************
-	 * @param id
-	 * @return
-	 */
-	   @RequestMapping(value = "/student/{stu_id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	    public Map<String, Object> getStudent(@PathVariable("stu_id") int id) {
-	        System.out.println("Fetching Student with id " + id);
-	        Student student = studentService.findById(id);
-	        Map<String, Object> map = new HashMap<String, Object>();
-	        if (student == null) {
-	            map.put("List", "NOT FOUND");
-	            
-	        }else{
-	        	map.put("List", student);
-	        	
-	        }
-	        return map;
-	    
 	}
 
 }

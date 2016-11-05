@@ -78,13 +78,17 @@ school_1002_0302.clearData = function(target){
     $(target).closest('form').find("input[type=text] ,select, textarea").val("");
 }
 school_1002_0302.loadData = function(input){
-	if(typeof input =="undefined") input = {};
-	
-	$("#firstName").focus();
-	
+	if(typeof input =="undefined") input = {};	
+	$("#firstName").focus();	
 	$.extend(input, school_1002_0302.getData());
-	
-	if(input.mode==="edit"){
-		
+	alert(studentId.length)
+	if(studentId.length===10){
+		$.ajax({
+			type: "GET",
+			url: getStudentUrl,
+			success: function(dat){
+				console.log(dat);
+			}
+		});
 	}
 };

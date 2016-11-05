@@ -3,7 +3,6 @@ package com.chitra.school.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Order;
@@ -56,13 +55,16 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements Stu
 	}
 
 	public void save(Student student) {
-		Criteria crit = getSession().createCriteria(Student.class);
+		//Criteria crit = getSession().createCriteria(Student.class);
 		
-		getSession().persist(crit);
+		//getSession().persist(student);
+		persist(student);
+		
+		//getSession().persist(crit);
 		
 	}
 
-	public Student findById(int id) {
+	public Student findById(String id) {
 		Criteria crit = createEntityCriteria();
 		crit.add(Restrictions.eq("id", id));
 		
@@ -100,9 +102,10 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements Stu
 	@SuppressWarnings("unchecked")
 	public List<Student> findAll() {		
 		String sql = "AGE(TO_DATE(BIRTH_DATE,'YYYY-MM-DD')) as birthDate";
-		String sql2 = "(SELECT CONTENT FROM tb_memo WHERE STU_ID = this_.ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
+		String sql2 = "(SELECT CONTENT FROM tb_memo WHERE STU_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
 		Criteria crit = getSession().createCriteria(Student.class, "student");
 		crit.setProjection(Projections.projectionList()
+				.add(Projections.property("id"),"id")
 				.add(Projections.property("firstName"), "firstName")
 				.add(Projections.property("lastName"), "lastName")
 				.add(Projections.property("kmFirstName"), "kmFirstName")
@@ -115,15 +118,9 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements Stu
 						new String[] {"birthDate"}, 
 						new Type[] { StandardBasicTypes.STRING}))
 				).setResultTransformer(Transformers.aliasToBean(Student.class));
+		crit.addOrder(Order.asc("birthDate"));
 		
 		return (List<Student>) crit.list();
-	}
-
-	public String getStudentId() {
-		String sql = "SELECT  CONCAT('STU', LPAD(CAST(FN_TB_UID_SEQ('STUDENT_ID') AS VARCHAR),7,'0')) AS STUDENT_ID";
-		SQLQuery query = getSession().createSQLQuery(sql);	
-		
-		return query.uniqueResult().toString();
 	}
 
 }
