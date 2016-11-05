@@ -7,5 +7,9 @@ public  class DateUtils {
 	public String getStrDate() {
 		return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 	}
+	public String getYearMonthDay(){
+		return new SimpleDateFormat("yyyyMMdd").format(new Date());
+		
+	}
 
 }

@@ -17,7 +17,7 @@ $(document).ready(function(){
 		$("#studentId").val(studentId);
 		$("#school_1002_0301").submit();
 	});
-	$(document).delegate("#STUDENT_RESULT tr", "click", function(){
+/*	$(document).delegate("#STUDENT_RESULT tr", "click", function(){
 		var checkbox = $(this).find("input[type='checkbox']");
 		if(checkbox.is(":checked")){
 			checkbox.prop("checked",false);
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		}else{
 			school.string.appendActionMoreEdit("#dropDownResult");
 		}
-	});
+	});*/
 	
 	$(document).delegate('input[type="checkbox"]', "click", function(){
 		var dataRec =[];

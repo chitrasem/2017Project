@@ -23,8 +23,7 @@ public class MemoServiceImpl implements MemoService{
 		
 	}
 
-	public List<Memo> listMemoByStudentId(String studentId) {
-		
+	public List<Memo> listMemoByStudentId(String studentId) {		
 		return memoDao.listMemoByStudentId(studentId);
 	}
 }

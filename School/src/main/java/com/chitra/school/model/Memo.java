@@ -15,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Memo{
 	
 	@Id
-    @GenericGenerator(name = "sequence_memo_id", strategy = "com.chitra.school.utils.MemoIdGenerator")
+    @GenericGenerator(name = "sequence_memo_id", strategy = "com.chitra.school.id.MemoIdGenerator")
     @GeneratedValue(generator = "sequence_memo_id")
     @Column(name = "MEMO_ID",unique = true, nullable = false, length = 10)
 	private String id;

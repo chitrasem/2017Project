@@ -67,7 +67,7 @@
                      		<div class="form-group">
                             	<label class="control-label col-sm-4" for="birthDate">Date of Birth:</label>
                              	<div class="col-sm-8">
-									<input type="date" class="form-control" name="birthDate" id="birthDate" placeholder="Enter Date of Birth">
+									<input type="text" class="form-control" name="birthDate" id="birthDate" placeholder="Enter Date of Birth">
 						 		</div>
                             </div>
                         </div>

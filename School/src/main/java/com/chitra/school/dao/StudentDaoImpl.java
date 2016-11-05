@@ -61,16 +61,33 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 	public void save(Student student, Memo memo) {
 	
 			persist(student);
-			if(memo.getContent() != null){
+			System.out.println("Cambodia============================");
+			System.out.println(memo.getContent().length());
+			System.out.println("Cambodia============================");
+			
+			if( memo.getContent().length()>0){
 				persist(memo);
 			}
 	}
 
 	public Student findById(String id) {
-		Criteria crit = createEntityCriteria();
+		Criteria crit = getSession().createCriteria(Student.class);
 		crit.add(Restrictions.eq("id", id));
 		
 		return (Student) crit.uniqueResult();
+		
+		
+		/*Criteria crit = getSession().createCriteria(Student.class, "student");
+		
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.property("id"),"id")
+				.add(Projections.property("firstName"), "firstName")
+				.add(Projections.property("lastName"), "lastName")
+				.add(Projections.property("kmFirstName"), "kmFirstName")
+				.add(Projections.property("kmLastName"), "kmLastName")
+				.add(Projections.property("gender"), "gender")
+				).setResultTransformer(Transformers.aliasToBean(Student.class));
+		crit.addOrder(Order.asc("birthDate"));*/
 	}
 
 	public Student findByFirstName(String firstName) {
@@ -103,9 +120,9 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 
 	@SuppressWarnings("unchecked")
 	public List<Student> findAll() {		
-		String sql = "AGE(TO_DATE(BIRTH_DATE,'YYYY-MM-DD')) as birthDate";
+		String sql = "AGE(TO_DATE(BIRTH_DATE,'YYYYMMDD')) as birthDate";
 		String sql2 = "(SELECT CONTENT FROM tb_memo WHERE STUDENT_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
-		try {
+		
 			
 			Criteria crit = getSession().createCriteria(Student.class, "student");
 			
@@ -126,10 +143,7 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 			crit.addOrder(Order.asc("birthDate"));
 			return (List<Student>) crit.list();
 			
-		}catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}
+		
 	}
 
 }
