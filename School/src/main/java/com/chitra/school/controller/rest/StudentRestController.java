@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.chitra.school.dao.StudentDao;
 import com.chitra.school.model.Student;
 import com.chitra.school.model.User;
-import com.chitra.school.service.StudentService;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;
 
@@ -23,10 +23,9 @@ import com.chitra.school.utils.SSOIdUtil;
 public class StudentRestController {
 	
 	@Autowired
-	StudentService studentService;
-	@Autowired
 	UserService userService;
-	
+	@Autowired
+	StudentDao studentDao;
 	
 	SSOIdUtil sSOIdUtil;
 	
@@ -52,11 +51,11 @@ public class StudentRestController {
 		User user = userService.findBySso(sSOIdUtil.getPrincipal());
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		List<Student> students =  (List<Student>)(studentService.findAll(user.getId(), firstName, lastName, searchName, numberOfRecord, offset));
+		List<Student> students =  (List<Student>)(studentDao.findAll(user.getId(), firstName, lastName, searchName, numberOfRecord, offset));
 		
 		
 		
-		long recordTotal = studentService.countRecordListl(user.getId(), firstName, lastName, searchName);
+		long recordTotal = studentDao.countRecordListl(user.getId(), firstName, lastName, searchName);
 		
 		if(students == null){
              map.put("List", null);     
@@ -79,7 +78,7 @@ public class StudentRestController {
 		int maxResult = 10;
 		int firstResult = 1;
 		
-		List<Student> students = (List<Student>) studentService.findAll(user.getId(), firstName, lastName, searchName, maxResult, firstResult);
+		List<Student> students = (List<Student>) studentDao.findAll(user.getId(), firstName, lastName, searchName, maxResult, firstResult);
 
 		System.out.println(students);
 		

@@ -8,12 +8,16 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.chitra.school.model.User;
- 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
  
 @Repository("userDao")
 public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
- 
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
     public User findById(int id) {
         return getByKey(id);
     }
@@ -25,6 +29,8 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     }
 
 	public void save(User user) {
+
+		 user.setPassword(passwordEncoder.encode(user.getPassword()));
 		 persist(user);
 	}
 

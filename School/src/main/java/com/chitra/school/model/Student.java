@@ -36,7 +36,7 @@ public class Student {
     @NotEmpty
     @Column(name="GENDER", nullable=false, length=1)
     private String gender;
-    @Column(name="BIRTH_DATE", length=10)
+    @Column(name="BIRTH_DATE", length=8)
     private String birthDate;
     @Column(name="BIRTH_PLACE", length=200)
     private String birthPlace;
@@ -54,28 +54,27 @@ public class Student {
     private String currentAddr;    
     
     // Family Contact
-    @Column(name="MOTHER_NAME", length=20)
+    @Column(name="MOTHER_NAME", length=50)
     private String motherName;
-    @Column(name="MOTHER_PHONE", length=20)
+    @Column(name="MOTHER_PHONE", length=10)
     private String motherPhone;
-    @Column(name="FATHER_NAME", length=20)
+    
+    @Column(name="FATHER_NAME", length=50)
     private String fatherName;
-    @Column(name="FATHER_PHONE", length=20)
+    @Column(name="FATHER_PHONE", length=10)
     private String fatherPhone;
     
-    @Column(name="ENROLL_DATE")
+    @Column(name="ENROLL_DATE", length=8)
     private String enroll_date;
 
-    @Column(name="REGISTER_PERSON")
+    @Column(name="REGISTER_PERSON", length=50)
     private String registerPerson;
 
-    @GenericGenerator(name = "register_date", strategy = "com.chitra.school.utils.DateGenerator")
-    @GeneratedValue(generator = "register_date")
-    @Column(name="REGISTER_DATE")
+    @Column(name="REGISTER_DATE", length=14)
     private String registerDate;
-    @Column(name="CHANGE_PERSON")
+    @Column(name="CHANGE_PERSON",length=50)
     private String changePerson;
-    @Column(name="CHANGE_DATE")
+    @Column(name="CHANGE_DATE", length=14)
     private String changeDate;
 
     

@@ -12,7 +12,7 @@
 		<springframework.version>4.1.6.RELEASE</springframework.version>
 		<springsecurity.version>4.0.3.RELEASE</springsecurity.version>
 		<jackson.version>2.6.2</jackson.version>
-		<hibernate.version>4.3.6.Final</hibernate.version>
+		<hibernate.version>4.3.11.Final</hibernate.version>
 
 	</properties>
 

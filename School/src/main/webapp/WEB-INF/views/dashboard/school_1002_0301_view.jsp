@@ -64,7 +64,8 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="table-responsive">
+						<!-- <div class="table-responsive"> -->
+						<div class="">
 						   <form id="school_1002_0301" action="school_1002_0302.act" method="post">
 						   <input type="hidden" name="studentId" id="studentId" value="0">
 							<div class="row">

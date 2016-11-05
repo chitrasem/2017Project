@@ -12,11 +12,9 @@ import org.hibernate.id.IdentifierGenerator;
 
 public class MemoIdGenerator implements IdentifierGenerator {
 
-	public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
-
-		
-		String sql = "SELECT  CONCAT('MEMO', LPAD(CAST(FN_TB_UID_SEQ('MEMO_ID') AS VARCHAR),7,'0')) AS MEMO_ID";
-		Connection connection = session.connection();
+	public Serializable generate(SessionImplementor compo, Object obj) throws HibernateException {
+		String sql = "SELECT  CONCAT('MEM', LPAD(CAST(FN_TB_UID_SEQ('MEMO_ID') AS VARCHAR),7,'0')) AS MEMO_ID";
+		Connection connection = compo.connection();
 		try{
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -29,7 +27,6 @@ public class MemoIdGenerator implements IdentifierGenerator {
 			
 		}
 		return null;
-	
 	}
 
 }

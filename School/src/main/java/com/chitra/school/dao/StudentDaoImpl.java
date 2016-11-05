@@ -11,12 +11,16 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.chitra.school.model.Memo;
 import com.chitra.school.model.Student;
 
 @Repository("studentDao")
-public class StudentDaoImpl extends AbstractDao<Integer, Student> implements StudentDao{
+@Transactional
+public class StudentDaoImpl extends AbstractDao<Integer, Object> implements StudentDao{
 
 	
 	@SuppressWarnings("unchecked")
@@ -54,14 +58,12 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements Stu
 		
 	}
 
-	public void save(Student student) {
-		//Criteria crit = getSession().createCriteria(Student.class);
-		
-		//getSession().persist(student);
-		persist(student);
-		
-		//getSession().persist(crit);
-		
+	public void save(Student student, Memo memo) {
+	
+			persist(student);
+			if(memo.getContent() != null){
+				persist(memo);
+			}
 	}
 
 	public Student findById(String id) {
@@ -102,25 +104,32 @@ public class StudentDaoImpl extends AbstractDao<Integer, Student> implements Stu
 	@SuppressWarnings("unchecked")
 	public List<Student> findAll() {		
 		String sql = "AGE(TO_DATE(BIRTH_DATE,'YYYY-MM-DD')) as birthDate";
-		String sql2 = "(SELECT CONTENT FROM tb_memo WHERE STU_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
-		Criteria crit = getSession().createCriteria(Student.class, "student");
-		crit.setProjection(Projections.projectionList()
-				.add(Projections.property("id"),"id")
-				.add(Projections.property("firstName"), "firstName")
-				.add(Projections.property("lastName"), "lastName")
-				.add(Projections.property("kmFirstName"), "kmFirstName")
-				.add(Projections.property("kmLastName"), "kmLastName")
-				.add(Projections.property("gender"), "gender")
-				.add(Projections.sqlProjection(sql2, 
-						new String[]{"biography"}, 
-						new Type[] {StandardBasicTypes.STRING}))
-				.add(Projections.sqlProjection(sql, 
-						new String[] {"birthDate"}, 
-						new Type[] { StandardBasicTypes.STRING}))
-				).setResultTransformer(Transformers.aliasToBean(Student.class));
-		crit.addOrder(Order.asc("birthDate"));
-		
-		return (List<Student>) crit.list();
+		String sql2 = "(SELECT CONTENT FROM tb_memo WHERE STUDENT_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
+		try {
+			
+			Criteria crit = getSession().createCriteria(Student.class, "student");
+			
+			crit.setProjection(Projections.projectionList()
+					.add(Projections.property("id"),"id")
+					.add(Projections.property("firstName"), "firstName")
+					.add(Projections.property("lastName"), "lastName")
+					.add(Projections.property("kmFirstName"), "kmFirstName")
+					.add(Projections.property("kmLastName"), "kmLastName")
+					.add(Projections.property("gender"), "gender")
+					.add(Projections.sqlProjection(sql2, 
+							new String[]{"biography"}, 
+							new Type[] {StandardBasicTypes.STRING}))
+					.add(Projections.sqlProjection(sql, 
+							new String[] {"birthDate"}, 
+							new Type[] { StandardBasicTypes.STRING}))
+					).setResultTransformer(Transformers.aliasToBean(Student.class));
+			crit.addOrder(Order.asc("birthDate"));
+			return (List<Student>) crit.list();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

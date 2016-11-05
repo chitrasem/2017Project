@@ -81,7 +81,6 @@ school_1002_0302.loadData = function(input){
 	if(typeof input =="undefined") input = {};	
 	$("#firstName").focus();	
 	$.extend(input, school_1002_0302.getData());
-	alert(studentId.length)
 	if(studentId.length===10){
 		$.ajax({
 			type: "GET",

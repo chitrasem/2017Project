@@ -12,11 +12,14 @@ import org.hibernate.id.IdentifierGenerator;
 
 public class StudentIdGenerator implements IdentifierGenerator  {
 
-	public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
+	public Serializable generate(SessionImplementor session, Object arg1) throws HibernateException {
+
 		
 		String sql = "SELECT  CONCAT('STU', LPAD(CAST(FN_TB_UID_SEQ('STUDENT_ID') AS VARCHAR),7,'0')) AS STUDENT_ID";
+		
 		Connection connection = session.connection();
 		try{
+			
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){

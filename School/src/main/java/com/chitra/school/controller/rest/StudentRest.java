@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chitra.school.dao.StudentDao;
 import com.chitra.school.model.Memo;
 import com.chitra.school.model.Student;
 import com.chitra.school.model.User;
 import com.chitra.school.service.MemoService;
-import com.chitra.school.service.StudentService;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.DateUtils;
 import com.chitra.school.utils.SSOIdUtil;
@@ -30,11 +30,12 @@ public class StudentRest {
 	
 	@Autowired
 	UserService userService;
-	@Autowired
-	StudentService studentService;
 	@Autowired 
 	MemoService memoService;
 	SSOIdUtil ssoIdUtil = new SSOIdUtil();
+	
+	@Autowired
+	StudentDao studentDao;
 
 	@RequestMapping(value = "/school_1002_0101_r001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<Object, Object> getUsers(SSOIdUtil ssoIdUtil) {
@@ -49,10 +50,14 @@ public class StudentRest {
 	public Map<Object, Object> listStudent(SSOIdUtil ssoId)throws Exception{
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		
-		List<Student> students = studentService.findAll();
-		
-		map.put("StudentRec", students);
-		map.put("success", true);
+		List<Student> students = studentDao.findAll();
+		try{
+			map.put("StudentRec", students);
+			map.put("success", true);
+		}catch(Exception e){
+			map.put("success", false);
+			map.put("message", e.getMessage());
+		}
 		
 		
 		return map;
@@ -62,7 +67,7 @@ public class StudentRest {
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		
 		try{
-			Student student = studentService.findById(studentId);		
+			Student student = studentDao.findById(studentId);		
 			List<Memo> memoes = memoService.listMemoByStudentId(studentId);
 			map.put("memoRec", memoes);
 			map.put("studentRec", student);
@@ -84,26 +89,23 @@ public class StudentRest {
 		
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		ObjectMapper mapper = new ObjectMapper();
-		JsonNode node = mapper.readTree(str);
+		JsonNode node = mapper.readTree(str);	
 		
-		Student student = mapper.convertValue(node.get("student"), Student.class);		
-		Memo memo = mapper.convertValue(node.get("memo"), Memo.class);
-		
-		User user = userService.findBySso(ssoIdUtil.getPrincipal());
-		DateUtils utilsDate = new DateUtils();
-		student.setRegisterDate(utilsDate.getStrDate());
-		student.setRegisterPerson(user.getSsoId());	
-		memo.setRegisterDate(utilsDate.getStrDate());
-		memo.setRegisterPerson(user.getSsoId());
-		
-		memo.setStudent(student);		
+	
 		try{
-			studentService.save(student);	
 			
-			if(! (memo.getContent()=="") ){
-				memoService.save(memo);
-			}
+			Student student = mapper.convertValue(node.get("student"), Student.class);		
+			Memo memo = mapper.convertValue(node.get("memo"), Memo.class);
 			
+			User user = userService.findBySso(ssoIdUtil.getPrincipal());
+			DateUtils utilsDate = new DateUtils();
+			student.setRegisterDate(utilsDate.getStrDate());
+			student.setRegisterPerson(user.getSsoId());	
+			memo.setRegisterDate(utilsDate.getStrDate());
+			memo.setRegisterPerson(user.getSsoId());		
+			memo.setStudent(student);			
+			studentDao.save(student, memo);	
+			map.put("firstname", student.getFirstName());
 			map.put("success", true);		
 		}catch(Exception e){
 			e.printStackTrace();

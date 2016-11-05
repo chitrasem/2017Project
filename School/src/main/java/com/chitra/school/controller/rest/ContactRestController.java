@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chitra.school.dao.StudentDao;
 import com.chitra.school.model.User;
-import com.chitra.school.service.StudentService;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;
 
@@ -19,7 +19,7 @@ import com.chitra.school.utils.SSOIdUtil;
 @RequestMapping("/dashboard")
 public class ContactRestController {
 	@Autowired
-	StudentService studentService;
+	StudentDao studentService;
 	@Autowired
 	UserService userService;
 	

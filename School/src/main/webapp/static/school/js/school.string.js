@@ -21,7 +21,6 @@ if(!school.string){
 		li += '<li><a href="javascript:" id="downloadExcel">Export excel</a></li>'
 			+'<li><a href="javascript:" id="addNew">New registeration</a></li>'
 			+'<li class="divider"></li>'
-			+'<li><a href="javascript:"><i>More actions</i></a></li>'
 			+'<li><a href="javascript:" id="btnView">View</a></li>'
 			+'<li><a href="javascript:">Delete</i></a></li>';
 		$(target).html(li);		
@@ -31,7 +30,6 @@ if(!school.string){
 		li += '<li><a href="javascript:" id="downloadExcel">Export excel</a></li>'
 			+'<li><a href="javascript:" id="addNew">New registeration</a></li>'
 			+'<li class="divider"></li>'
-			+'<li><a href="javascript:"><i>More actions</i></a></li>'
 			+'<li><a href="javascript:">Delete</i></a></li>';
 		$(target).html(li);		
 	};
