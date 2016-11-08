@@ -10,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 
 @Entity
-@Table(name="POSITION")
+@Table(name="TB_POSITION")
 public class Position {
 
     @Id 

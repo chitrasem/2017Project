@@ -20,14 +20,14 @@ public class Memo{
     @Column(name = "MEMO_ID",unique = true, nullable = false, length = 10)
 	private String id;
 	
-	@Column(name="content", length=500)
+	@Column(name="CONTENT", length=500)
 	private String content;
-	@Column(name="registerPerson", length=50)
+	@Column(name="REGISTER_PERSON", length=50)
 	private String registerPerson;
-	@Column(name="registerDate", length=14)
+	@Column(name="REGISTER_DATE", length=14)
 	private String registerDate;
 	@ManyToOne(optional=true)
-	@JoinColumn(name="student_id")
+	@JoinColumn(name="STUDENT_ID")
 	private Student student;
 	public String getId() {
 		return id;

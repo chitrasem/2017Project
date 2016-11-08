@@ -65,7 +65,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="<c:url value="kmt_1001_0101.act"/>" class="logo"><i class="md md-terrain"></i> <span>KMT </span></a>
+                        <a href="<c:url value="/"/>" class="logo"><i class="md md-terrain"></i> <span>School </span></a>
                     </div>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->

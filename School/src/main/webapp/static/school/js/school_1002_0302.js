@@ -49,11 +49,17 @@ school_1002_0302.getInput = function(){
 school_1002_0302.saveData = function(input){
 	if(typeof input ==="undefined") input = {};
 	$.extend(input, school_1002_0302.getInput());
+	var saveUpdateUrl = "";
+	if(school_1002_0302.isUpdate){
+		saveUpdateUrl = 'service/school_1002_0302_u001.chitra';
+	}else{
+		saveUpdateUrl = 'service/school_1002_0302_c001.chitra';		
+	}
 	$.ajax({
 		type: "POST",
 		data: JSON.stringify(input),
         contentType: "application/json; charset=utf-8",
-		url: 'service/school_1002_0302_c001.chitra',
+		url: saveUpdateUrl,
 		success: function(dat){
 			if(dat.success){
 				school.ui.openWindow(url);
@@ -81,12 +87,39 @@ school_1002_0302.loadData = function(input){
 	if(typeof input =="undefined") input = {};	
 	$("#firstName").focus();	
 	$.extend(input, school_1002_0302.getData());
+
+	school_1002_0302.isUpdate = false;
 	if(studentId.length===10){
+		var studentIDHtml = '<input type="hidden" id="studentId" name="id">';
+		$("#school_1002_0302_form").append(studentIDHtml);
+		
+		school_1002_0302.isUpdate = true;
 		$.ajax({
 			type: "GET",
 			url: getStudentUrl,
 			success: function(dat){
-				console.log(dat);
+				$("#MEMO_RESULT").html();
+				
+				$("#studentId").val(dat.studentRec.id);
+				$("#firstName").val(dat.studentRec.firstName);
+				$("#lastName").val(dat.studentRec.lastName);
+				$("#kmFirstName").val(dat.studentRec.kmFirstName);
+				$("#kmLastName").val(dat.studentRec.kmLastName);
+				$("#gender").val(dat.studentRec.gender);
+				$("#birthDate").val(dat.studentRec.birthDate);
+				$("#birthPlace").val(dat.studentRec.birthPlace);				
+				$("#biography").val(dat.studentRec.biography);
+				$("#phone1").val(dat.studentRec.phone1);
+				$("#phone2").val(dat.studentRec.phone2);				
+				$("#email").val(dat.studentRec.email);				
+				$("#currentAddr").val(dat.studentRec.currentAddr);				
+				$("#motherName").val(dat.studentRec.motherName);
+				$("#motherPhone").val(dat.studentRec.motherPhone);
+				$("#fatherName").val(dat.studentRec.fatherName);
+				$("#fatherPhone").val(dat.studentRec.fatherPhone);
+				if(dat.memoRec.length>0){
+					$("#MEMO_TMPL").tmpl(dat.memoRec).appendTo("#MEMO_RESULT");
+				}
 			}
 		});
 	}

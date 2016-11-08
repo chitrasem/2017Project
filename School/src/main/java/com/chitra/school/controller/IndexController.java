@@ -79,6 +79,12 @@ public class IndexController {
 		return "dashboard/school_1002_0302_view";
 	}
 	
+	@RequestMapping(value="/school_1003_0101.act")
+	public String showClassRoom(){
+		
+		
+		return "dashboard/school_1003_0101_view";
+	}
 	
 	
 	//End New Edition

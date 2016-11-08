@@ -11,7 +11,6 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
-import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,13 +57,8 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 		
 	}
 
-	public void save(Student student, Memo memo) {
-	
-			persist(student);
-			System.out.println("Cambodia============================");
-			System.out.println(memo.getContent().length());
-			System.out.println("Cambodia============================");
-			
+	public void save(Student student, Memo memo) {	
+			persist(student);			
 			if( memo.getContent().length()>0){
 				persist(memo);
 			}
@@ -140,9 +134,40 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 							new String[] {"birthDate"}, 
 							new Type[] { StandardBasicTypes.STRING}))
 					).setResultTransformer(Transformers.aliasToBean(Student.class));
-			crit.addOrder(Order.asc("birthDate"));
+			crit.addOrder(Order.desc("id"));
 			return (List<Student>) crit.list();
 			
+		
+	}
+
+	public void update(Student student, Memo memo) {
+		Criteria crit = getSession().createCriteria(Student.class);
+		
+		crit.add(Restrictions.eq("id", student.getId()));				
+		Student s = (Student)  crit.uniqueResult();
+		
+		s.setFirstName(student.getFirstName());
+		s.setLastName(student.getLastName());
+		s.setKmFirstName(student.getKmFirstName());
+		s.setKmLastName(student.getKmLastName());
+		s.setGender(student.getGender());
+		s.setBirthDate(student.getBirthDate());
+		s.setBirthPlace(student.getBirthPlace());
+		s.setBiography(student.getBiography());
+		s.setPhone1(student.getPhone1());
+		s.setPhone2(student.getPhone2());
+		s.setEmail(student.getEmail());
+		s.setCurrentAddr(student.getCurrentAddr());
+		s.setMotherName(student.getMotherName());
+		s.setMotherPhone(student.getMotherPhone());
+		s.setFatherName(student.getFatherName());
+		s.setFatherPhone(student.getFatherPhone());
+		
+		persist(s);
+		
+		if( memo.getContent().length()>0){
+			persist(memo);
+		}
 		
 	}
 

@@ -17,6 +17,8 @@
 									<input type="text" class="form-control" name="content" id="content" placeholder="Enter memo">
 						 		</div>
                             </div>
+                        </div>                        
+                     	<div class="col-md-12" id="MEMO_RESULT">
                         </div>
 						<legend>Student Information</legend>
                      	<div class="col-md-6">
@@ -175,6 +177,17 @@
  var studentId = "${studentId}";
  var url = "school_1002_0301.act";
  var getStudentUrl = "service/school_1002_0302_r001.chitra/"+studentId;
+ 
+</script>
+<script type="text/jquery-tmpl" id="MEMO_TMPL">
+	<div class="form-group" >
+      	<label style="text-align:right" class="control-label col-sm-1" for="content">Date:</label>
+      	<label style="text-align:left" class="control-label col-sm-2" for="content">{{= registerDate }}</label>
+      	<label style="text-align:right" class="control-label col-sm-1" for="content">Memo:</label>
+      	<label style="text-align:left" class="control-label col-sm-4" for="content">{{= content }}</label>
+      	<label style="text-align:right" class="control-label col-sm-2" for="content">Register Person:</label>
+      	<label style="text-align:left" class="control-label col-sm-2" for="content">{{= registerPerson }}</label>
+     </div>
 </script>
     <%@include file="../../views/dashboard/footer.jsp" %>
     <script src="<c:url value="/static/school/js/school_1002_0302.js" />"></script>

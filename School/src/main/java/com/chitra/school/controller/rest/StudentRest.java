@@ -111,10 +111,44 @@ public class StudentRest {
 			e.printStackTrace();
 			map.put("success", false);
 			map.put("message", e.getMessage());
-		}
-		
+		}		
 		
 		return map;
+	}
+
+	@ResponseBody
+	@RequestMapping(value="/school_1002_0302_u001.chitra", method=RequestMethod.POST)
+	public Map<Object, Object> updateStudents( 			
+			@RequestBody String str
+			)throws Exception{
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode node = mapper.readTree(str);
+
+		Student student = mapper.convertValue(node.get("student"), Student.class);		
+		Memo memo = mapper.convertValue(node.get("memo"), Memo.class);	
+		DateUtils utilsDate = new DateUtils();
+			
+		
+		try{
+			student.setChangeDate(utilsDate.getStrDate());
+			student.setChangePerson(ssoIdUtil.getPrincipal());	
+			
+			memo.setRegisterDate(utilsDate.getStrDate());
+			memo.setRegisterPerson(ssoIdUtil.getPrincipal());		
+			memo.setStudent(student);	
+			studentDao.update(student, memo);
+			
+			map.put("success", true);
+			
+		}catch(Exception e){
+			map.put("success", false);
+			map.put("message", e.getMessage());
+		}
+		
+		return map;
+		
 	}
 
 }

@@ -123,7 +123,14 @@
 			{{/if}}
 			</td>
 			<td>{{= birthDate }}</td>
-			<td>Active</td>
+			<td>
+				<button type="button" class="btn btn-xs btn-success" aria-label="Left Align">
+					<span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+				</button>
+			{{if (state === "Inactive") }}				
+				<input type="button" value="Add Class" class="btn btn-xs btn-danger">	
+			{{/if}}
+			</td>
 			<td>{{= biography }}</td>
 		</tr>
 	</script>
