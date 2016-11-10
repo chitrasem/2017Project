@@ -8,7 +8,9 @@ import com.chitra.school.model.Student;
 
 public interface StudentDao {
 	
-	List<Student> findAll();
+	List<Student> findAll(String id, int maxResult, int firstResult);
+	long totalRecord(String id);
+	
 	void update(Student student, Memo memo);
 	List findAll(int userId, String firstName, String lastName, String searchName, int maxResult, int firstResult);
 	long countRecordListl(int userId, String firstName, String lastName, String searchName);

@@ -80,25 +80,33 @@
 								</div>
 							</div>
 						   </form>
-							<table class="table table-hover">
+							<table class="table table-hover table-striped">
 								<thead>
 									<tr>
-										<th >
+									   <span class="col-md-1">
+										<th  >
 												<input type="checkbox">
 										</th>
-										<th>Student ID</th>
-										<th>Khmer Name</th>
-										<th>English Name</th>
-										<th>Gender</th>
-										<th>Age</th>
-										<th>Status</th>
-										<th>Memo</th>
+										<th >Student ID</th>
+										</span>
+										<th class="col-md-2">Khmer Name</th>
+										<th class="col-md-2">English Name</th>
+										<th class="col-md-1">Gender</th>
+										<th class="col-md-2">Age</th>
+										<th class="col-md-1">Status</th>
+										<th class="col-md-3">Memo</th>
 									</tr>
 								</thead>
-								<tbody id="STUDENT_RESULT">
+								<tbody id="STUDENT_RESULT" style="hight: 100px;">
 
 								</tbody>
 							</table>
+							<!-- Pagination -->
+							<div class="group">
+	                          	<nav id="pagination">
+								</nav>
+                          	
+                          	</div>
 						</div>
 					</div>
 				</div>
@@ -128,7 +136,7 @@
 					<span class="glyphicon glyphicon-eye-open" aria-hidden="true">
 				</button>
 			{{if (state === "Inactive") }}				
-				<input type="button" value="Add Class" class="btn btn-xs btn-danger">	
+				<input type="button" value="Pay" class="btn btn-xs btn-danger">	
 			{{/if}}
 			</td>
 			<td>{{= biography }}</td>

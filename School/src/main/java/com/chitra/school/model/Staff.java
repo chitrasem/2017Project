@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.chitra.school.utils.StringUtils;
+
 @Entity
 @Table(name="TB_STAFF")
 public class Staff {
@@ -71,11 +73,11 @@ public class Staff {
     private String registerPerson;
 
     @Column(name="REGISTER_DATE", length=14)
-    private String registerDate;
+    private String registerDate = StringUtils.getStrDate();
     @Column(name="CHANGE_PERSON",length=50)
     private String changePerson;
     @Column(name="CHANGE_DATE", length=14)
-    private String changeDate;
+    private String changeDate = StringUtils.getStrDate();
 
     @NotEmpty
     @Column(name="STATE", nullable=false)

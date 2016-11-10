@@ -176,7 +176,7 @@
 
  var studentId = "${studentId}";
  var url = "school_1002_0301.act";
- var getStudentUrl = "service/school_1002_0302_r001.chitra/"+studentId;
+ var getStudentUrl = "school_1002_0302_r001.chitra/"+studentId;
  
 </script>
 <script type="text/jquery-tmpl" id="MEMO_TMPL">

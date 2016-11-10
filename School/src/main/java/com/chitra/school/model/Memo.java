@@ -10,6 +10,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.chitra.school.utils.StringUtils;
+
 @Entity
 @Table(name="tb_memo")
 public class Memo{
@@ -25,7 +27,7 @@ public class Memo{
 	@Column(name="REGISTER_PERSON", length=50)
 	private String registerPerson;
 	@Column(name="REGISTER_DATE", length=14)
-	private String registerDate;
+	private String registerDate = StringUtils.getStrDate();
 	@ManyToOne(optional=true)
 	@JoinColumn(name="STUDENT_ID")
 	private Student student;

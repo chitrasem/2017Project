@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.chitra.school.utils.StringUtils;
+
 @Entity
 @Table(name="TB_PAYMENT")
 public class Payment {
@@ -27,8 +29,12 @@ public class Payment {
 	@ManyToOne(optional=true)
 	@JoinColumn(name="STUDENT_ID")
 	private Student student;
-	private String transactionDate;
-	private double amount;
+	@Column(name="TRANSACTION_DATE")
+	private String transactionDate = StringUtils.getStrDate();
+	@Column(name="AMOUNT_US", length= 4)
+	private String amountUs;
+	@Column(name="AMOUNT_KM", length = 7)
+	private String amountKm;
 	public final String getPaymentId() {
 		return paymentId;
 	}
@@ -59,6 +65,20 @@ public class Payment {
 	public final void setTransactionDate(String transactionDate) {
 		this.transactionDate = transactionDate;
 	}
+	public final String getAmountUs() {
+		return amountUs;
+	}
+	public final void setAmountUs(String amountUs) {
+		this.amountUs = amountUs;
+	}
+	public final String getAmountKm() {
+		return amountKm;
+	}
+	public final void setAmountKm(String amountKm) {
+		this.amountKm = amountKm;
+	}
+	
+	
 	
 	
 	

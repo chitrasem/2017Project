@@ -8,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.dao.StaffDao;
 import com.chitra.school.model.Staff;
-import com.chitra.school.utils.DateUtils;
 
 @RestController
 @RequestMapping("/service")
@@ -60,15 +58,12 @@ public class StaffRest {
 	public Map<String, Object> saveStaff(){
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		DateUtils utils = new DateUtils();
-		
 		Staff staff = new Staff();
 		staff.setFirstName("Chitra");
 		staff.setLastName("Sem");
 		staff.setKmFirstName("ABC");
 		staff.setKmLastName("GHIJK");
 		staff.setGender("M");
-		staff.setBirthDate(utils.getYearMonthDay());
 		
 		try{
 			staffDao.saveStaff(staff);

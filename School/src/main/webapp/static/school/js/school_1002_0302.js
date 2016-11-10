@@ -51,9 +51,9 @@ school_1002_0302.saveData = function(input){
 	$.extend(input, school_1002_0302.getInput());
 	var saveUpdateUrl = "";
 	if(school_1002_0302.isUpdate){
-		saveUpdateUrl = 'service/school_1002_0302_u001.chitra';
+		saveUpdateUrl = 'school_1002_0302_u001.chitra';
 	}else{
-		saveUpdateUrl = 'service/school_1002_0302_c001.chitra';		
+		saveUpdateUrl = 'school_1002_0302_c001.chitra';		
 	}
 	$.ajax({
 		type: "POST",

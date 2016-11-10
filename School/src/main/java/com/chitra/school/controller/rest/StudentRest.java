@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,13 +20,12 @@ import com.chitra.school.model.Student;
 import com.chitra.school.model.User;
 import com.chitra.school.service.MemoService;
 import com.chitra.school.service.UserService;
-import com.chitra.school.utils.DateUtils;
 import com.chitra.school.utils.SSOIdUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/dashboard/people")
 public class StudentRest {
 	
 	@Autowired
@@ -47,12 +47,22 @@ public class StudentRest {
 		return map;
 	}
 	@RequestMapping(value="/school_1002_0301_r001.chitra", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public Map<Object, Object> listStudent(SSOIdUtil ssoId)throws Exception{
+	public Map<Object, Object> listStudent(
+			@RequestParam("numberOfRecord") int numberOfRecord,
+			@RequestParam("pageCount") int pageCount,
+			@RequestParam("id") String id
+			
+			)throws Exception{
 		Map<Object, Object> map = new HashMap<Object, Object>();
+		int offset = (pageCount-1)*numberOfRecord;
 		
-		List<Student> students = studentDao.findAll();
+		
+		
+		List<Student> students = studentDao.findAll(id, numberOfRecord, offset);
+		long totalStudentRec = studentDao.totalRecord(id);
 		try{
-			map.put("StudentRec", students);
+			map.put("totalStudent", totalStudentRec);
+			map.put("studentRec", students);
 			map.put("success", true);
 		}catch(Exception e){
 			map.put("success", false);
@@ -98,10 +108,7 @@ public class StudentRest {
 			Memo memo = mapper.convertValue(node.get("memo"), Memo.class);
 			
 			User user = userService.findBySso(ssoIdUtil.getPrincipal());
-			DateUtils utilsDate = new DateUtils();
-			student.setRegisterDate(utilsDate.getStrDate());
 			student.setRegisterPerson(user.getSsoId());	
-			memo.setRegisterDate(utilsDate.getStrDate());
 			memo.setRegisterPerson(user.getSsoId());		
 			memo.setStudent(student);			
 			studentDao.save(student, memo);	
@@ -128,14 +135,10 @@ public class StudentRest {
 
 		Student student = mapper.convertValue(node.get("student"), Student.class);		
 		Memo memo = mapper.convertValue(node.get("memo"), Memo.class);	
-		DateUtils utilsDate = new DateUtils();
 			
 		
 		try{
-			student.setChangeDate(utilsDate.getStrDate());
 			student.setChangePerson(ssoIdUtil.getPrincipal());	
-			
-			memo.setRegisterDate(utilsDate.getStrDate());
 			memo.setRegisterPerson(ssoIdUtil.getPrincipal());		
 			memo.setStudent(student);	
 			studentDao.update(student, memo);

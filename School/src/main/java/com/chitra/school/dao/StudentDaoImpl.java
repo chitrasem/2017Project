@@ -113,12 +113,13 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Student> findAll() {		
-		String sql = "AGE(TO_DATE(BIRTH_DATE,'YYYYMMDD')) as birthDate";
-		String sql2 = "(SELECT CONTENT FROM tb_memo WHERE STUDENT_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
-		
-			
+	public List<Student> findAll(
+			String id,
+			int maxResult, 
+			int firstResult) {				
 			Criteria crit = getSession().createCriteria(Student.class, "student");
+			String query1 = "AGE(TO_DATE(BIRTH_DATE,'YYYYMMDD')) as birthDate";
+			String query2 = "(SELECT CONTENT FROM tb_memo WHERE STUDENT_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
 			
 			crit.setProjection(Projections.projectionList()
 					.add(Projections.property("id"),"id")
@@ -127,19 +128,35 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 					.add(Projections.property("kmFirstName"), "kmFirstName")
 					.add(Projections.property("kmLastName"), "kmLastName")
 					.add(Projections.property("gender"), "gender")
-					.add(Projections.sqlProjection(sql2, 
+					.add(Projections.sqlProjection(query1, 
 							new String[]{"biography"}, 
 							new Type[] {StandardBasicTypes.STRING}))
-					.add(Projections.sqlProjection(sql, 
+					.add(Projections.sqlProjection(query2, 
 							new String[] {"birthDate"}, 
 							new Type[] { StandardBasicTypes.STRING}))
-					).setResultTransformer(Transformers.aliasToBean(Student.class));
+					).setResultTransformer(Transformers.aliasToBean(Student.class));			
+			
+				crit.add(Restrictions.ilike("id", "%"+id+"%"));
+
+			crit.setMaxResults(maxResult);
+			crit.setFirstResult(firstResult);
 			crit.addOrder(Order.desc("id"));
+			
+			
 			return (List<Student>) crit.list();
 			
 		
 	}
-
+	
+	public long totalRecord(String id){
+		Criteria crit = getSession().createCriteria(Student.class, "student");		
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.rowCount()));	
+		
+		crit.add(Restrictions.ilike("id", "%"+id+"%"));
+		return (Long) crit.uniqueResult();
+	}
+	
 	public void update(Student student, Memo memo) {
 		Criteria crit = getSession().createCriteria(Student.class);
 		

@@ -54,24 +54,33 @@ $(document).ready(function(){
 	$(document).delegate("#addNew","click",function(){
 		school.ui.openWindow(studentForm);
 	});
+	
+	$("#btnSearchName").click(function(){
+		school_1002_0301.loadData();
+	});
 });
 school_1002_0301.getInput = function(){
 	var input = {};
+	input.id = $("#searchName").val();
 	return input;
 }
 school_1002_0301.loadData = function(input){
 	if(!input) input = {};
 	$.extend(input, school_1002_0301.getInput() );
+	if(!input.pageCount || !input.pageCount === null) input.pageCount = 1;
+
+	input.numberOfRecord = 5;
 	
-	var url = "service/school_1002_0301_r001.chitra";
-	$("#STUDENT_RESULT").html();
+	var url = "school_1002_0301_r001.chitra";
+	$("#STUDENT_RESULT").html("");
 	$.ajax({
 		url: url,
 		type: "get",
+		data: input,
 		success: function(dat){
-			
-			if(dat.success && dat["StudentRec"].length>0){
-				$("#STUDENT_TMPL").tmpl(dat.StudentRec).appendTo("#STUDENT_RESULT");
+			if(dat.success){
+				$("#STUDENT_TMPL").tmpl(dat.studentRec).appendTo("#STUDENT_RESULT");				
+				school.string.createPagination("#pagination", dat.totalStudent, input.numberOfRecord, input.pageCount, school_1002_0301.loadData);
 			}
 		}
 	});
