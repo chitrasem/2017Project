@@ -23,20 +23,20 @@
                              <li class="has_sub">
                                 <a href="<c:url value="/school_1002_0101.act"/>" class="waves-effect"><i class="md md-people"></i><span> People </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="<c:url value="/people/school_1002_0101.act"/>">Manage Users</a></li>
-                                    <li><a href="<c:url value="/people/school_1002_0201.act"/>">Manage Teachers</a></li>
-                                    <li><a href="<c:url value="/people/school_1002_0301.act"/>">Manage Students</a></li>
+                                    <li><a href="<c:url value="/dashboard/people/school_1002_0101.act"/>">Manage Users</a></li>
+                                    <li><a href="<c:url value="/dashboard/people/school_1002_0201.act"/>">Manage Teachers</a></li>
+                                    <li><a href="<c:url value="/dashboard/people/school_1002_0301.act"/>">Manage Students</a></li>
                                 </ul>
                             </li>                              
                             
                             <li>
-                                <a href="<c:url value="/school_1003_0101"/>" class="waves-effect"><i class="md md-contacts"></i><span> Contact List </span></a>
+                                <a href="<c:url value="/dashboard/contact/school_1003_0101.act"/>" class="waves-effect"><i class="md md-contacts"></i><span> Contact List </span></a>
                             </li>                                                  
                             <li>
-                                <a href="<c:url value="/school_1004_0101"/>" class="waves-effect"><i class="md md-event"></i><span> Classroom </span></a>
+                                <a href="<c:url value="/dashboard/classroom/school_1004_0101.act"/>" class="waves-effect"><i class="md md-event"></i><span> Classroom </span></a>
                             </li>                       
                             <li>
-                                <a href="<c:url value="/dashboard/payment"/>" class="waves-effect"><i class="md  md-attach-money"></i><span> Payment </span></a>
+                                <a href="<c:url value="/dashboard/payment/school_1005_0101.act"/>" class="waves-effect"><i class="md  md-attach-money"></i><span> Payment </span></a>
                             </li>  
                             <sec:authorize access="hasRole('DIRECTOR')">
                             <li>

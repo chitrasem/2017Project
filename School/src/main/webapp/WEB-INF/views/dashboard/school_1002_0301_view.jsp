@@ -71,7 +71,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="btn-group">
-                                          <button type="button" id="actionStudent" class="btn btn-success dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">Actions 
+                                          <button type="button" id="actionStudent" class="btn btn-purple dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">Actions 
                                           <span class="caret"></span>
                                           </button>
                                           <ul class="dropdown-menu" role="menu" id="dropDownResult" >
@@ -83,18 +83,16 @@
 							<table class="table table-hover table-striped">
 								<thead>
 									<tr>
-									   <span class="col-md-1">
-										<th  >
-												<input type="checkbox">
+										<th >
+										<input type="checkbox">
 										</th>
-										<th >Student ID</th>
-										</span>
-										<th class="col-md-2">Khmer Name</th>
-										<th class="col-md-2">English Name</th>
-										<th class="col-md-1">Gender</th>
-										<th class="col-md-2">Age</th>
-										<th class="col-md-1">Status</th>
-										<th class="col-md-3">Memo</th>
+										<th>Student ID</th>
+										<th>Khmer Name</th>
+										<th>English Name</th>
+										<th>Gender</th>
+										<th>Age</th>
+										<th>Status</th>
+										<th>Memo</th>
 									</tr>
 								</thead>
 								<tbody id="STUDENT_RESULT" style="hight: 100px;">
@@ -132,11 +130,14 @@
 			</td>
 			<td>{{= birthDate }}</td>
 			<td>
-				<button type="button" class="btn btn-xs btn-success" aria-label="Left Align">
-					<span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+							
+				<button class="btn btn-xs btn-pink waves-effect waves-light m-b-5">
+					 <span>View</span> <i class="fa  fa-caret-square-o-down"></i> 
 				</button>
 			{{if (state === "Inactive") }}				
-				<input type="button" value="Pay" class="btn btn-xs btn-danger">	
+				<button class="btn btn-xs btn-purple waves-effect waves-light m-b-5">
+					 <span>Pay</span> <i class="fa fa-money"></i> 
+				</button>
 			{{/if}}
 			</td>
 			<td>{{= biography }}</td>

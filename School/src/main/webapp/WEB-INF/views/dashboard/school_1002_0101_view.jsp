@@ -85,7 +85,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/x-jquery-tmpl" id="USER_TMPL", >
+	<script type="text/x-jquery-tmpl" id="USER_TMPL" >
 		<tr>
 			<td><input type="checkbox"></td>
 			<td>{{= firstName }}</td>

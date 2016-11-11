@@ -179,14 +179,14 @@
  var getStudentUrl = "school_1002_0302_r001.chitra/"+studentId;
  
 </script>
-<script type="text/jquery-tmpl" id="MEMO_TMPL">
+<script type="text/x-jquery-tmpl" id="MEMO_TMPL">
 	<div class="form-group" >
-      	<label style="text-align:right" class="control-label col-sm-1" for="content">Date:</label>
-      	<label style="text-align:left" class="control-label col-sm-2" for="content">{{= registerDate }}</label>
-      	<label style="text-align:right" class="control-label col-sm-1" for="content">Memo:</label>
-      	<label style="text-align:left" class="control-label col-sm-4" for="content">{{= content }}</label>
-      	<label style="text-align:right" class="control-label col-sm-2" for="content">Register Person:</label>
-      	<label style="text-align:left" class="control-label col-sm-2" for="content">{{= registerPerson }}</label>
+      	<label style="text-align:right" class="col-sm-1" for="content">Date:</label>
+      	<label style="text-align:left" class="col-sm-2" for="content">{{= school.string.formatDatetime(registerDate) }}</label>
+      	<label style="text-align:right" class="col-sm-1" for="content">Memo:</label>
+      	<label style="text-align:left" class="col-sm-4" for="content">{{= content }}</label>
+      	<label style="text-align:right" class="col-sm-2" for="content">Register Person:</label>
+      	<label style="text-align:left" class="col-sm-2" for="content">{{= registerPerson }}</label>
      </div>
 </script>
     <%@include file="../../views/dashboard/footer.jsp" %>

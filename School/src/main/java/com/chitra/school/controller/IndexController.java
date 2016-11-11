@@ -81,10 +81,15 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="people/school_1003_0101.act")
-	public String showClassRoom(){
-		
+	public String showClassRoom(){		
 		
 		return "dashboard/school_1003_0101_view";
+	}
+	
+	
+	@RequestMapping(value="/payment/school_1005_0101.act")
+	public String showPayment(){
+		return "/dashboard/school_1005_0101_view";
 	}
 	
 	

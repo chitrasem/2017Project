@@ -1,15 +1,16 @@
 var school_1002_0301 = {};
 $(document).ready(function(){
 	//Load data
+$("#searchName").focus();
 	school_1002_0301.loadData();
 	
 	//Dropdown Action
-	school.string.appendAction("#dropDownResult");	
+	school.ui.appendAction("#dropDownResult");	
 	
 	
 	$('input[type="checkbox"]').click(function(){
 		_this = this;
-		school.string.checkboxAll(_this);
+		school.ui.checkboxAll(_this);
 	});
 	$(document).delegate("#btnView","click", function(){
 		var checkbox = $("#STUDENT_RESULT >tr").find('input[type="checkbox"]:checked');
@@ -41,11 +42,11 @@ $(document).ready(function(){
 			dataRec.push($(this).length);
 		});	
 		if(dataRec.length===0){	
-			school.string.appendAction("#dropDownResult");		
+			school.ui.appendAction("#dropDownResult");		
 		}else if(dataRec.length===1){
-			school.string.appendActionView("#dropDownResult");
+			school.ui.appendActionView("#dropDownResult");
 		}else{
-			school.string.appendActionMoreEdit("#dropDownResult");
+			school.ui.appendActionMoreEdit("#dropDownResult");
 		}
 	})
 	$(document).delegate("#downloadExcel", "click", function(){
@@ -58,6 +59,11 @@ $(document).ready(function(){
 	$("#btnSearchName").click(function(){
 		school_1002_0301.loadData();
 	});
+	$("#searchName").on("keyup", function(e){
+		if(e.keyCode===13){
+			school_1002_0301.loadData();
+		}
+	});
 });
 school_1002_0301.getInput = function(){
 	var input = {};
@@ -69,7 +75,7 @@ school_1002_0301.loadData = function(input){
 	$.extend(input, school_1002_0301.getInput() );
 	if(!input.pageCount || !input.pageCount === null) input.pageCount = 1;
 
-	input.numberOfRecord = 5;
+	input.numberOfRecord = 2;
 	
 	var url = "school_1002_0301_r001.chitra";
 	$("#STUDENT_RESULT").html("");
@@ -80,7 +86,7 @@ school_1002_0301.loadData = function(input){
 		success: function(dat){
 			if(dat.success){
 				$("#STUDENT_TMPL").tmpl(dat.studentRec).appendTo("#STUDENT_RESULT");				
-				school.string.createPagination("#pagination", dat.totalStudent, input.numberOfRecord, input.pageCount, school_1002_0301.loadData);
+				school.ui.createPagination("#pagination", dat.totalStudent, input.numberOfRecord, input.pageCount, school_1002_0301.loadData);
 			}
 		}
 	});
