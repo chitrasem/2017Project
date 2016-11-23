@@ -1,5 +1,12 @@
 <template:basic htmlTitle="Students" bodyTitle="People">
 	<!-- ============================================================== -->	
+	
+	
+	
+<form id="school_1002_0301_download" action="<c:url value="/dashboard/people/school_1002_0301_download"/> " method="post">
+	<input type="hidden" name="srcStudentId" id="srcStudentId">
+</form>
+						   
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="portlet">
@@ -91,6 +98,7 @@
 										<th>English Name</th>
 										<th>Gender</th>
 										<th>Age</th>
+										<th>Phone</th>
 										<th>Status</th>
 										<th>Memo</th>
 									</tr>
@@ -129,9 +137,10 @@
 			{{/if}}
 			</td>
 			<td>{{= birthDate }}</td>
+			<td>{{= phone1 }}</td>
 			<td>
 							
-				<button class="btn btn-xs btn-pink waves-effect waves-light m-b-5">
+				<button  class="btn btn-view btn-xs btn-pink waves-effect waves-light m-b-5">
 					 <span>View</span> <i class="fa  fa-caret-square-o-down"></i> 
 				</button>
 			{{if (state === "Inactive") }}				

@@ -48,17 +48,19 @@ public class StudentRest {
 	}
 	@RequestMapping(value="/school_1002_0301_r001.chitra", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<Object, Object> listStudent(
+			
 			@RequestParam("numberOfRecord") int numberOfRecord,
 			@RequestParam("pageCount") int pageCount,
 			@RequestParam("id") String id
 			
 			)throws Exception{
 		Map<Object, Object> map = new HashMap<Object, Object>();
-		int offset = (pageCount-1)*numberOfRecord;
 		
 		
 		
-		List<Student> students = studentDao.findAll(id, numberOfRecord, offset);
+		
+		
+		List<Student> students = studentDao.findAll(id, numberOfRecord, pageCount);
 		long totalStudentRec = studentDao.totalRecord(id);
 		try{
 			map.put("totalStudent", totalStudentRec);

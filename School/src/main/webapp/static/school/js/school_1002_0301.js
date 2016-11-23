@@ -36,6 +36,16 @@ $("#searchName").focus();
 		}
 	});*/
 	
+	$(document).delegate("td button.btn-view", "click", function(){
+		
+		var _this = $(this);
+		
+		var studentId = _this.parent().parent().find('input[type="hidden"]').val();
+		$("#studentId").val(studentId);
+		$("#school_1002_0301").submit();
+		
+	});
+		
 	$(document).delegate('input[type="checkbox"]', "click", function(){
 		var dataRec =[];
 		$('#STUDENT_RESULT >tr').find('input[type="checkbox"]:checked').each(function(e){				
@@ -49,8 +59,17 @@ $("#searchName").focus();
 			school.ui.appendActionMoreEdit("#dropDownResult");
 		}
 	})
-	$(document).delegate("#downloadExcel", "click", function(){
-		alert();
+	$(document).delegate("#downloadExcel", "click", function(e){
+		e.preventDefault();
+		
+		var input = {};
+		
+		$.extend(input, school_1002_0301.getInput());
+		
+		$("#srcStudentId").val(input.id);
+		
+		$("#school_1002_0301_download").submit();
+		
 	});
 	$(document).delegate("#addNew","click",function(){
 		school.ui.openWindow(studentForm);
@@ -75,7 +94,7 @@ school_1002_0301.loadData = function(input){
 	$.extend(input, school_1002_0301.getInput() );
 	if(!input.pageCount || !input.pageCount === null) input.pageCount = 1;
 
-	input.numberOfRecord = 2;
+	input.numberOfRecord = 10;
 	
 	var url = "school_1002_0301_r001.chitra";
 	$("#STUDENT_RESULT").html("");

@@ -78,12 +78,12 @@
                                 </button>
                                 <span class="clearfix"></span>
                             </div>
-                            <!-- <form class="navbar-form pull-left" role="search">
+                            <div class="navbar-form pull-left" >
                                 <div class="form-group">
-                                    <input type="text" class="searchName" class="form-control search-bar" placeholder="Type here for search...">
+                                    <input type="text" id="searchName" class="form-control search-bar" placeholder="Type here for search...">
                                 </div>
-                                <button type="button" class="btnSearchName" class="btn btn-search"><i class="fa fa-search"></i></button>
-                            </form> -->
+                                <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
 
                             <ul class="nav navbar-nav navbar-right pull-right">
                                 <li class="dropdown hidden-xs">

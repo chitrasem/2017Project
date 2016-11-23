@@ -14,7 +14,7 @@
                      		<div class="form-group">
                             	<label class="control-label col-sm-2" for="content">Memo:</label>
                              	<div class="col-sm-10">
-									<input type="text" class="form-control" name="content" id="content" placeholder="Enter memo">
+									<input type="text" class="form-control" value="សូមបង់ប្រាក់ដើប្បីចូលរៀន" name="content" id="content" placeholder="Enter memo">
 						 		</div>
                             </div>
                         </div>                        

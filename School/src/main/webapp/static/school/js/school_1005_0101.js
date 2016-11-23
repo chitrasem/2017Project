@@ -7,6 +7,8 @@ $(document).ready(function(event){
 	
 	$("#btnAddPayment").click(function(e){
 		e.preventDefault();
+		$("#school_1005_0101_form").submit();
+		
 		
 		
 	});

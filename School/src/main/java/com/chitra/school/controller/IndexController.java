@@ -17,7 +17,6 @@ import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;
 
 @Controller
-@RequestMapping("/dashboard")
 public class IndexController {
 
 	@Autowired
@@ -38,21 +37,21 @@ public class IndexController {
 	public ModelAndView indexPage(){		
 		return new ModelAndView("redirect:dashboard/school_1001_0101.act");		
 	}
-	@RequestMapping(value="/school_1001_0101.act")
+	@RequestMapping(value="/dashboard/school_1001_0101.act")
 	public String showDashboardForm(Model m){
 		
 		m.addAttribute("user", getUser());		
 		return "dashboard/school_1001_0101_view";
 	}
 	
-	@RequestMapping(value="/people/school_1002_0101.act", method = RequestMethod.POST)
+	@RequestMapping(value="/dashboard/people/school_1002_0101.act", method = RequestMethod.POST)
 	public String showUsersForm(Model m){
 		m.addAttribute("user", getUser());		
 		User user = getUser();
 		System.out.println(user.getFirstName());
 		return "dashboard/school_1002_0101_view";
 	}
-	@RequestMapping(value="/people/school_1002_0201.act")
+	@RequestMapping(value="/dashboard/people/school_1002_0201.act")
 	public String showTeachersForm(Model m){
 		m.addAttribute("user", getUser());		
 		return "dashboard/school_1002_0201_view";
@@ -62,7 +61,7 @@ public class IndexController {
 	 * @param m
 	 * @return
 	 */
-	@RequestMapping(value="/people/school_1002_0301.act")
+	@RequestMapping(value="/dashboard/people/school_1002_0301.act")
 	public String showStudentsForm(Model m){
 		m.addAttribute("user", getUser());		
 		return "dashboard/school_1002_0301_view";
@@ -72,7 +71,7 @@ public class IndexController {
 	 * @param m
 	 * @return
 	 */
-	@RequestMapping(value="/people/school_1002_0302.act")
+	@RequestMapping(value="/dashboard/people/school_1002_0302.act")
 	public String addStudentForm(Model m,
 			@RequestParam(required = false) String studentId){
 		m.addAttribute("user", getUser());
@@ -80,16 +79,20 @@ public class IndexController {
 		return "dashboard/school_1002_0302_view";
 	}
 	
-	@RequestMapping(value="people/school_1003_0101.act")
+	@RequestMapping(value="/dashboard/people/school_1003_0101.act")
 	public String showClassRoom(){		
 		
 		return "dashboard/school_1003_0101_view";
 	}
 	
 	
-	@RequestMapping(value="/payment/school_1005_0101.act")
+	@RequestMapping(value="/dashboard/payment/school_1005_0101.act")
 	public String showPayment(){
 		return "/dashboard/school_1005_0101_view";
+	}
+	@RequestMapping(value="/dashboard/payment/school_1005_0102.act")
+	public String addPaymentForm(){
+		return "/dashboard/school_1005_0102_view";
 	}
 	
 	

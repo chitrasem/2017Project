@@ -35,6 +35,26 @@ if(!school.ui) {
 			+'<li><a href="javascript:"><i>Check the select box to see more actions</i></a></li>';
 		$(target).html(li);		
 	};
+	school.ui.loadPaymentMethod = function(target){
+		var select = "<div class='col-md-6'>" +
+				"<div class='form-group'>" +
+				"<label class='control-label col-sm-4' for='payMethod'>Method</label>" +
+				"<div class='col-sm-8'>";
+		 
+		select += "<select id='payMethod' class='btn btn-sm btn-purple'>" +
+					"<option value=''> Choose...</option>" +
+					"<option value='student'>Student School Fee</option>" +
+					"<option value='book'>Buy Book</option>" +
+					"<option></option>" +
+					"<option></option>" +
+					"<option></option>" +
+				"</select>" +
+				"</div>" +
+				"</div>" +
+				"</div>";
+		
+		$(target).html(select);
+	}
 	school.ui.appendActionView = function(target){
 		var li = "";
 		li += '<li><a href="javascript:" id="downloadExcel">Export excel</a></li>'

@@ -1,5 +1,6 @@
 <template:basic htmlTitle="Students" bodyTitle="People">
 
+
 	<!-- Searching*********************************************************************** -->
 	       	<div class="row">                        
 	    <div class="col-lg-12">
@@ -24,11 +25,12 @@
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<!-- <div class="table-responsive"> -->
 						<div class="">
-						   <form id="school_1002_0301" action="school_1002_0302.act" method="post">
+						   <form id="school_1005_0101_form" name="school_1002_0301_form" action="<c:url value="/dashboard/payment/school_1005_0102.act"/>" method="post">
 						   <input type="hidden" name="studentId" id="studentId" value="0">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="btn-group">
+									
 										<button id="btnAddPayment" class="btn btn-purple">Add Payment</button>
                                           <!-- <button type="button" id="actionPayment" class="btn btn-success dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">Actions 
                                           <span class="caret"></span>

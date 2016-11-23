@@ -116,7 +116,10 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 	public List<Student> findAll(
 			String id,
 			int maxResult, 
-			int firstResult) {				
+			int pageCount) {			
+		
+		
+		
 			Criteria crit = getSession().createCriteria(Student.class, "student");
 			String query1 = "AGE(TO_DATE(BIRTH_DATE,'YYYYMMDD')) as birthDate";
 			String query2 = "(SELECT CONTENT FROM tb_memo WHERE STUDENT_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
@@ -128,6 +131,7 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 					.add(Projections.property("kmFirstName"), "kmFirstName")
 					.add(Projections.property("kmLastName"), "kmLastName")
 					.add(Projections.property("gender"), "gender")
+					.add(Projections.property("phone1"), "phone1")
 					.add(Projections.sqlProjection(query1, 
 							new String[]{"biography"}, 
 							new Type[] {StandardBasicTypes.STRING}))
@@ -139,7 +143,10 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 				crit.add(Restrictions.ilike("id", "%"+id+"%"));
 
 			crit.setMaxResults(maxResult);
-			crit.setFirstResult(firstResult);
+			if(pageCount >0){
+				int  firstResult = (pageCount-1)*maxResult;
+				crit.setFirstResult(firstResult);
+			}
 			crit.addOrder(Order.desc("id"));
 			
 			

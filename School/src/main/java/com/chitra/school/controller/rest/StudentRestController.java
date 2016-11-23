@@ -51,6 +51,7 @@ public class StudentRestController {
 		User user = userService.findBySso(sSOIdUtil.getPrincipal());
 		Map<String, Object> map = new HashMap<String, Object>();
 		
+		
 		List<Student> students =  (List<Student>)(studentDao.findAll(user.getId(), firstName, lastName, searchName, numberOfRecord, offset));
 		
 		
@@ -75,6 +76,7 @@ public class StudentRestController {
 		String firstName = "student.kmFirstName";
 		String lastName = "student.kmLastName";
 		String searchName = "%";
+		
 		int maxResult = 10;
 		int firstResult = 1;
 		
