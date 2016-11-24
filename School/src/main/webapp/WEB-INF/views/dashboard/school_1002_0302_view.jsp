@@ -20,44 +20,62 @@
                         </div>                        
                      	<div class="col-md-12" id="MEMO_RESULT">
                         </div>
-						<legend>Student Information</legend>
-                     	<div class="col-md-6">
+						<legend>Student Information</legend>				
+						<div class="col-md-2">		
+		                  	<a class="pull-left col-sm-" href="javascript:">
+		                    	<img class="thumb-lg img-circle" src="<c:url value="/static/images/users/avatar-2.jpg" />" alt="">
+		                    </a>
+		                </div>
+                     	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="firstName">First name:</label>
-                             	<div class="col-sm-8">
+                            	<label class="control-label col-sm-5" for="firstName">First name:</label>
+                             	<div class="col-sm-7">
 									<input type="text" class="form-control" data-firstName name="firstName" id="firstName" placeholder="Enter first name">
 						 		</div>
                             </div>
                         </div>
-                     	<div class="col-md-6">
+                     	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="lastName">Last name:</label>
-                             	<div class="col-sm-8">
+                            	<label class="control-label col-sm-5" for="lastName">Last name:</label>
+                             	<div class="col-sm-7">
 									<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name">
 						 		</div>
                             </div>
                         </div>
-                     	<div class="col-md-6">
+                     	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="kmFirstName">First name in Khmer:</label>
-                             	<div class="col-sm-8">
+                            	<label class="control-label col-sm-5" for="kmFirstName">First name in Khmer:</label>
+                             	<div class="col-sm-7">
 									<input type="text" class="form-control" name="kmFirstName" id="kmFirstName" placeholder="First name in Khmer">
 						 		</div>
                             </div>
                         </div>
-                     	<div class="col-md-6">
+                     	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="kmLastName">Last name in Khmer:</label>
-                             	<div class="col-sm-8">
+                            	<label class="control-label col-sm-5" for="kmLastName">Last name in Khmer:</label>
+                             	<div class="col-sm-7">
 									<input type="text" class="form-control" name="kmLastName" id="kmLastName" placeholder="Last name in Khmer">
 						 		</div>
                             </div>
-                        </div>	
-                     	<div class="col-md-6">
+                        </div>	    
+                        
+						<span class="divider"></span>						
+						<span class="divider"></span>						
+						<span class="divider"></span>
+						<span class="divider"></span>
+						<span class="divider"></span>
+						<span class="divider"></span>						
+						<span class="divider"></span>						
+						<span class="divider"></span>
+						<span class="divider"></span>
+						<span class="divider"></span>
+						
+						
+                     	<div class="col-md-2">
                      		<div class="form-group">
                             	<label class="control-label col-sm-4">Gender:</label>
-                             	<div class="col-sm-8">
-                             		<select name="gender" id="gender">
+                             	<div class="col-sm-8 ">
+                             		<select class="btn btn-sm btn-purple" name="gender" id="gender">
                              			<option value="">--Select Gender--</option>
                              			<option value="M">Male</option>
                              			<option value="F">Female</option>
@@ -73,7 +91,7 @@
 						 		</div>
                             </div>
                         </div>
-                     	<div class="col-md-12">
+                     	<div class="col-md-8">
                      		<div class="form-group">
                             	<label class="control-label col-sm-2" for="birthPlace">Place of Birth:</label>
                              	<div class="col-sm-10">

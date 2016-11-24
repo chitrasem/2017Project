@@ -103,7 +103,7 @@ school_1002_0301.loadData = function(input){
 		type: "get",
 		data: input,
 		success: function(dat){
-			if(dat.success){
+			if(dat.success && dat.studentRec.length>0){
 				$("#STUDENT_TMPL").tmpl(dat.studentRec).appendTo("#STUDENT_RESULT");				
 				school.ui.createPagination("#pagination", dat.totalStudent, input.numberOfRecord, input.pageCount, school_1002_0301.loadData);
 			}

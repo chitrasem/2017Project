@@ -16,6 +16,15 @@ if(!school.string){
 		}
 		return str;
 	}
+	school.string.formatBirthDate = function(str){
+		if(str=="" || str==null){
+			return "";
+		}
+		if(moment(str, "YYYYMMDD").isValid()) {
+			str = moment(str,"YYYYMMDD").format("YYYY-MM-DD");
+		}
+		return str;
+	}
 	
 	
 	

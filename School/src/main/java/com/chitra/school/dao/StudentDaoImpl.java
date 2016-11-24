@@ -16,6 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chitra.school.model.Memo;
 import com.chitra.school.model.Student;
+import com.chitra.school.utils.SSOIdUtil;
+import com.chitra.school.utils.StringUtils;
+import com.chitra.school.utils.UserUtil;
 
 @Repository("studentDao")
 @Transactional
@@ -132,12 +135,18 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 					.add(Projections.property("kmLastName"), "kmLastName")
 					.add(Projections.property("gender"), "gender")
 					.add(Projections.property("phone1"), "phone1")
-					.add(Projections.sqlProjection(query1, 
-							new String[]{"biography"}, 
-							new Type[] {StandardBasicTypes.STRING}))
+					.add(Projections.property("birthDate"), "birthDate")
+					.add(Projections.property("imageUrl"), "imageUrl")
+					
+					
+					/*
 					.add(Projections.sqlProjection(query2, 
 							new String[] {"birthDate"}, 
 							new Type[] { StandardBasicTypes.STRING}))
+					*/
+					.add(Projections.sqlProjection(query2, 
+							new String[]{"biography"}, 
+							new Type[] {StandardBasicTypes.STRING}))
 					).setResultTransformer(Transformers.aliasToBean(Student.class));			
 			
 				crit.add(Restrictions.ilike("id", "%"+id+"%"));
@@ -186,6 +195,9 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 		s.setMotherPhone(student.getMotherPhone());
 		s.setFatherName(student.getFatherName());
 		s.setFatherPhone(student.getFatherPhone());
+		
+		s.setChangeDate(StringUtils.getSystemDate() );
+		s.setChangePerson(UserUtil.getPrincipal());
 		
 		persist(s);
 		

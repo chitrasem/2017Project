@@ -6,65 +6,8 @@
 <form id="school_1002_0301_download" action="<c:url value="/dashboard/people/school_1002_0301_download"/> " method="post">
 	<input type="hidden" name="srcStudentId" id="srcStudentId">
 </form>
-						   
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="portlet">
-				<div class="portlet-heading bg-info">
-					<h3 class="portlet-title">User Management</h3>
-					<div class="portlet-widgets"> 	
-                       <input style="height:25px" type="text" class="search-bar" placeholder="Type here for search..."> 
-						<a href="javascript:" class="right-bar-toggle waves-effect waves-light"><i class="ion-arrow-down-b"></i></a>
-						<span class="divider"></span>       
-						<a href="javascript:" data-toggle="search"><i class="ion-search"></i></a> 
-						<span class="divider"></span>  
-						<span class="divider"></span>  
-						<span class="divider"></span>
-						<span class="divider"></span>
-						<span class="divider"></span>
-						<span class="divider"></span>
-						<span class="divider"></span>
-						<span class="divider"></span>
-						<span class="divider"></span>
-						<span class="divider"></span>  
-						<span class="divider"></span>  
-						<span class="divider"></span>  
-						<span class="divider"></span>  
-						<span class="divider"></span>  
-						<span class="divider"></span>     
-						<a href="javascript:" data-toggle="reload"><i class="ion-refresh"></i></a> 
-						<span class="divider"></span> 
-						<a data-toggle="collapse" data-parent="#accordion1" href="#bg-info"><i class="ion-minus-round"></i></a> 
-						<span class="divider"></span> 
-						<a href="javascript:" data-toggle="remove"><i class="ion-close-round"></i></a>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div id="bg-info" class="panel-collapse collapse in">
-					<div class="portlet-body bg-info">
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Searching*********************************************************************** -->
-	       	<div class="row">                        
-	    <div class="col-lg-12">
-	        <div class="panel panel-default">
-	            <div class="panel-body">
-	                <div class="input-group">
-	                    <input type="text" id="searchName" name="example-input1-group2" class="form-control input-lg" placeholder="Search any name">
-	                    <span class="input-group-btn">
-	                        <button id="btnSearchName" type="button" class="btn-lg btn waves-effect waves-light btn-primary w-md"><i class="fa fa-search"></i></button>
-	                    </span>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
 	
-	</div>
+
 	<div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -83,7 +26,16 @@
                                           </button>
                                           <ul class="dropdown-menu" role="menu" id="dropDownResult" >
                                           </ul>
-                                      </div>
+                                      </div>                                      
+									<button type="button" class="btn btn-purple waves-effect waves-light">
+										<span>Add</span> <i class="ion ion-person-add"></i>
+									</button>      
+									<button type="button" class="btn btn-purple waves-effect waves-light">
+										<span>Download Excel</span> <i class="ion ion-ios7-cloud-download"></i>
+									</button>                               
+								</div>
+								<div class="col-md-6">
+									
 								</div>
 							</div>
 						   </form>
@@ -96,10 +48,9 @@
 										<th>Student ID</th>
 										<th>Khmer Name</th>
 										<th>English Name</th>
-										<th>Gender</th>
-										<th>Age</th>
+										<th>Birth Date</th>
 										<th>Phone</th>
-										<th>Status</th>
+										<th>Actions</th>
 										<th>Memo</th>
 									</tr>
 								</thead>
@@ -126,17 +77,27 @@
 			<td><input  type="checkbox">
 				<input type="hidden" value="{{= id }}" class="STUDENT_ID">
 			</td>
-			<td>{{= id }}</td>
-			<td>{{= kmLastName }}&nbsp;{{= kmFirstName }}</td>
-			<td>{{= firstName }}&nbsp{{= lastName }}</td>
-            <td>
+			<td>			
 			{{if (gender == "M") }}
-				Male
+				<a href="javascript:"><i class="fa fa-circle text-pink m-r-15"></i>{{= id }}</a>	
 			{{else}}
-				Female
+				<a href="javascript:"><i class="fa fa-circle text-purple m-r-15"></i>{{= id }}</a>				
 			{{/if}}
 			</td>
-			<td>{{= birthDate }}</td>
+			<td>
+			<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{{= imageUrl }}" alt="{{= firstName }} " />
+			<a href="javascript:">{{= kmLastName }}&nbsp;{{= kmFirstName }}
+			<span class="driver"></span>
+			{{if (gender === "M") }}
+			<i  class="ion ion-male m-r-15 text-pink"></i>
+			{{else}}
+			<i  class="ion ion-female m-r-15 text-purple"></i>
+			{{/if}}
+			</a>
+			
+			</td>		
+			<td>{{= firstName }}&nbsp{{= lastName }}</td>
+			<td>{{= school.string.formatBirthDate( birthDate ) }}</td>
 			<td>{{= phone1 }}</td>
 			<td>
 							

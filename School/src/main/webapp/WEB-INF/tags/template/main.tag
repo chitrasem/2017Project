@@ -78,9 +78,14 @@
                                 </button>
                                 <span class="clearfix"></span>
                             </div>
-                            <div class="navbar-form pull-left" >
+                            <div class="navbar-form pull-left" >                            
+                            
+							
+									
                                 <div class="form-group">
                                     <input type="text" id="searchName" class="form-control search-bar" placeholder="Type here for search...">
+									<a href="javascript:" class="right-bar-toggle waves-effect waves-light"><i class="ion-arrow-down-b"></i></a>
+                               
                                 </div>
                                 <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                             </div>

@@ -76,19 +76,26 @@ public class Student {
     private String changePerson;
     @Column(name="CHANGE_DATE", length=14)
     private String changeDate = StringUtils.getStrDate();
+    
+    @Column(name="IMG_URL")
+    private String imageUrl;
 
     
 
     @NotEmpty
     @Column(name="STATE", nullable=false)
     private String state=State.INACTIVE.getState();
-    
-    
     // New Field appended
     @Column(name="AGE")
     private String age;
 
 
+    public String getImageUrl(){
+    	return imageUrl;
+    }
+    public void setImageUrl(String imageUrl){
+    	this.imageUrl = imageUrl;
+    }
 	public String getId() {
 		return id;
 	}
