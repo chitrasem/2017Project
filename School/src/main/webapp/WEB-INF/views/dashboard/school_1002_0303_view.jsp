@@ -302,5 +302,5 @@
 	
 	<!-- The File Upload user interface plugin -->
 	<script src="<c:url value="/static/js/jquery.fileupload-ui.js" /> "> </script>
-    <script src="<c:url value="/static/school/js/school_1002_0302.js" />"> </script>
+    <script src="<c:url value="/static/school/js/school_1002_0303.js" />"> </script>
 </template:basic>
