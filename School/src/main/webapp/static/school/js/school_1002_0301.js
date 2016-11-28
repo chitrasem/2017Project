@@ -36,13 +36,23 @@ $("#searchName").focus();
 		}
 	});*/
 	
-	$(document).delegate("td button.btn-view", "click", function(){
+	$(document).delegate("td a.btn-view", "click", function(){
+		
+		var _this = $(this);
+		
+		var studentId = _this.parent().parent().find('input[type="hidden"]').val();
+		$("#viewStudentId").val(studentId);
+		$("#school_1002_0303_form").submit();
+		
+		
+	});
+	$(document).delegate("td button.btn-edit", "click", function(){
 		
 		var _this = $(this);
 		
 		var studentId = _this.parent().parent().find('input[type="hidden"]').val();
 		$("#studentId").val(studentId);
-		$("#school_1002_0301").submit();
+		$("#school_1002_0302_form").submit();
 		
 	});
 		
