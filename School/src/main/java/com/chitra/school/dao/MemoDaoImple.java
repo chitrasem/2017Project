@@ -3,6 +3,7 @@ package com.chitra.school.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
@@ -27,6 +28,8 @@ public class MemoDaoImple extends AbstractDao<Integer, Memo> implements MemoDao 
 				.add(Projections.property("registerDate"), "registerDate")
 				);
 		crit.add(Restrictions.eq("memo.student.id", student_id));
+		crit.addOrder(Order.desc("registerDate"));
+		crit.setMaxResults(5);
 		
 		crit.setResultTransformer(Transformers.aliasToBean(Memo.class));
 				
