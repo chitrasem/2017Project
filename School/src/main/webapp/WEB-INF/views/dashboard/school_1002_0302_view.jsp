@@ -1,8 +1,7 @@
 <template:basic htmlTitle="New Student" bodyTitle="People">
 	<!-- ============================================================== -->
 	
-<c:url value="/upload/message" var="messageUploadUrl"/>
-<c:url value="/upload/file" var="fileUploadUrl"/>
+
 
 <div class="row">
 	<div class="col-md-12">
@@ -77,16 +76,35 @@
 					<form class="form-horizontal" id="school_1002_0302_form">
 					<fieldset>
 						<legend>Memo</legend>
-                     	<div class="col-md-12">
+						<table class="table">
+							<thead>
+								<tr>
+								<td>Memo</td>
+								<td colspan="2">
+									<input type="text" class="form-control"  name="content" id="content" placeholder="Enter memo">
+								</td>
+								</tr>
+								<tr>
+									<td class="col-md-2" >Date</td>
+									<td class="col-md-6">Memo</td>
+									<td class="col-md-4">Register Person</td>
+								</tr>
+							
+							</thead>
+							<tbody id="MEMO_RESULT">							
+							</tbody>
+						</table>
+                     	<!-- <div class="col-md-12">
                      		<div class="form-group">
                             	<label class="control-label col-sm-2" for="content">Memo:</label>
                              	<div class="col-sm-10">
 									<input type="text" class="form-control" value="សូមបង់ប្រាក់ដើប្បីចូលរៀន" name="content" id="content" placeholder="Enter memo">
+						 		
 						 		</div>
                             </div>
                         </div>                        
                      	<div class="col-md-12" id="MEMO_RESULT">
-                        </div>
+                        </div> -->
 						<legend>Student Information</legend>				
 						<div class="col-md-2">		
 		                  	<a class="pull-left col-sm-" href="javascript:" data-toggle="modal" data-target="#full-width-modal" >
@@ -262,14 +280,11 @@
 </script>
 
 <script type="text/x-jquery-tmpl" id="MEMO_TMPL">
-	<div class="form-group" >
-      	<label style="text-align:right" class="col-sm-1" for="content">Date:</label>
-      	<label style="text-align:left" class="col-sm-2" for="content">{{= school.string.formatDatetime(registerDate) }}</label>
-      	<label style="text-align:right" class="col-sm-1" for="content">Memo:</label>
-      	<label style="text-align:left" class="col-sm-4" for="content">{{= content }}</label>
-      	<label style="text-align:right" class="col-sm-2" for="content">Register Person:</label>
-      	<label style="text-align:left" class="col-sm-2" for="content">{{= registerPerson }}</label>
-     </div>
+	<tr>
+      	<td>{{= school.string.formatDatetime(registerDate) }}</td>
+      	<td>{{= content }}</td>
+      	<td>{{= registerPerson }}</td>
+     </tr>
 </script>
     <%@include file="../../views/dashboard/footer.jsp" %>
     <!-- The template to display files available for download -->

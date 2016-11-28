@@ -6,7 +6,9 @@
 <form id="school_1002_0301_download" action="<c:url value="/dashboard/people/school_1002_0301_download"/> " method="post">
 	<input type="hidden" name="srcStudentId" id="srcStudentId">
 </form>
-	
+<form id="school_1002_0303_form" action="school_1002_0303.act" method="post">
+	<input type="hidden" name="studentId" id="viewStudentId" value="0">
+</form>
 
 	<div class="row">
 	<div class="col-md-12">
@@ -16,7 +18,7 @@
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<!-- <div class="table-responsive"> -->
 						<div class="">
-						   <form id="school_1002_0301" action="school_1002_0302.act" method="post">
+						   <form id="school_1002_0302_form" action="school_1002_0302.act" method="post">
 						   <input type="hidden" name="studentId" id="studentId" value="0">
 							<div class="row">
 								<div class="col-md-6">
@@ -86,7 +88,7 @@
 			</td>
 			<td>
 			<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{{= imageUrl }}" alt="{{= firstName }} " />
-			<a href="javascript:">{{= kmLastName }}&nbsp;{{= kmFirstName }}
+			<a href="javascript:" class="btn-view">{{= kmLastName }}&nbsp;{{= kmFirstName }}
 			<span class="driver"></span>
 			{{if (gender === "M") }}
 			<i  class="ion ion-male m-r-15 text-pink"></i>
@@ -101,8 +103,8 @@
 			<td>{{= phone1 }}</td>
 			<td>
 							
-				<button  class="btn btn-view btn-xs btn-pink waves-effect waves-light m-b-5">
-					 <span>View</span> <i class="fa  fa-caret-square-o-down"></i> 
+				<button  class="btn btn-edit btn-xs btn-pink waves-effect waves-light m-b-5">
+					 <span>Edit</span> <i class="fa  fa-caret-square-o-down"></i> 
 				</button>
 			{{if (state === "Inactive") }}				
 				<button class="btn btn-xs btn-purple waves-effect waves-light m-b-5">
