@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -79,6 +81,12 @@ public class Student {
     
     @Column(name="IMG_URL")
     private String imageUrl;
+    @Column(name="IMG_PATH")
+    private String imagePath;
+    
+    @ManyToOne(optional=true)
+	@JoinColumn(name="CLASSROOM_ID")
+	private Classroom classroom;
 
     
 
@@ -333,6 +341,18 @@ public class Student {
 
 	public void setAge(String age) {
 		this.age = age;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+	public Classroom getClassroom() {
+		return classroom;
+	}
+	public void setClassroom(Classroom classroom) {
+		this.classroom = classroom;
 	}
 
 

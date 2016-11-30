@@ -1,11 +1,16 @@
 package com.chitra.school.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -35,52 +40,69 @@ public class Classroom {
 	 @JoinColumn(name="GENERATION_ID")
 	 private Generation generation;
 	 
-	 
+	 @OneToMany(fetch = FetchType.LAZY)
+	 private List<Student>  students = new ArrayList<Student>();
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getClassroom() {
 		return classroom;
 	}
+
 	public void setClassroom(String classroom) {
 		this.classroom = classroom;
 	}
-	
+
 	public String getRegisterDate() {
 		return registerDate;
 	}
+
 	public void setRegisterDate(String registerDate) {
 		this.registerDate = registerDate;
 	}
+
 	public String getRegisterPerson() {
 		return registerPerson;
 	}
+
 	public void setRegisterPerson(String registerPerson) {
 		this.registerPerson = registerPerson;
 	}
+
 	public String getDescritpion() {
 		return descritpion;
 	}
+
 	public void setDescritpion(String descritpion) {
 		this.descritpion = descritpion;
 	}
+
 	public Generation getGeneration() {
 		return generation;
 	}
+
 	public void setGeneration(Generation generation) {
 		this.generation = generation;
 	}
-	 
-	 
-	
-	
-	
-	 
-	
 
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+	 
+	 
+	 
+	 
+	
 	
 	
 	

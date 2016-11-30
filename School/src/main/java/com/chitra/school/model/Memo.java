@@ -27,7 +27,7 @@ public class Memo{
 	@Column(name="REGISTER_PERSON", length=50)
 	private String registerPerson;
 	@Column(name="REGISTER_DATE", length=14)
-	private String registerDate = StringUtils.getStrDate();
+	private String registerDate = StringUtils.getSystemDate();
 	@ManyToOne(optional=true)
 	@JoinColumn(name="STUDENT_ID")
 	private Student student;
