@@ -30,7 +30,7 @@ public class Classroom {
 	 @Column(name="REGISTER_DATE", length=14, nullable = false)
 	 private String registerDate = StringUtils.getSystemDate();
 	 @Column(name="REGISTER_PERSON", length = 25, nullable = false)
-	 private String registerPerson = StringUtils.getPrincipal();
+	 private String registerPerson;
 	 @Column(name="DESCRIPTION", length=50)
 	 private String descritpion;
 	 
