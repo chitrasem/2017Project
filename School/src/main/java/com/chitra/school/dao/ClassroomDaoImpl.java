@@ -44,8 +44,8 @@ public class ClassroomDaoImpl extends AbstractDao<String, Classroom> implements 
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("cl.id"), "id")
 				.add(Projections.property("cl.classroom"), "classroom")
-				.add(Projections.property("cl.students.firstName"), "firstName")
-				);		
+				
+				);	
 		
 		crit.setResultTransformer(Transformers.aliasToBean(Classroom.class));	
 		
@@ -53,8 +53,7 @@ public class ClassroomDaoImpl extends AbstractDao<String, Classroom> implements 
 	}
 
 	public void updateClassroom(Classroom classroom) {
-		// TODO Auto-generated method stub
-		
+		persist(classroom);
 	}
 
 }
