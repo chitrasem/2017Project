@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
 					
-					<table class="table">
+					<table class="table table-hover table-striped">
 						<thead>
 						<tr>			
 						<td class="col-md-2">CLASSROOM_ID</td>
@@ -42,12 +42,28 @@
 	</tr>
 	<tr style="">
 		<td colspan="3">
-			<table class="table">
-<tr>
-<td>ABC</td>
-<td>EFG</td>
-</tr>
-</table>
+			<table class="table table-hover table-striped">
+				<tr>
+					<th>Head1</td>
+					<th>Head2</td>
+					<th>Head3</td>
+				</tr>
+				<tr>
+					<td>Chil1</td>
+					<td>Child2</td>
+					<td>Child2</td>
+				</tr>
+				<tr>
+					<td>Chil1</td>
+					<td>Child2</td>
+					<td>Child2</td>
+				</tr>
+				<tr>
+					<td>Chil1</td>
+					<td>Child2</td>
+					<td>Child2</td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 
