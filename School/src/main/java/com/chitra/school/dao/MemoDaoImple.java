@@ -8,10 +8,12 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.chitra.school.model.Memo;
 
 @Repository("memoDao")
+@Transactional
 public class MemoDaoImple extends AbstractDao<Integer, Memo> implements MemoDao {
 
 	public void save(Memo memo) {

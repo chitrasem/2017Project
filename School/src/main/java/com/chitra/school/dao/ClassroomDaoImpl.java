@@ -6,18 +6,22 @@ import org.apache.xmlbeans.impl.xb.xsdschema.RestrictionDocument.Restriction;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chitra.school.model.Classroom;
+import com.chitra.school.model.Student;
 
 
 @Repository("classroomDao")
 @Transactional
 public class ClassroomDaoImpl extends AbstractDao<String, Classroom> implements ClassroomDao {
 
+	
 	public void save(Classroom classroom) {
-		// TODO Auto-generated method stub
+	
+		persist(classroom);
 		
 	}
 
@@ -32,13 +36,18 @@ public class ClassroomDaoImpl extends AbstractDao<String, Classroom> implements 
 		return (Classroom)crit.uniqueResult();
 	}
 
-	public List<Classroom> findAllClassrooms(String id) {
+	@SuppressWarnings("unchecked")
+	public List<Classroom> findAllClassrooms() {
 		
-		Criteria crit = getSession().createCriteria(Classroom.class);
+		Criteria crit = getSession().createCriteria(Classroom.class, "cl");
 		
-		crit.setProjection(Projections.projectionList());
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.property("cl.id"), "id")
+				.add(Projections.property("cl.classroom"), "classroom")
+				.add(Projections.property("cl.students.firstName"), "firstName")
+				);		
 		
-		crit.add(Restrictions.eqOrIsNull("id", id));
+		crit.setResultTransformer(Transformers.aliasToBean(Classroom.class));	
 		
 		return (List<Classroom>) crit.list();
 	}
