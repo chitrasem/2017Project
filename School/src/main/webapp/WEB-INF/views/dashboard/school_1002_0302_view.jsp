@@ -1,8 +1,5 @@
 <template:basic htmlTitle="New Student" bodyTitle="People">
 	<!-- ============================================================== -->
-	
-
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -84,11 +81,7 @@
 									<input type="text" class="form-control"  name="content" id="content" placeholder="Enter memo">
 								</td>
 								</tr>
-								<tr>
-									<td class="col-md-2" >Date</td>
-									<td class="col-md-6">Memo</td>
-									<td class="col-md-4">Register Person</td>
-								</tr>
+								
 							
 							</thead>
 							<tbody id="MEMO_RESULT">							

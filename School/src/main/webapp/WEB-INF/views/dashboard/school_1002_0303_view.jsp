@@ -1,8 +1,13 @@
-<template:basic htmlTitle="New Student" bodyTitle="People">
+<template:basic htmlTitle="View Profile" bodyTitle="Profile">
 	<!-- ============================================================== -->
 	
-
-
+<div class="row">
+	<div class="col-md-12">
+		<div class="row">
+			
+		</div>	
+	</div>
+</div>
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -71,6 +76,8 @@
                          </div><!-- /.modal-content -->
                      </div><!-- /.modal-dialog -->
                  </div><!-- /.modal -->
+                 
+                 
                                         
                                         
 					<form class="form-horizontal" id="school_1002_0302_form">

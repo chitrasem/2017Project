@@ -80,5 +80,5 @@
 	<script>
 	</script>
     <%@include file="../../views/dashboard/footer.jsp" %>
-    <script src="<c:url value="/static/school/js/school_1005_0102.js" />"></script>
+    <script src="<c:url value="/static/school/js/school_1005_0103.js" />"></script>
 </template:basic>
