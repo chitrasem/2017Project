@@ -26,6 +26,16 @@ public class Generation {
 	private String registerDate = StringUtils.getSystemDate();
 	@Column(name="REGISTER_PERSON", nullable=false,length=50)
 	private String registerPerson;
+	
+	@Column(name="DESCRIPTION", length=500)
+	private String description;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public long getId() {
 		return id;
 	}
