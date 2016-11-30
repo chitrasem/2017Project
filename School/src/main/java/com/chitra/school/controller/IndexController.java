@@ -78,11 +78,19 @@ public class IndexController {
 		m.addAttribute("studentId", studentId);
 		return "dashboard/school_1002_0302_view";
 	}
+	@RequestMapping(value="/dashboard/people/school_1002_0303.act")
+	public String addViewStudent(Model m, 
+			@RequestParam(required = false) String studentId){
+		m.addAttribute("user", getUser());
+		m.addAttribute("studentId", studentId);
+		return "dashboard/school_1002_0303_view";
+		
+	}
 	
-	@RequestMapping(value="/dashboard/people/school_1003_0101.act")
+	@RequestMapping(value="/dashboard/classroom/school_1004_0101.act")
 	public String showClassRoom(){		
 		
-		return "dashboard/school_1003_0101_view";
+		return "dashboard/school_1004_0101_view";
 	}
 	
 	
