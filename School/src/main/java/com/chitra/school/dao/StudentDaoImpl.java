@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chitra.school.model.Memo;
 import com.chitra.school.model.Student;
-import com.chitra.school.utils.SSOIdUtil;
 import com.chitra.school.utils.StringUtils;
 import com.chitra.school.utils.UserUtil;
 
@@ -205,6 +204,44 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 			persist(memo);
 		}
 		
+	}
+
+	public long totalStudentByCLSroomId(
+			String clsroomId) {
+		Criteria crit = getSession().createCriteria(Student.class, "s");
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.rowCount())
+				);
+		crit.add(Restrictions.eq("s.classroom.id", clsroomId));
+		return (Long) crit.uniqueResult() ;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Student> findStudentByCLSroomID(String clsroomId, int maxResult, int pageCount) {
+
+		Criteria crit = getSession().createCriteria(Student.class, "s");
+		
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.property("s.id"),"id")
+				.add(Projections.property("s.firstName"),"firstName")
+				.add(Projections.property("s.lastName"),"lastName")
+				.add(Projections.property("s.kmFirstName"),"kmFirstName")
+				.add(Projections.property("s.kmLastName"),"kmLastName")
+				.add(Projections.property("s.gender"),"gender")
+				);
+		crit.addOrder(Order.desc("s.id"));
+		crit.add(Restrictions.eq("s.classroom.id", clsroomId));
+		
+		
+		crit.setResultTransformer(Transformers.aliasToBean(Student.class));	
+		
+		crit.setMaxResults(maxResult);
+		if(pageCount >0){
+			int  firstResult = (pageCount-1)*maxResult;
+			crit.setFirstResult(firstResult);
+		}
+		
+		return (List<Student>) crit.list();
 	}
 
 }

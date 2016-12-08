@@ -55,11 +55,6 @@ public class StudentRest {
 			
 			)throws Exception{
 		Map<Object, Object> map = new HashMap<Object, Object>();
-		
-		
-		
-		
-		
 		List<Student> students = studentDao.findAll(id, numberOfRecord, pageCount);
 		long totalStudentRec = studentDao.totalRecord(id);
 		try{
@@ -86,6 +81,29 @@ public class StudentRest {
 			map.put("success", true);
 		}catch(Exception e){
 			map.put("success", false);
+			map.put("message", e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+		return map;
+	}
+	@RequestMapping(value="/school_1002_0302_r002.chitra",  method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Map<Object, Object> findStudentsByCLSRoomId(
+			@RequestParam("clsroomId") String clsroomId,
+			@RequestParam("numberOfRecord") int numberOfRecord,
+			@RequestParam("pageCount") int pageCount
+			)throws Exception{
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		
+		try{
+			List<Student> students = studentDao.findStudentByCLSroomID(clsroomId, numberOfRecord, pageCount);
+			long totalRecord = studentDao.totalStudentByCLSroomId(clsroomId);
+			map.put("totalStudent", totalRecord);
+			map.put("studentRec", students);
+			map.put("SUCCESS", true);
+		}catch(Exception e){
+			map.put("SUCCESS", false);
 			map.put("message", e.getMessage());
 			e.printStackTrace();
 		}

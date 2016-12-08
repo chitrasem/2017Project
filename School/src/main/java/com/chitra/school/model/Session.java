@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.chitra.school.utils.StringUtils;
@@ -14,7 +15,8 @@ public class Session {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
-	private String id;
+	@Id
+	private long id;
 	
 	@Column(name="SESSION")
 	private String session;
@@ -25,11 +27,11 @@ public class Session {
 	@Column(name="REGISTER_PERSON")
 	private String registerPerson;
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -86,7 +86,13 @@ public class Student {
     
     @ManyToOne(optional=true)
 	@JoinColumn(name="CLASSROOM_ID")
-	private Classroom classroom;
+	private Cources cource;
+    
+
+    @ManyToOne(optional=true)
+	 @JoinColumn(name="SESSION_ID")
+	 private Session session;
+
 
     
 
@@ -96,9 +102,24 @@ public class Student {
     // New Field appended
     @Column(name="AGE")
     private String age;
+    
+    
+    
 
 
-    public String getImageUrl(){
+    public Cources getCource() {
+		return cource;
+	}
+	public void setCource(Cources cource) {
+		this.cource = cource;
+	}
+	public Session getSession() {
+		return session;
+	}
+	public void setSession(Session session) {
+		this.session = session;
+	}
+	public String getImageUrl(){
     	return imageUrl;
     }
     public void setImageUrl(String imageUrl){
@@ -348,11 +369,11 @@ public class Student {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	public Classroom getClassroom() {
-		return classroom;
+	public Cources getClassroom() {
+		return cource;
 	}
-	public void setClassroom(Classroom classroom) {
-		this.classroom = classroom;
+	public void setClassroom(Cources classroom) {
+		this.cource = classroom;
 	}
 
 

@@ -1,6 +1,7 @@
 package com.chitra.school.controller;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,10 +27,9 @@ public class UploadController {
 		
 		Map<Object, Object> map = new HashMap<Object, Object>();		
 		
-		String rootPath = request.getServletContext().getRealPath("/");
+		//String rootPath = request.getServletContext().getRealPath("/");
 		String fileUploadPath = System.getProperty("catalina.home");
-		
-		System.out.println(rootPath);
+		System.out.println(fileUploadPath);
 		
 		File file;
     	
@@ -53,10 +53,18 @@ public class UploadController {
     					//File file = new File(fileUploadPath, item.getName());
     					String fileName=item.getName();
     					
+    					
     					if( fileName.lastIndexOf("\\") >= 0 ){
     						file = new File(fileUploadPath, fileName.substring( fileName.lastIndexOf("\\")));
+    						 // Create directory if it not exists.
+    						if(!file.exists()){
+    							file.mkdirs();
+    						}
   						}else{
   							file = new File(fileUploadPath, fileName.substring( fileName.lastIndexOf("\\")+1));
+  							if(!file.exists()){
+    							file.mkdirs();
+    						}
   						}
     					// rename if file exists
   						int i = 0;

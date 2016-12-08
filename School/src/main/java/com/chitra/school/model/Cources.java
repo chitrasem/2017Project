@@ -1,29 +1,21 @@
 package com.chitra.school.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 import com.chitra.school.utils.StringUtils;
 
 @Entity
 @Table(name="TB_CLASSROOM")
-public class Classroom {
+public class Cources {
 	
 	 @Id 
-	 @GenericGenerator(name = "sequence_cls_id", strategy = "com.chitra.school.id.ClassroomIdGenerator")
-	 @GeneratedValue(generator = "sequence_cls_id")
+	/* @GenericGenerator(name = "sequence_cls_id", strategy = "com.chitra.school.id.ClassroomIdGenerator")
+	 @GeneratedValue(generator = "sequence_cls_id")*/
 	 @Column(name = "CLASSROOM_ID",unique = true, nullable = false, length = 10)	 
 	 private String id;
 	 @Column(name="CLASSROOM", nullable=false, length=25)
@@ -40,8 +32,18 @@ public class Classroom {
 	 @JoinColumn(name="GENERATION_ID")
 	 private Generation generation;
 	 
-	 @OneToMany(fetch = FetchType.LAZY)
-	 private List<Student>  students = new ArrayList<Student>();
+	 @ManyToOne(optional=true)
+	 @JoinColumn(name="ACCYS_ID")
+	 private AcademicYear academicYear;
+	 
+	 
+	public AcademicYear getAcademicYear() {
+		return academicYear;
+	}
+
+	public void setAcademicYear(AcademicYear academicYear) {
+		this.academicYear = academicYear;
+	}
 
 	public String getId() {
 		return id;
@@ -91,13 +93,7 @@ public class Classroom {
 		this.generation = generation;
 	}
 
-	public List<Student> getStudents() {
-		return students;
-	}
 
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
 	 
 	 
 	 

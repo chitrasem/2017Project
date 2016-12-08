@@ -11,26 +11,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chitra.school.dao.ClassroomDao;
-import com.chitra.school.model.Classroom;
+import com.chitra.school.dao.CourceDao;
+import com.chitra.school.model.Cources;
 import com.chitra.school.utils.StringUtils;
 
 @RestController
 @RequestMapping("/dashboard/classroom")
-public class ClassroomRest{
+public class CourceRest{
 	
 	@Autowired
-	ClassroomDao dao;
+	CourceDao dao;
 	
-	@RequestMapping(value="/school_1004_0101.chitra", method= RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/school_1004_0101_r001.chitra", method= RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	
-	public Map<String, Object> listClassroom()
+	public Map<String, Object> listCource()
 	throws Exception
 	{
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		try{
-			List<Classroom> classrooms = dao.findAllClassrooms();
+			List<Cources> classrooms = dao.findAllClassrooms();
 			map.put("SUCCESS", true);
 			map.put("clsRoomRec", classrooms);
 		}catch(Exception e){
@@ -42,10 +42,10 @@ public class ClassroomRest{
 		
 		return map;
 	}
-	@RequestMapping(value="/school_1004_0102.chitra", method= RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, Object> saveClassroom(){
+	@RequestMapping(value="/school_1004_0102_c001.chitra", method= RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Object> saveCource(){
 		Map<String, Object> map = new HashMap<String, Object>();
-		Classroom classroom = new Classroom();
+		Cources classroom = new Cources();
 		classroom.setClassroom("ENGLISH IN COMMON 5");
 		classroom.setDescritpion("New Class");
 		
