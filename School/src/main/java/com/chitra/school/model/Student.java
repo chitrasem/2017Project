@@ -2,6 +2,7 @@ package com.chitra.school.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -84,40 +85,46 @@ public class Student {
     @Column(name="IMG_PATH")
     private String imagePath;
     
-    @ManyToOne(optional=true)
-	@JoinColumn(name="CLASSROOM_ID")
-	private Cources cource;
+    @ManyToOne(optional=true, fetch = FetchType.LAZY)
+	@JoinColumn(name="COURSE_ID")
+	private Course course;
     
 
-    @ManyToOne(optional=true)
-	 @JoinColumn(name="SESSION_ID")
-	 private Session session;
+    @ManyToOne(optional=true, fetch = FetchType.LAZY)
+	 @JoinColumn(name="STS_ID")
+	 private STSession sTSession;
 
-
-    
-
-    @NotEmpty
+	@NotEmpty
     @Column(name="STATE", nullable=false)
     private String state=State.INACTIVE.getState();
     // New Field appended
     @Column(name="AGE")
     private String age;
     
+
+
     
+
+    public STSession getsTSession() {
+		return sTSession;
+	}
+	public void setsTSession(STSession sTSession) {
+		this.sTSession = sTSession;
+	}
     
 
 
-    public Cources getCource() {
-		return cource;
+    public Course getCource() {
+		return course;
 	}
-	public void setCource(Cources cource) {
-		this.cource = cource;
+	public void setCource(Course cource) {
+		this.course = cource;
 	}
-	public Session getSession() {
-		return session;
+	public STSession getSession() {
+		return sTSession;
 	}
-	public void setSession(Session session) {
-		this.session = session;
+	public void setSession(STSession session) {
+		this.sTSession = session;
 	}
 	public String getImageUrl(){
     	return imageUrl;
@@ -369,11 +376,11 @@ public class Student {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	public Cources getClassroom() {
-		return cource;
+	public Course getClassroom() {
+		return course;
 	}
-	public void setClassroom(Cources classroom) {
-		this.cource = classroom;
+	public void setClassroom(Course classroom) {
+		this.course = classroom;
 	}
 
 

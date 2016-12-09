@@ -10,13 +10,13 @@ import javax.persistence.Table;
 import com.chitra.school.utils.StringUtils;
 
 @Entity
-@Table(name="TB_SESSION")
-public class Session {
-	
+@Table(name="TB_ST_SESSION")
+public class STSession{
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
 	@Id
-	private long id;
+	private int id;
 	
 	@Column(name="SESSION")
 	private String session;
@@ -26,12 +26,25 @@ public class Session {
 	
 	@Column(name="REGISTER_PERSON")
 	private String registerPerson;
+	
+	@Column(name="STATE")
+	 private String state = State.ACTIVE.getState();
+	 
+	
 
-	public long getId() {
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

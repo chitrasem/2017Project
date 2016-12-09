@@ -123,6 +123,7 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 		
 		
 			Criteria crit = getSession().createCriteria(Student.class, "student");
+			
 			String query1 = "AGE(TO_DATE(BIRTH_DATE,'YYYYMMDD')) as birthDate";
 			String query2 = "(SELECT CONTENT FROM tb_memo WHERE STUDENT_ID = this_.STUDENT_ID ORDER BY REGISTER_DATE DESC LIMIT  1) as biography";
 			

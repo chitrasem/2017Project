@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chitra.school.dao.CourceDao;
-import com.chitra.school.model.Cources;
+import com.chitra.school.dao.CourseDao;
+import com.chitra.school.model.Course;
 import com.chitra.school.utils.StringUtils;
 
 @RestController
-@RequestMapping("/dashboard/classroom")
-public class CourceRest{
+@RequestMapping("/dashboard/course")
+public class CourseRest{
 	
 	@Autowired
-	CourceDao dao;
+	CourseDao dao;
 	
 	@RequestMapping(value="/school_1004_0101_r001.chitra", method= RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	
@@ -30,9 +30,9 @@ public class CourceRest{
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		try{
-			List<Cources> classrooms = dao.findAllClassrooms();
+			List<Course> course = dao.findAllCourses();
 			map.put("SUCCESS", true);
-			map.put("clsRoomRec", classrooms);
+			map.put("courseRec", course);
 		}catch(Exception e){
 			map.put("SUCCESS", false);
 			e.printStackTrace();
@@ -45,8 +45,8 @@ public class CourceRest{
 	@RequestMapping(value="/school_1004_0102_c001.chitra", method= RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> saveCource(){
 		Map<String, Object> map = new HashMap<String, Object>();
-		Cources classroom = new Cources();
-		classroom.setClassroom("ENGLISH IN COMMON 5");
+		Course classroom = new Course();
+		classroom.setCourse("ENGLISH IN COMMON 5");
 		classroom.setDescritpion("New Class");
 		
 		classroom.setRegisterPerson(StringUtils.getPrincipal());
