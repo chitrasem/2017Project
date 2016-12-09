@@ -8,7 +8,6 @@ $(document).ready(function(){
 school_1001_0101.loadData = function(input){
 	if(!input) input = {};
 	$.extend(input, school_1001_0101.getData());	
-	console.log(input);
 	if(input.app.length>0){
 
 		$("#APP_TMPL").tmpl(input.app).appendTo("#APP_RESULT");	

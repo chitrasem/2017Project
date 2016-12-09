@@ -27,6 +27,21 @@ if(!school.ui) {
 			});
 		return isConfirmed;		
 	};
+	school.ui.addCourseCombo = function(target,service){
+		$.ajax({
+			url: service,
+			type: "GET",
+			success: function(dat){
+				var select = "<option value=''>Choose Course...</option>";
+				for(var i = 0; i<dat.courseRec.length; i++){
+					select += "<option value='"+dat.courseRec[i].id+"'>"
+					+ dat.courseRec[i].course +"(" + dat.courseRec[i].myAlias+")</option>";
+				}
+				
+				$(target).html(select);
+			}
+		});
+	}
 	school.ui.appendAction = function(target){
 		var li = "";
 		li += '<li><a href="javascript:" id="downloadExcel">Export excel</a></li>'
@@ -82,8 +97,8 @@ if(!school.ui) {
 	school.ui.createPagination = function(target, totalRecord, numberOfRecord, pageCount, callback){
 		$(target).html("");
 		var input = {};
-			if(totalRecord==0){
-				$("#pagination").html("");
+			if(totalRecord===0){
+				$(target).html("");
 			}else{
 				var a = totalRecord % numberOfRecord; // 5				
 				var numberOfPaging = Math.floor(totalRecord / numberOfRecord);

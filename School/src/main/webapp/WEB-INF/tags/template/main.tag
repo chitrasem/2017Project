@@ -242,12 +242,7 @@
                 <footer class="footer text-right">
                     2015 © Moltran.
                 </footer>
-
             </div>
-
-
-
-
         </div>
         <!-- END wrapper -->
     </body>

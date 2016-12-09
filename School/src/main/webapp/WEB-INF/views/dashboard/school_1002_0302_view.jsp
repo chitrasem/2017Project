@@ -1,5 +1,7 @@
 <template:basic htmlTitle="New Student" bodyTitle="People">
 	<!-- ============================================================== -->
+	
+<input type="hidden" id="courseUrl" value="<c:url value="/dashboard/course/school_1004_0101_r001.chitra"/> "  >
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -17,7 +19,7 @@
                              <div class="modal-body">
 								                       
                                  <!-- The file upload form used as target for the file upload widget -->
-						     <form id="fileupload" action="<c:url value="/upload/test"/> " method="POST" enctype="multipart/form-data">
+						     <form id="fileupload" action="<c:url value="/upload/test"/>" method="POST" enctype="multipart/form-data">
 						        Redirect browsers with JavaScript disabled to the origin page
 						        <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
 						        The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
@@ -72,7 +74,7 @@
                                         
 					<form class="form-horizontal" id="school_1002_0302_form">
 					<fieldset>
-						<legend>Memo</legend>
+						<legend><strong><i>Memo</i></strong></legend>
 						<table class="table">
 							<thead>
 								<tr>
@@ -98,7 +100,7 @@
                         </div>                        
                      	<div class="col-md-12" id="MEMO_RESULT">
                         </div> -->
-						<legend>Student Information</legend>				
+						<legend> <strong><i>Student Information</i></strong></legend>				
 						<div class="col-md-2">		
 		                  	<a class="pull-left col-sm-" href="javascript:" data-toggle="modal" data-target="#full-width-modal" >
 		                    	<img class="thumb-lg img-circle" src="<c:url value="/static/images/users/avatar-2.jpg" />" alt="">
@@ -106,7 +108,7 @@
 		                </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="firstName">First name:</label>
+                            	<label class="control-label col-sm-5" for="firstName">First name <span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" data-firstName name="firstName" id="firstName" placeholder="Enter first name">
 						 		</div>
@@ -114,7 +116,7 @@
                         </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="lastName">Last name:</label>
+                            	<label class="control-label col-sm-5" for="lastName">Last name <span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name">
 						 		</div>
@@ -123,7 +125,7 @@
                         
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="kmFirstName">First name in Khmer:</label>
+                            	<label class="control-label col-sm-5" for="kmFirstName">First name in Khmer <span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" name="kmFirstName" id="kmFirstName" placeholder="First name in Khmer">
 						 		</div>
@@ -131,7 +133,7 @@
                         </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="kmLastName">Last name in Khmer:</label>
+                            	<label class="control-label col-sm-5" for="kmLastName">Last name in Khmer <span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" name="kmLastName" id="kmLastName" placeholder="Last name in Khmer">
 						 		</div>
@@ -145,7 +147,7 @@
 						
                      	<div class="col-md-2">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4">Gender:</label>
+                            	<label class="control-label col-sm-4">Gender <span class="text-danger">*</span></label>
                              	<div class="col-sm-8 ">
                              		<select class="btn btn-sm btn-purple" name="gender" id="gender">
                              			<option value="">--Select Gender--</option>
@@ -157,7 +159,7 @@
                         </div>	
                      	<div class="col-md-6">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="birthDate">Date of Birth:</label>
+                            	<label class="control-label col-sm-4" for="birthDate">Date of Birth <span class="text-danger">*</span></label>
                              	<div class="col-sm-8">
 									<input type="text" class="form-control" name="birthDate" id="birthDate" placeholder="Enter Date of Birth">
 						 		</div>
@@ -173,13 +175,13 @@
                      		<div class="form-group">
                             	<label class="control-label col-sm-2" for="biography">Biography:</label>
                              	<div class="col-sm-10">
-                             		<textarea rows="10" cols="100" name="biography" id="biography" placeholder="Enter biography"></textarea>
+                             		<textarea rows="5" cols="100" name="biography" id="biography" placeholder="Enter biography"></textarea>
 						 		</div>
                             </div>
                         </div>                        
 					</fieldset>
 					<fieldset>
-						<legend>Contact Information</legend>
+						<legend><strong><i>Contact Information</i></strong></legend>
 							
                      	<div class="col-md-4">
                      		<div class="form-group">
@@ -215,7 +217,7 @@
                         </div>
 					</fieldset>
 					<fieldset>
-						<legend>Family Information</legend>
+						<legend> <strong><i>Family Information</i></strong></legend>
                         <div class="col-md-6">
                      		<div class="form-group">
                             	<label class="control-label col-sm-4" for="motherName">Mother's name:</label>
@@ -249,7 +251,42 @@
                             </div>
                         </div>
                         
-					</fieldset>                        							 
+					</fieldset>   
+					
+					<fieldset>
+						<legend><strong><i>Course</i></strong></legend>
+                        <div class="col-md-6">
+                     		<div class="form-group">
+                            	<label class="control-label col-sm-4" for="sbCourse">Course <span class="text-danger">*</span></label>
+                             	<div class="col-sm-7">
+                             		<select class="form-control" name="course" id="sbCourse">
+                             			<option value="">Choose Course... </option>
+                             			<option value="1">EIC1(2016-2017,Morning)</option>
+                             		</select>
+						 		</div>
+						 		<div class="col-sm-1">
+						 			<button title="Add Course" class="btn btn-purple waves-effect waves-light "><i class="ion ion-android-add"></i></button>
+						 		</div>
+                            </div>
+                        </div>                    							 
+                        <div class="clearfix"></div>
+                        <div class="col-md-6">
+                     		<div class="form-group">
+                            	<label class="control-label col-sm-4" for="sbSession">Study Session <span class="text-danger">*</span></label>
+                             	<div class="col-sm-7">                             		
+                             		<select class="form-control" name="session" id="sbSession">
+                             			<option value="">Choose Session... </option>
+                             			<option value="M">Morning</option>
+                             			<option value="A">Afternoon</option>
+                             			<option value="E">Evening</option>
+                             		</select>
+						 		</div>
+						 		<div class="col-sm-1">
+						 			<button title="Add Study Session" class="btn btn-purple waves-effect waves-light "><i class="ion ion-android-add"></i></button>
+						 		</div>
+                            </div>
+                        </div>
+					</fieldset>                     							 
                         <div class="clearfix"></div>
                         <input id="btnSave" type="button" class="btn btn-info " value="Save">
                         <input id="btnClear" type="button" class="btn btn-danger " value="Clear">

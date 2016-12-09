@@ -1,9 +1,16 @@
 var school_1002_0302 = {};
+var courseUrl = $("#courseUrl").val();
 /**
  * When Form is loaded
  */
-$(document).ready(function(){
+$(document).ready(function(e){
+	$("button").click(function(e){
+		e.preventDefault();
+	});
+	
+	
 	school_1002_0302.loadData();
+	school.ui.addCourseCombo("#sbCourse", courseUrl);
 	var file = $('[name="file"]');
     var imgContainer = $('#imgContainer');
     
@@ -23,9 +30,12 @@ $(document).ready(function(){
             processData: false,
             contentType: false
           }).done(function(data) {
+        	  
+        	  console.log(data);
+        	  /*
               imgContainer.html('');
               var img = '<img src="data:' + data.contenttype + ';base64,'
-                  + data.base64 + '"/>';
+                  + data.base64 + '"/>';*/
     
               imgContainer.append(img);
           }).fail(function(jqXHR, textStatus) {
@@ -46,8 +56,11 @@ $(document).ready(function(){
 	 * Save event ==============================================================================
 	 */
 	$("#btnSave").click(function(){
-		var input = {};
-		var memo = {};
+		var input 		= {};
+		var memo 		= {};
+		var course 		= {};
+		var session 	= {};
+		
 	//	memo.content = "abc testing";
 		var formData = {};
 		$.each($('#school_1002_0302_form').serializeArray(), function(i, field) {			
@@ -56,10 +69,23 @@ $(document).ready(function(){
 			if(field.name==="content"){
 				memo.content = field.value;
 			}
+			if(field.name==="course"){
+				course.course = field.value;
+			}
+			if(field.name==="session"){
+				session.session = field.value;
+			}
 		});		
+		
 		delete formData.content;
-		input.student = formData;
-		input.memo = memo;
+		delete formData.course;
+		delete formData.session;
+		
+		input.student 	= formData;
+		input.memo 		= memo;
+		input.course 	= course;
+		input.session 	= session;
+		console.log(input)
 		
 		school_1002_0302.saveData(input);
 		
