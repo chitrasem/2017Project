@@ -57,7 +57,7 @@ public class CourseDaoImpl extends AbstractDao<String, Course> implements Course
 				
 				).setResultTransformer(Transformers.aliasToBean(Course.class));
 		crit.add(Restrictions.eq("c.state", "Active"));
-		crit.addOrder(Order.desc("c.id"));
+		crit.addOrder(Order.asc("c.course"));
 		crit.setResultTransformer(Transformers.aliasToBean(Course.class));
 		return (List<Course>) crit.list();
 		
