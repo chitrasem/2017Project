@@ -27,9 +27,8 @@ public class UploadController {
 		
 		Map<Object, Object> map = new HashMap<Object, Object>();		
 		
-		//String rootPath = request.getServletContext().getRealPath("/");
-		String fileUploadPath = System.getProperty("catalina.home");
-		System.out.println(fileUploadPath);
+		String fileUploadPath = request.getServletContext().getRealPath("/");
+		//String fileUploadPath = System.getProperty("catalina.home");
 		
 		File file;
     	

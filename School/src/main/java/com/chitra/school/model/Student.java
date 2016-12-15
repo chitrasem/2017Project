@@ -80,12 +80,12 @@ public class Student {
     @Column(name="CHANGE_DATE", length=14)
     private String changeDate = StringUtils.getStrDate();
     
-    @Column(name="IMG_URL")
-    private String imageUrl;
     @Column(name="IMG_PATH")
     private String imagePath;
+    @Column(name="IMG_NAME")
+    private String imageName;
     
-    @ManyToOne(optional=true, fetch = FetchType.LAZY)
+    @ManyToOne(optional=false, fetch=FetchType.LAZY)
 	@JoinColumn(name="COURSE_ID")
 	private Course course;
     
@@ -100,275 +100,137 @@ public class Student {
     // New Field appended
     @Column(name="AGE")
     private String age;
-    
-
-
-    
-
-    public STSession getsTSession() {
-		return sTSession;
-	}
-	public void setsTSession(STSession sTSession) {
-		this.sTSession = sTSession;
-	}
-    
-
-
-    public Course getCource() {
-		return course;
-	}
-	public void setCource(Course cource) {
-		this.course = cource;
-	}
-	public STSession getSession() {
-		return sTSession;
-	}
-	public void setSession(STSession session) {
-		this.sTSession = session;
-	}
-	public String getImageUrl(){
-    	return imageUrl;
-    }
-    public void setImageUrl(String imageUrl){
-    	this.imageUrl = imageUrl;
-    }
 	public String getId() {
 		return id;
 	}
-
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-
 	public String getFirstName() {
 		return firstName;
 	}
-
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-
 	public String getLastName() {
 		return lastName;
 	}
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
 	public String getKmFirstName() {
 		return kmFirstName;
 	}
-
-
 	public void setKmFirstName(String kmFirstName) {
 		this.kmFirstName = kmFirstName;
 	}
-
-
 	public String getKmLastName() {
 		return kmLastName;
 	}
-
-
 	public void setKmLastName(String kmLastName) {
 		this.kmLastName = kmLastName;
 	}
-
-
 	public String getGender() {
 		return gender;
 	}
-
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-
 	public String getBirthDate() {
 		return birthDate;
 	}
-
-
 	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
-
-
 	public String getBirthPlace() {
 		return birthPlace;
 	}
-
-
 	public void setBirthPlace(String birthPlace) {
 		this.birthPlace = birthPlace;
 	}
-
-
 	public String getBiography() {
 		return biography;
 	}
-
-
 	public void setBiography(String biography) {
 		this.biography = biography;
 	}
-
-
 	public String getPhone1() {
 		return phone1;
 	}
-
-
 	public void setPhone1(String phone1) {
 		this.phone1 = phone1;
 	}
-
-
 	public String getPhone2() {
 		return phone2;
 	}
-
-
 	public void setPhone2(String phone2) {
 		this.phone2 = phone2;
 	}
-
-
 	public String getEmail() {
 		return email;
 	}
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 	public String getCurrentAddr() {
 		return currentAddr;
 	}
-
-
 	public void setCurrentAddr(String currentAddr) {
 		this.currentAddr = currentAddr;
 	}
-
-
 	public String getMotherName() {
 		return motherName;
 	}
-
-
 	public void setMotherName(String motherName) {
 		this.motherName = motherName;
 	}
-
-
 	public String getMotherPhone() {
 		return motherPhone;
 	}
-
-
 	public void setMotherPhone(String motherPhone) {
 		this.motherPhone = motherPhone;
 	}
-
-
 	public String getFatherName() {
 		return fatherName;
 	}
-
-
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
-
-
 	public String getFatherPhone() {
 		return fatherPhone;
 	}
-
-
 	public void setFatherPhone(String fatherPhone) {
 		this.fatherPhone = fatherPhone;
 	}
-
-
 	public String getEnroll_date() {
 		return enroll_date;
 	}
-
-
 	public void setEnroll_date(String enroll_date) {
 		this.enroll_date = enroll_date;
 	}
-
-
 	public String getRegisterPerson() {
 		return registerPerson;
 	}
-
-
 	public void setRegisterPerson(String registerPerson) {
 		this.registerPerson = registerPerson;
 	}
-
-
 	public String getRegisterDate() {
 		return registerDate;
 	}
-
-
 	public void setRegisterDate(String registerDate) {
 		this.registerDate = registerDate;
 	}
-
-
 	public String getChangePerson() {
 		return changePerson;
 	}
-
-
 	public void setChangePerson(String changePerson) {
 		this.changePerson = changePerson;
 	}
-
-
 	public String getChangeDate() {
 		return changeDate;
 	}
-
-
 	public void setChangeDate(String changeDate) {
 		this.changeDate = changeDate;
-	}
-
-
-	public String getState() {
-		return state;
-	}
-
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-
-	public String getAge() {
-		return age;
-	}
-
-
-	public void setAge(String age) {
-		this.age = age;
 	}
 	public String getImagePath() {
 		return imagePath;
@@ -376,13 +238,40 @@ public class Student {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	public Course getClassroom() {
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+	public Course getCourse() {
 		return course;
 	}
-	public void setClassroom(Course classroom) {
-		this.course = classroom;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
-
+	public STSession getsTSession() {
+		return sTSession;
+	}
+	public void setsTSession(STSession sTSession) {
+		this.sTSession = sTSession;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
+    
+    //
+    
+	
 
 	
 	

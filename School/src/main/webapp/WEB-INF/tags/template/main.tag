@@ -45,6 +45,11 @@
         
         <link href="<c:url value="/static/kms/css/kms.css" />" rel="stylesheet" type="text/css" />
         
+        <!-- Datepicker -->
+        
+        <link href="<c:url value="/static/assets/timepicker/bootstrap-timepicker.min.css" /> " rel="stylesheet" />
+        <link href="<c:url value="/static/assets/timepicker/bootstrap-datepicker.min.css" /> " rel="stylesheet" />
+        
         <!-- FileUpload -->
         <!-- blueimp Gallery styles -->
 		<link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
@@ -52,8 +57,8 @@
 		<link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload.css"/>">
 		<link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload-ui.css"/>">
 		<!-- CSS adjustments for browsers with JavaScript disabled -->
-		<noscript><link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload-noscript.css"/>"></noscript>
-		<noscript><link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload-ui-noscript.css"/>"></noscript>
+		<noscript><link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload-noscript.css" />"></noscript>
+		<noscript><link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload-ui-noscript.css" />"></noscript>
 		
 		<!-- end File upload -->
 

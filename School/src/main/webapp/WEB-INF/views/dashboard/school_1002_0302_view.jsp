@@ -8,48 +8,30 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
-					
-					 <div id="full-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
-                     <div class="modal-dialog modal-full">
-                         <div class="modal-content">
-                             <div class="modal-header">
-                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                 <h4 class="modal-title" id="full-width-modalLabel">ផ្លាស់ប្តូររូបថត</h4>
-                             </div>
-                             <div class="modal-body">
-								                       
-                                 <!-- The file upload form used as target for the file upload widget -->
-						     <form id="fileupload" action="<c:url value="/upload/test"/>" method="POST" enctype="multipart/form-data">
-						        Redirect browsers with JavaScript disabled to the origin page
-						        <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
-						        The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
+					<div  id="uploadModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                      <!-- Modal -->
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                <form id="fileupload" name="fileupload" action="<c:url value="/upload/test"/>" method="POST" enctype="multipart/form-data">
+						     
 						        <div class="row fileupload-buttonbar">
 						            <div class="col-lg-7">
-						                The fileinput-button span is used to style the file input field as button
 						                <span class="btn btn-success fileinput-button">
 						                    <i class="glyphicon glyphicon-plus"></i>
 						                    <span>Add files...</span>
-						                    <input type="file" name="files[]" multiple>
+						                    <input type="file" name="files[]" multiple data-url="<c:url value="/upload/test"/>">
 						                </span>
-						                <button type="submit" class="btn btn-primary start">
+						                <button type="submit" id="btnUpload" class="btn btn-primary start">
 						                    <i class="glyphicon glyphicon-upload"></i>
 						                    <span>Start upload</span>
 						                </button>
-						                <button type="reset" class="btn btn-warning cancel">
-						                    <i class="glyphicon glyphicon-ban-circle"></i>
-						                    <span>Cancel upload</span>
-						                </button>
-						                <button type="button" class="btn btn-danger delete">
-						                    <i class="glyphicon glyphicon-trash"></i>
-						                    <span>Delete</span>
-						                </button>
-						                <input type="checkbox" class="toggle">
-						                The global file processing state
-						                <span class="fileupload-process"></span>
 						            </div>
-						            The global progress state
 						            <div class="col-lg-5 fileupload-progress fade">
-						                The global progress bar
 						                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
 						                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
 						                </div>
@@ -58,29 +40,32 @@
 						            </div>
 						        </div>
 						        The table listing the files available for upload/download
-						        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
-						    </form> 
-						    
-						    
-                             </div>
+						        <table role="presentation" class="table table-striped"><tbody class="files" id="fileList"></tbody></table>
+						 
+						   	</form> 
+                            </div>
+                                                       
                              <div class="modal-footer">
                                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
                                  <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
                              </div>
-                         </div><!-- /.modal-content -->
-                     </div><!-- /.modal-dialog -->
-                 </div><!-- /.modal -->
+                            </div><!-- /.modal-content -->    
+                        </div><!-- /.modal-dialog -->
+                        
+                    </div>
+					
+					
                                         
                                         
 					<form class="form-horizontal" id="school_1002_0302_form">
 					<fieldset>
-						<legend><strong><i>Memo</i></strong></legend>
+						<legend><strong><i>កំណត់ចំណាំ</i></strong></legend>
 						<table class="table">
 							<thead>
 								<tr>
-								<td>Memo</td>
+								<td>កំណត់ចំណាំ</td>
 								<td colspan="2">
-									<input type="text" class="form-control"  name="content" id="content" placeholder="Enter memo">
+									<input type="text" class="form-control"  name="content" id="content" placeholder="សូមវាយបញ្ចូលកំណត់ចំណាំ">
 								</td>
 								</tr>
 								
@@ -102,13 +87,15 @@
                         </div> -->
 						<legend> <strong><i>Student Information</i></strong></legend>				
 						<div class="col-md-2">		
-		                  	<a class="pull-left col-sm-" href="javascript:" data-toggle="modal" data-target="#full-width-modal" >
-		                    	<img class="thumb-lg img-circle" src="<c:url value="/static/images/users/avatar-2.jpg" />" alt="">
+		                  	<a class="pull-left col-sm-" href="javascript:" data-toggle="modal" data-target="#uploadModal" >
+		                    	<img id="imgPhoto" class="thumb-lg img-circle" src="<c:url value="/static/images/users/avatar-2.jpg" />" alt="">
 		                    </a>
+		                   <input type="hidden" name="imageName" value="/avatar-2.jpg"/>
+		                   <input type="hidden" name="imageUrl" value="/static/images/users"/>
 		                </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="firstName">First name <span class="text-danger">*</span></label>
+                            	<label class="control-label col-sm-5" for="firstName">នាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" data-firstName name="firstName" id="firstName" placeholder="Enter first name">
 						 		</div>
@@ -116,7 +103,7 @@
                         </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="lastName">Last name <span class="text-danger">*</span></label>
+                            	<label class="control-label col-sm-5" for="lastName">គោតនាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name">
 						 		</div>
@@ -125,7 +112,7 @@
                         
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="kmFirstName">First name in Khmer <span class="text-danger">*</span></label>
+                            	<label class="control-label col-sm-5" for="kmFirstName">នាមជាភាសាខ្មែរ <span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" name="kmFirstName" id="kmFirstName" placeholder="First name in Khmer">
 						 		</div>
@@ -133,7 +120,7 @@
                         </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="kmLastName">Last name in Khmer <span class="text-danger">*</span></label>
+                            	<label class="control-label col-sm-5" for="kmLastName">គោតនាមជាភាសាខ្មែរ<span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" name="kmLastName" id="kmLastName" placeholder="Last name in Khmer">
 						 		</div>
@@ -147,33 +134,37 @@
 						
                      	<div class="col-md-2">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4">Gender <span class="text-danger">*</span></label>
+                            	<label class="control-label col-sm-4">ភេទ <span class="text-danger">*</span></label>
                              	<div class="col-sm-8 ">
                              		<select class="btn btn-sm btn-purple" name="gender" id="gender">
-                             			<option value="">--Select Gender--</option>
-                             			<option value="M">Male</option>
-                             			<option value="F">Female</option>
+                             			<option value="">ជ្រើសរើសភេទ--</option>
+                             			<option value="M">ប្រុស</option>
+                             			<option value="F">ស្រី</option>
                              		</select>
 						 		</div>
                             </div>
                         </div>	
                      	<div class="col-md-6">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="birthDate">Date of Birth <span class="text-danger">*</span></label>
+                            	<label class="control-label col-sm-4" for="birthDate">ថ្ងៃ ខែ ឆ្នាំកំណើត <span class="text-danger">*</span></label>
                              	<div class="col-sm-8">
-									<input type="text" class="form-control" name="birthDate" id="birthDate" placeholder="Enter Date of Birth">
+							 		<div class="input-group">
+	                                    <input type="text" class="form-control span2" readonly="readonly" data-date-format="yyyy-mm-dd" name="birthDate" placeholder="yyyy/mm/dd" id="birthDate">
+	                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	                              
+									</div>
 						 		</div>
                             </div>
                         </div>
                      	<div class="col-md-8">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-2" for="birthPlace">Place of Birth:</label>
+                            	<label class="control-label col-sm-2" for="birthPlace">ទីកន្លែងកំណើត</label>
                              	<div class="col-sm-10">
                              		<textarea rows="2" cols="100" name="birthPlace" id="birthPlace" placeholder="Enter place of birth"></textarea>
 						 		</div>
                             </div>
                      		<div class="form-group">
-                            	<label class="control-label col-sm-2" for="biography">Biography:</label>
+                            	<label class="control-label col-sm-2" for="biography">ការណែនាំ</label>
                              	<div class="col-sm-10">
                              		<textarea rows="5" cols="100" name="biography" id="biography" placeholder="Enter biography"></textarea>
 						 		</div>
@@ -299,6 +290,81 @@
 		</div>
 	</div>
 </div>
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error text-danger"></strong>
+        </td>
+        <td>
+            <p class="size">Processing...</p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+        </td>
+        <td>
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <td>
+            <span class="preview">
+                {% if (file.thumbnailUrl) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+                {% } %}
+            </span>
+        </td>
+        <td>
+            <p class="name">
+                {% if (file.url) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                {% } else { %}
+                    <span>{%=file.name%}</span>
+                {% } %}
+            </p>
+            {% if (file.error) { %}
+                <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+            {% if (file.deleteUrl) { %}
+                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>Delete</span>
+                </button>
+                <input type="checkbox" name="delete" value="1" class="toggle">
+            {% } else { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
 
 <script>
 

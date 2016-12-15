@@ -4,52 +4,51 @@ var courseUrl = $("#courseUrl").val();
  * When Form is loaded
  */
 $(document).ready(function(e){
+	
 	$("button").click(function(e){
 		e.preventDefault();
 	});
 	
 	
-	school_1002_0302.loadData();
+	school_1002_0302.loadData("",function(){
+		$("#birthDate").datepicker();		
+	});
 	school.ui.addCourseCombo("#sbCourse", courseUrl);
-	var file = $('[name="file"]');
-    var imgContainer = $('#imgContainer');
-    
-    $('#btnUpload').on('click', function() {
-        var filename = $.trim(file.val());
-        
-        if (!(isJpg(filename) || isPng(filename))) {
-            alert('Please browse a JPG/PNG file to upload ...');
-            return;
+	
+	// Initialize the jQuery File Upload widget:
+    $('#fileupload').fileupload({
+        // Uncomment the following to send cross-domain cookies:
+        //xhrFields: {withCredentials: true},
+        url: 'http://chitra.com.kh:8080/School/upload/test',
+        change: function(e, data){
+        	$.each(data.files, function(index, file){
+        	})
         }
-        
-        $.ajax({
-            url: '/School/upload/test',
-            type: "POST",
-            data: new FormData(document.getElementById("fileForm")),
-            enctype: 'multipart/form-data',
-            processData: false,
-            contentType: false
-          }).done(function(data) {
-        	  
-        	  console.log(data);
-        	  /*
-              imgContainer.html('');
-              var img = '<img src="data:' + data.contenttype + ';base64,'
-                  + data.base64 + '"/>';*/
-    
-              imgContainer.append(img);
-          }).fail(function(jqXHR, textStatus) {
-              //alert(jqXHR.responseText);
-              alert('File upload failed ...');
-          });
-        
     });
-    
-    $('#btnClear').on('click', function() {
-        imgContainer.html('');
-        file.val('');
+    $("#fileupload").bind("fileuploaddone", function(e, data){
+    	console.log(data);
+    	var imagePath = data.result.path;
+    	var imageName = data.result.name;
+    	var imageUrl = imagePath+imageName;
+    	
+    	var imgPhoto = $("#imgPhoto");
+    	
+    	imgPhoto.attr("src",imageUrl);
+    	
+    	
+    	console.log(imageUrl);
+    	$("#uploadModal").modal("hide");
+    	
     });
-		
+    $("#fileupload").fileupload({
+    	autoUpload: false,
+    	downloadTemplatedId: null,
+    	maxFileSize: 52428800,
+    	progressall: function(e, data){
+    		
+    	}
+    });
+
 	
 	
 	/**
@@ -75,6 +74,9 @@ $(document).ready(function(e){
 			if(field.name==="session"){
 				session.session = field.value;
 			}
+			if(field.name==="birthDate"){
+				formData.birthDate = school.string.removeAllString(formData.birthDate);
+			}
 		});		
 		
 		delete formData.content;
@@ -98,6 +100,21 @@ $(document).ready(function(e){
 		school_1002_0302.clearData(this);
 	});
 });
+//Helper function for calculation of progress
+function formatFileSize(bytes) {
+    if (typeof bytes !== 'number') {
+        return '';
+    }
+
+    if (bytes >= 1000000000) {
+        return (bytes / 1000000000).toFixed(2) + ' GB';
+    }
+
+    if (bytes >= 1000000) {
+        return (bytes / 1000000).toFixed(2) + ' MB';
+    }
+    return (bytes / 1000).toFixed(2) + ' KB';
+}
 
 school_1002_0302.getInput = function(){
 	var input = {};
@@ -148,7 +165,7 @@ school_1002_0302.getData = function(){
 school_1002_0302.clearData = function(target){
     $(target).closest('form').find("input[type=text] ,select, textarea").val("");
 }
-school_1002_0302.loadData = function(input){
+school_1002_0302.loadData = function(input, callbackFn){
 	if(typeof input =="undefined") input = {};	
 	$("#firstName").focus();	
 	$.extend(input, school_1002_0302.getData());
@@ -171,7 +188,8 @@ school_1002_0302.loadData = function(input){
 				$("#kmFirstName").val(dat.studentRec.kmFirstName);
 				$("#kmLastName").val(dat.studentRec.kmLastName);
 				$("#gender").val(dat.studentRec.gender);
-				$("#birthDate").val(dat.studentRec.birthDate);
+				$("#birthDate").val(school.string.formatBirthDate( dat.studentRec.birthDate) );
+			
 				$("#birthPlace").val(dat.studentRec.birthPlace);				
 				$("#biography").val(dat.studentRec.biography);
 				$("#phone1").val(dat.studentRec.phone1);
@@ -182,12 +200,17 @@ school_1002_0302.loadData = function(input){
 				$("#motherPhone").val(dat.studentRec.motherPhone);
 				$("#fatherName").val(dat.studentRec.fatherName);
 				$("#fatherPhone").val(dat.studentRec.fatherPhone);
+				
 				if(dat.memoRec.length>0){
 					$("#MEMO_TMPL").tmpl(dat.memoRec).appendTo("#MEMO_RESULT");
 				}
 			}
 		});
 	}
+	if($.isFunction(callbackFn)){
+		callbackFn();
+	}
+	
 };
 var isJpg = function(name) {
     return name.match(/jpg$/i)

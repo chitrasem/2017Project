@@ -14,6 +14,7 @@ import org.hibernate.type.Type;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.chitra.school.model.Course;
 import com.chitra.school.model.Memo;
 import com.chitra.school.model.Student;
 import com.chitra.school.utils.StringUtils;
@@ -66,14 +67,10 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 			}
 	}
 
-	public Student findById(String id) {
-		Criteria crit = getSession().createCriteria(Student.class);
-		crit.add(Restrictions.eq("id", id));
+	public Student findById(String id) {	
+		Criteria crit = getSession().createCriteria(Student.class, "student");
 		
-		return (Student) crit.uniqueResult();
-		
-		
-		/*Criteria crit = getSession().createCriteria(Student.class, "student");
+		crit.createAlias("course", "course");
 		
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("id"),"id")
@@ -82,8 +79,14 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 				.add(Projections.property("kmFirstName"), "kmFirstName")
 				.add(Projections.property("kmLastName"), "kmLastName")
 				.add(Projections.property("gender"), "gender")
-				).setResultTransformer(Transformers.aliasToBean(Student.class));
-		crit.addOrder(Order.asc("birthDate"));*/
+			//	.add(Projections.property("student.course.id"), "id")
+				/*.add(Projections.alias(Projections.projectionList().
+						add(Projections.property("student.course.id")), "student.course.id"))*/
+				);
+		
+		crit.setResultTransformer(Transformers.aliasToBean(Student.class));
+		crit.add(Restrictions.eq("id", id));
+		return (Student) crit.uniqueResult();
 	}
 
 	public Student findByFirstName(String firstName) {
@@ -136,7 +139,8 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 					.add(Projections.property("gender"), "gender")
 					.add(Projections.property("phone1"), "phone1")
 					.add(Projections.property("birthDate"), "birthDate")
-					.add(Projections.property("imageUrl"), "imageUrl")
+					.add(Projections.property("imagePath"), "imagePath")
+					.add(Projections.property("imageName"), "imageName")
 					
 					
 					/*

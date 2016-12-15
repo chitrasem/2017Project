@@ -17,9 +17,9 @@
        	<script src="<c:url value="/static/js/jquery-ui-1.10.1.custom.min.js" />"></script>
         <script src="<c:url value="/static/assets/select2/select2.min.js" />" type="text/javascript"></script>
        
-
-
-       
+		<!-- Datetime Picker -->
+        <script src="<c:url value="/static/assets/timepicker/bootstrap-datepicker.js" />"></script> 
+        <script src="<c:url value="/static/assets/timepicker/bootstrap-timepicker.min.js" />"></script> 
         
         <!-- Data Table -->
         <script src="<c:url value="/static/assets/datatables/jquery.dataTables.min.js" />"></script>

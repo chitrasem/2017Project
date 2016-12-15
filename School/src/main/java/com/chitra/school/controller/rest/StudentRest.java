@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.dao.StudentDao;
+import com.chitra.school.model.Course;
 import com.chitra.school.model.Memo;
 import com.chitra.school.model.Student;
 import com.chitra.school.model.User;
@@ -112,7 +113,7 @@ public class StudentRest {
 		return map;
 	}
 	@ResponseBody
-	@RequestMapping(value="/school_1002_0302_c001.chitra", method=RequestMethod.POST)
+	@RequestMapping(value="/school_1002_0302_c001.chitra", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<Object, Object> addStudents( 			
 			@RequestBody String str
 			)throws Exception{
@@ -126,11 +127,18 @@ public class StudentRest {
 			
 			Student student = mapper.convertValue(node.get("student"), Student.class);		
 			Memo memo = mapper.convertValue(node.get("memo"), Memo.class);
+			//Course course = mapper.convertValue(node.get("course"), Course.class);
+			
 			
 			User user = userService.findBySso(ssoIdUtil.getPrincipal());
+			
 			student.setRegisterPerson(user.getSsoId());	
+			//student.setCourse(course);
+			
+			
 			memo.setRegisterPerson(user.getSsoId());		
-			memo.setStudent(student);			
+			memo.setStudent(student);		
+			
 			studentDao.save(student, memo);	
 			map.put("firstname", student.getFirstName());
 			map.put("success", true);		

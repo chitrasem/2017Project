@@ -1,11 +1,14 @@
 package com.chitra.school.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.chitra.school.utils.StringUtils;
@@ -27,6 +30,7 @@ public class Course{
 	 private String registerPerson;
 	 @Column(name="DESCRIPTION", length=500)
 	 private String descritpion;
+	 
 	 
 	 
 	 

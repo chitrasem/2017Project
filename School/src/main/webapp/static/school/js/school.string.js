@@ -25,6 +25,10 @@ if(!school.string){
 		}
 		return str;
 	}
+	school.string.removeAllString = function(str) {
+		if(str == null || str == "") return "";
+		return str.replace(/[^0-9\.]/g, '');
+	};
 	
 	
 	

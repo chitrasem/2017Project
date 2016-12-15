@@ -87,7 +87,7 @@
 			{{/if}}
 			</td>
 			<td>
-			<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{{= imageUrl }}" alt="{{= firstName }} " />
+			<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{{= imagePath }}{{= imageName }}" alt="{{= firstName }} " />
 			<a href="javascript:" class="btn-view">{{= kmLastName }}&nbsp;{{= kmFirstName }}
 			<span class="driver"></span>
 			{{if (gender === "M") }}
