@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/upload")
 public class UploadController {
 	
+	
+	
 	@RequestMapping(value="/test", method = RequestMethod.POST)
 	public Map<Object, Object> uploadFile(HttpServletRequest request, 
 			HttpServletResponse response )throws Exception{
@@ -27,8 +29,26 @@ public class UploadController {
 		
 		Map<Object, Object> map = new HashMap<Object, Object>();		
 		
-		String fileUploadPath = request.getServletContext().getRealPath("/");
-		//String fileUploadPath = System.getProperty("catalina.home");
+		//String testPath = request.getSession().getServletContext().getRealPath(arg0)
+		
+		
+		String fileUploadPath = request.getSession().getServletContext().getRealPath("/");
+
+		System.out.println("=======================================================Path 1");
+		System.out.println(fileUploadPath);
+		System.out.println("=======================================================Path 1");
+		
+		
+		
+	//	fileUploadPath = fileUploadPath.substring(0,0);
+	//fileUploadPath = fileUploadPath+"\\web\\static\\images";
+		
+	fileUploadPath += "/static/images";
+		
+
+	System.out.println("=======================================================Path 2");
+		System.out.println(fileUploadPath);
+	System.out.println("=======================================================Path 2");
 		
 		File file;
     	
@@ -47,6 +67,7 @@ public class UploadController {
     			System.out.println(items);
     			System.out.println("============================MyFielName==========================="); */
     			for (FileItem item : items) {
+    				
     				if (!item.isFormField()) {
     					
     					//File file = new File(fileUploadPath, item.getName());
