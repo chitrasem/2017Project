@@ -1,10 +1,9 @@
 <template:basic htmlTitle="View Profile" bodyTitle="Profile">
 	<!-- ============================================================== -->
-	
+	dfgdsgសដថដសថdsfdsafㅇㄴㄻㅇㄴㅁㄹ
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
-			
 		</div>	
 	</div>
 </div>
@@ -19,8 +18,8 @@
                      <div class="modal-dialog modal-full">
                          <div class="modal-content">
                              <div class="modal-header">
-                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                 <h4 class="modal-title" id="full-width-modalLabel">ផ្លាស់ប្តូររូបថត</h4>
+                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã</button>
+                                 <h4 class="modal-title" id="full-width-modalLabel">áááá¶áááááá¼ááá¼ááá</h4>
                              </div>
                              <div class="modal-body">
 								                       
@@ -105,7 +104,7 @@
                      		<div class="form-group">
                             	<label class="control-label col-sm-2" for="content">Memo:</label>
                              	<div class="col-sm-10">
-									<input type="text" class="form-control" value="សូមបង់ប្រាក់ដើប្បីចូលរៀន" name="content" id="content" placeholder="Enter memo">
+									<input type="text" class="form-control" value="áá¼áááááááá¶áááá¾áááá¸áá¼áááá" name="content" id="content" placeholder="Enter memo">
 						 		
 						 		</div>
                             </div>

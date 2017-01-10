@@ -70,8 +70,6 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 	public Student findById(String id) {	
 		Criteria crit = getSession().createCriteria(Student.class, "student");
 		
-		//crit.createAlias("course", "course");
-		
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("id"),"id")
 				.add(Projections.property("firstName"), "firstName")
@@ -82,9 +80,11 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 				.add(Projections.property("imageName"),"imageName")
 				.add(Projections.property("imagePath"),"imagePath")
 				.add(Projections.property("birthDate"),"birthDate")
-			//	.add(Projections.property("student.course.id"), "id")
+			//	.add(Projections.property("student.course"), "course")
 				/*.add(Projections.alias(Projections.projectionList().
-						add(Projections.property("student.course.id")), "student.course.id"))*/
+						add(Projections.property("student.course")), "student.course"))
+						
+						*/
 				);
 		
 		crit.setResultTransformer(Transformers.aliasToBean(Student.class));
