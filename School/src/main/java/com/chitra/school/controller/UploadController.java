@@ -1,7 +1,6 @@
 package com.chitra.school.controller;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +31,7 @@ public class UploadController {
 		//String testPath = request.getSession().getServletContext().getRealPath(arg0)
 		
 		
-		String fileUploadPath = request.getSession().getServletContext().getRealPath("/");
+		String fileUploadPath = request.getSession().getServletContext().getRealPath("\\");
 
 		System.out.println("=======================================================Path 1");
 		System.out.println(fileUploadPath);
@@ -40,10 +39,10 @@ public class UploadController {
 		
 		
 		
-	//	fileUploadPath = fileUploadPath.substring(0,0);
+		fileUploadPath = fileUploadPath.substring(0,fileUploadPath.lastIndexOf("\\.metadata"));
 	//fileUploadPath = fileUploadPath+"\\web\\static\\images";
 		
-	fileUploadPath += "/static/images";
+	fileUploadPath += "\\2017Project\\School\\src\\main\\webapp\\static\\temp";
 		
 
 	System.out.println("=======================================================Path 2");
@@ -78,12 +77,12 @@ public class UploadController {
     						file = new File(fileUploadPath, fileName.substring( fileName.lastIndexOf("\\")));
     						 // Create directory if it not exists.
     						if(!file.exists()){
-    							file.mkdirs();
+    						//	file.mkdirs();
     						}
   						}else{
   							file = new File(fileUploadPath, fileName.substring( fileName.lastIndexOf("\\")+1));
   							if(!file.exists()){
-    							file.mkdirs();
+    						//	file.mkdirs();
     						}
   						}
     					// rename if file exists
@@ -103,11 +102,16 @@ public class UploadController {
 					   	newFilename=oldFilename.substring(15);
     					item.write(file);
     					
+    					fileUploadPath = fileUploadPath.substring(fileUploadPath.indexOf("\\static"));
+    					System.out.println("File Part");
+    					System.out.println(fileUploadPath);
+    					System.out.println("File Part");
+    					
+    					newFilename = newFilename.substring(newFilename.lastIndexOf("\\"));
+    							
     					map.put("name", newFilename);
     					map.put("size", item.getSize());
-    					map.put("path", fileUploadPath);
-    					
-
+    					map.put("path", fileUploadPath );
     				}
     			}
 	

@@ -70,15 +70,18 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 	public Student findById(String id) {	
 		Criteria crit = getSession().createCriteria(Student.class, "student");
 		
-		crit.createAlias("course", "course");
+		//crit.createAlias("course", "course");
 		
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("id"),"id")
 				.add(Projections.property("firstName"), "firstName")
 				.add(Projections.property("lastName"), "lastName")
-				.add(Projections.property("kmFirstName"), "kmFirstName")
+				.add(Projections.property("kmFirs3tName"), "kmFirstName")
 				.add(Projections.property("kmLastName"), "kmLastName")
 				.add(Projections.property("gender"), "gender")
+				.add(Projections.property("imageName"),"imageName")
+				.add(Projections.property("imagePath"),"imagePath")
+				.add(Projections.property("birthDate"),"birthDate")
 			//	.add(Projections.property("student.course.id"), "id")
 				/*.add(Projections.alias(Projections.projectionList().
 						add(Projections.property("student.course.id")), "student.course.id"))*/
@@ -188,6 +191,9 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 		s.setKmFirstName(student.getKmFirstName());
 		s.setKmLastName(student.getKmLastName());
 		s.setGender(student.getGender());
+		s.setBirthDate(student.getBirthPlace());
+		s.setImageName(student.getImageName());
+		s.setImagePath(student.getImagePath());
 		s.setBirthDate(student.getBirthDate());
 		s.setBirthPlace(student.getBirthPlace());
 		s.setBiography(student.getBiography());

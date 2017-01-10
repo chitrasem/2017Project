@@ -69,7 +69,7 @@ $("#searchName").focus();
 			school.ui.appendActionMoreEdit("#dropDownResult");
 		}
 	})
-	$(document).delegate("#downloadExcel", "click", function(e){
+	$(document).delegate("#downloadExcel, #btnDownload", "click", function(e){
 		e.preventDefault();
 		
 		var input = {};
@@ -81,7 +81,7 @@ $("#searchName").focus();
 		$("#school_1002_0301_download").submit();
 		
 	});
-	$(document).delegate("#addNew","click",function(){
+	$(document).delegate("#addNew, #btnAdd","click",function(){
 		school.ui.openWindow(studentForm);
 	});
 	

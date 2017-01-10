@@ -5,6 +5,7 @@ var courseUrl = $("#courseUrl").val();
  */
 $(document).ready(function(e){
 	
+	
 	$("button").click(function(e){
 		e.preventDefault();
 	});
@@ -25,19 +26,25 @@ $(document).ready(function(e){
         	})
         }
     });
-    $("#fileupload").bind("fileuploaddone", function(e, data){
-    	console.log(data);
-    	var imagePath = data.result.path;
+    $("#fileupload").bind("fileuploaddone", function(e, data){  	
+    	var str = $("#imgPhoto").attr("src");
+    	str  = str.substr(0, str.lastIndexOf("/static"))
+    	
+    	var imagePath = data.result.path;   	
     	var imageName = data.result.name;
-    	var imageUrl = imagePath+imageName;
+    	var imageUrl = str+imagePath+imageName;
+    	    imageUrl = imageUrl.replace("\\", "/");
+    	    imageUrl = imageUrl.replace("\\", "/");
+    	    imageUrl = imageUrl.replace("\\", "/");
     	
-    	var imgPhoto = $("#imgPhoto");
+    	var imgPhoto = $("#imgPhoto");   
+    	$("#uploadModal").modal("hide");  
     	
-    	imgPhoto.attr("src",imageUrl);
-    	
-    	
-    	console.log(imageUrl);
-    	$("#uploadModal").modal("hide");
+    	setTimeout(function(){        	
+        	imgPhoto.attr("src",imageUrl);
+        	$("#imageName").val(imageName);
+        	$("#imagePath").val(imagePath);
+    	}, 3000);
     	
     });
     $("#fileupload").fileupload({
@@ -87,7 +94,6 @@ $(document).ready(function(e){
 		input.memo 		= memo;
 		input.course 	= course;
 		input.session 	= session;
-		console.log(input)
 		
 		school_1002_0302.saveData(input);
 		
@@ -169,17 +175,17 @@ school_1002_0302.loadData = function(input, callbackFn){
 	if(typeof input =="undefined") input = {};	
 	$("#firstName").focus();	
 	$.extend(input, school_1002_0302.getData());
-
+	
 	school_1002_0302.isUpdate = false;
 	if(studentId.length===10){
 		var studentIDHtml = '<input type="hidden" id="studentId" name="id">';
 		$("#school_1002_0302_form").append(studentIDHtml);
-		
 		school_1002_0302.isUpdate = true;
 		$.ajax({
 			type: "GET",
 			url: getStudentUrl,
 			success: function(dat){
+				var absoluteUrl = $("#absoluteUrl").val();
 				$("#MEMO_RESULT").html();
 				
 				$("#studentId").val(dat.studentRec.id);
@@ -188,6 +194,9 @@ school_1002_0302.loadData = function(input, callbackFn){
 				$("#kmFirstName").val(dat.studentRec.kmFirstName);
 				$("#kmLastName").val(dat.studentRec.kmLastName);
 				$("#gender").val(dat.studentRec.gender);
+	        	$("#imgPhoto").attr("src",absoluteUrl+dat.studentRec.imagePath+dat.studentRec.imageName);
+	        	$("#imageName").val(dat.studentRec.imageName);
+	        	$("#imagePath").val(dat.studentRec.imagePath);
 				$("#birthDate").val(school.string.formatBirthDate( dat.studentRec.birthDate) );
 			
 				$("#birthPlace").val(dat.studentRec.birthPlace);				

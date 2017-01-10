@@ -90,8 +90,8 @@
 		                  	<a class="pull-left col-sm-" href="javascript:" data-toggle="modal" data-target="#uploadModal" >
 		                    	<img id="imgPhoto" class="thumb-lg img-circle" src="<c:url value="/static/images/users/avatar-2.jpg" />" alt="">
 		                    </a>
-		                   <input type="hidden" name="imageName" value="/avatar-2.jpg"/>
-		                   <input type="hidden" name="imageUrl" value="/static/images/users"/>
+		                   <input type="hidden" id="imageName" name="imageName" value="avatar1.png"/>
+		                   <input type="hidden" id="imagePath" name="imagePath" value="/static/avatars/"/>
 		                </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
@@ -365,12 +365,14 @@
     </tr>
 {% } %}
 </script>
+<input type="hidden" id="absoluteUrl" value="<c:url value="/"/> ">
+<input type="hidden" id="studentUrl" value="<c:url value="/dashboard/people/school_1002_0302_r001.chitra/"/> ">
 
 <script>
 
  var studentId = "${studentId}";
  var url = "school_1002_0301.act";
- var getStudentUrl = "school_1002_0302_r001.chitra/"+studentId;
+ var getStudentUrl = $("#studentUrl").val()+studentId;
  
  
 </script>

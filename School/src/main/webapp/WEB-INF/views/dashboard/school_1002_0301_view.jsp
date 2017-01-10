@@ -29,10 +29,10 @@
                                           <ul class="dropdown-menu" role="menu" id="dropDownResult" >
                                           </ul>
                                       </div>                                      
-									<button type="button" class="btn btn-purple waves-effect waves-light">
+									<button id="btnAdd" type="button" class="btn btn-purple waves-effect waves-light">
 										<span>Add</span> <i class="ion ion-person-add"></i>
 									</button>      
-									<button type="button" class="btn btn-purple waves-effect waves-light">
+									<button id="btnDownload" type="button" class="btn btn-purple waves-effect waves-light">
 										<span>Download Excel</span> <i class="ion ion-ios7-cloud-download"></i>
 									</button>                               
 								</div>
