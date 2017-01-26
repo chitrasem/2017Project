@@ -79,7 +79,10 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 				.add(Projections.property("gender"), "gender")
 				.add(Projections.property("imageName"),"imageName")
 				.add(Projections.property("imagePath"),"imagePath")
-				.add(Projections.property("birthDate"),"birthDate")
+				.add(Projections.property("phone1"),"phone1")
+				.add(Projections.property("phone2"),"phone2")
+				.add(Projections.property("email"),"email")
+				.add(Projections.property("currentAddr"),"currentAddr")
 			//	.add(Projections.property("student.course"), "course")
 				/*.add(Projections.alias(Projections.projectionList().
 						add(Projections.property("student.course")), "student.course"))
