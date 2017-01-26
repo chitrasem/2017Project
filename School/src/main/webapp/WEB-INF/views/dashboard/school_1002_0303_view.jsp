@@ -28,6 +28,9 @@
 <form id="school_1002_0302_form" action="<c:url value="/dashboard/people/school_1002_0302.act/"/> " method="post">
 	<input type="hidden" name="studentId" value="${ studentId }">
 </form>
+<form id="school_1002_0301_form" action="<c:url value="/dashboard/people/school_1002_0301.act/"/> ">
+</form>
+
 <script>
 
  var studentId = "${studentId}";
