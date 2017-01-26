@@ -5,6 +5,9 @@ var school_1002_0303 = {};
 $("#btnEdit").click(function(){
 	$("#school_1002_0302_form").submit();
 });
+$("#btnBack").click(function(){
+	$("#school_1002_0301_form").submit();	
+});
 school_1002_0303.loadData = function(input){
 	
 	if(!input) var input = {};
