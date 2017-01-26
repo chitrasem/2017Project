@@ -354,6 +354,8 @@
  </div> <!-- container -->
                 
  </div> <!-- content -->
+ 
+ 
 
 <input type="hidden" id="viewURL" value="<c:url value="/dashboard/people/school_1002_0302_r001.chitra/"/> ">
 <%-- <input type="hidden" id="editURL" value="<c:url value="/dashboard/people/school_1002_0302.chitra/"/> "> --%>
