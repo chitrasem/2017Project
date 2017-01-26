@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.chitra.school.dao.StudentDao;
 import com.chitra.school.model.Book;
+import com.chitra.school.model.Student;
 import com.chitra.school.model.User;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;
@@ -21,6 +23,8 @@ public class IndexController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	StudentDao studentDao;
 	SSOIdUtil sSOIdUtil = new SSOIdUtil();
 
     public User getUser(){
@@ -81,8 +85,15 @@ public class IndexController {
 	@RequestMapping(value="/dashboard/people/school_1002_0303.act")
 	public String addViewStudent(Model m, 
 			@RequestParam(required = false) String studentId){
-		m.addAttribute("user", getUser());
-		m.addAttribute("studentId", studentId);
+		try{
+			Student student = studentDao.findById(studentId);
+			m.addAttribute("user", getUser());
+			m.addAttribute("studentId", studentId);
+			m.addAttribute("student", student);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return "dashboard/school_1002_0303_view";
 		
 	}
