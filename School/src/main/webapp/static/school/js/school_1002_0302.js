@@ -4,17 +4,13 @@ var courseUrl = $("#courseUrl").val();
  * When Form is loaded
  */
 $(document).ready(function(e){
-	
-	
 	$("button").click(function(e){
 		e.preventDefault();
 	});
-	
-	
-	school_1002_0302.loadData("",function(){
-		$("#birthDate").datepicker();		
+	school_1002_0302.loadData("",function(dat){
+		$("#birthDate").datepicker();
+		school.ui.addCourseCombo("#sbCourse", courseUrl,dat.courseId);
 	});
-	school.ui.addCourseCombo("#sbCourse", courseUrl);
 	
 	// Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
@@ -75,11 +71,11 @@ $(document).ready(function(e){
 			if(field.name==="content"){
 				memo.content = field.value;
 			}
-			if(field.name==="course"){
-				course.course = field.value;
+			if(field.name==="courseId"){
+				course.id = field.value;
 			}
-			if(field.name==="session"){
-				session.session = field.value;
+			if(field.name==="sessionId"){
+				session.id = field.value;
 			}
 			if(field.name==="birthDate"){
 				formData.birthDate = school.string.removeAllString(formData.birthDate);
@@ -87,14 +83,15 @@ $(document).ready(function(e){
 		});		
 		
 		delete formData.content;
-		delete formData.course;
-		delete formData.session;
+		delete formData.courseId;
+		delete formData.sessionId;
 		
 		input.student 	= formData;
 		input.memo 		= memo;
 		input.course 	= course;
 		input.session 	= session;
 		
+		console.log(input);
 		school_1002_0302.saveData(input);
 		
 	});
@@ -176,15 +173,19 @@ school_1002_0302.loadData = function(input, callbackFn){
 	$("#firstName").focus();	
 	$.extend(input, school_1002_0302.getData());
 	
+	var data = {};
+	
 	school_1002_0302.isUpdate = false;
 	if(studentId.length===10){
 		var studentIDHtml = '<input type="hidden" id="studentId" name="id">';
 		$("#school_1002_0302_form").append(studentIDHtml);
 		school_1002_0302.isUpdate = true;
-		$.ajax({
+		$.ajax({ 
 			type: "GET",
 			url: getStudentUrl,
 			success: function(dat){
+				data.courseId = dat.studentRec.course.id;
+				
 				var absoluteUrl = $("#absoluteUrl").val();
 				$("#MEMO_RESULT").html();
 				
@@ -213,11 +214,15 @@ school_1002_0302.loadData = function(input, callbackFn){
 				if(dat.memoRec.length>0){
 					$("#MEMO_TMPL").tmpl(dat.memoRec).appendTo("#MEMO_RESULT");
 				}
+				if($.isFunction(callbackFn)){
+					callbackFn(data);
+				}
 			}
 		});
-	}
-	if($.isFunction(callbackFn)){
-		callbackFn();
+	}else{
+		if($.isFunction(callbackFn)){
+			callbackFn(data);
+		}
 	}
 	
 };
