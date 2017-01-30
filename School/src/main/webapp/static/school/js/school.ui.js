@@ -27,18 +27,20 @@ if(!school.ui) {
 			});
 		return isConfirmed;		
 	};
-	school.ui.addCourseCombo = function(target,service){
+	school.ui.addCourseCombo = function(target,service, courseId){
+		if(!courseId) var courseId = "0";
 		$.ajax({
 			url: service,
 			type: "GET",
 			success: function(dat){
-				var select = "<option value=''>Choose Course...</option>";
+				var select = "<option value='0'>Choose Course...</option>";
 				for(var i = 0; i<dat.courseRec.length; i++){
 					select += "<option value='"+dat.courseRec[i].id+"'>"
-					+ dat.courseRec[i].course +"(" + dat.courseRec[i].myAlias+")</option>";
+					+ dat.courseRec[i].course +"(" + dat.courseRec[i].academicYear.academicYear+")</option>";
 				}
 				
 				$(target).html(select);
+				$(target).val(courseId);
 			}
 		});
 	}
