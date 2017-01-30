@@ -1,17 +1,14 @@
 package com.chitra.school.model;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.chitra.school.utils.StringUtils;
 
 @Entity
 @Table(name="TB_COURSE")
@@ -20,12 +17,13 @@ public class Course{
 	 @Id 
 	/* @GenericGenerator(name = "sequence_cls_id", strategy = "com.chitra.school.id.ClassroomIdGenerator")
 	 @GeneratedValue(generator = "sequence_cls_id")*/
+	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 @Column(name = "ID",unique = true, nullable = false, length = 10)	 
 	 private int id;
 	 @Column(name="COURSE", nullable=false, length=25)
 	 private String course;
 	 @Column(name="REGISTER_DATE", length=14, nullable = false)
-	 private String registerDate = StringUtils.getSystemDate();
+	 private String registerDate; // = StringUtils.getSystemDate();
 	 @Column(name="REGISTER_PERSON", length = 25, nullable = false)
 	 private String registerPerson;
 	 @Column(name="DESCRIPTION", length=500)
@@ -39,20 +37,9 @@ public class Course{
 	 private AcademicYear academicYear;
 	 
 	 @Column(name="STATE")
-	 private String state = State.ACTIVE.getState();
+	 private String state;// = State.ACTIVE.getState();
 	 
-	 @Column(name="MY_ALIAS")
-	 private String myAlias;
-	 
-	 
-
-	public String getMyAlias() {
-		return myAlias;
-	}
-
-	public void setMyAlias(String myAlias) {
-		this.myAlias = myAlias;
-	}
+	
 
 	public int getId() {
 		return id;
