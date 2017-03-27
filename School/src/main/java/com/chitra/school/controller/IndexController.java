@@ -114,6 +114,11 @@ public class IndexController {
 		return "/dashboard/school_1005_0102_view";
 	}
 	
+	@RequestMapping(value="/dashboard/attendance/school_1006_0101.act")
+	public String addShowAttendance(){
+		return "/dashboard/school_1006_0101_view";
+	}
+	
 	
 	//End New Edition
 	
