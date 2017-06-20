@@ -31,13 +31,16 @@
                             
                             <li>
                                 <a href="<c:url value="/dashboard/contact/school_1003_0101.act"/>" class="waves-effect"><i class="md md-contacts"></i><span> Contact List </span></a>
-                            </li>                                                  
+                            </li>                                                 
                             <li>
                                 <a href="<c:url value="/dashboard/classroom/school_1004_0101.act"/>" class="waves-effect"><i class="md md-event"></i><span> Classroom </span></a>
                             </li>                       
                             <li>
                                 <a href="<c:url value="/dashboard/payment/school_1005_0101.act"/>" class="waves-effect"><i class="md  md-attach-money"></i><span> Payment </span></a>
-                            </li>  
+                            </li>                               
+                            <li>
+                                <a href="<c:url value="/dashboard/attendance/school_1006_0101.act"/>" class="waves-effect"><i class="md md-contacts"></i><span> Attendance </span></a>
+                            </li>
                             <sec:authorize access="hasRole('DIRECTOR')">
                             <li>
                                 <a href="<c:url value="/dashboard/users"/>" class="waves-effect"><i class="md md-people"></i><span> Users </span></a>

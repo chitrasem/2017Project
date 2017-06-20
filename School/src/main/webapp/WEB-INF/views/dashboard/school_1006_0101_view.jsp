@@ -1,13 +1,10 @@
-<template:basic htmlTitle="Profile" bodyTitle="Profile">
+<template:basic htmlTitle="Attendance" bodyTitle="Attendance">
 	<!-- ============================================================== -->
 	<!-- Start right Content here -->
 	<div class="content">
 		<div class="container">
-
-			<!-- Pls Remove -->
-			<div style="height: 600px;"></div>
-
-
+		GO HOME NOW IS THE BEST TIME OF ALL YOU SHOULD GO RIGHT NOW... YES YES YES
+		
 		</div>
 		<!-- container -->
 

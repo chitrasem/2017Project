@@ -37,8 +37,9 @@
 		</div>
 	</div>
 	<script type="text/jquery-tmpl" id="PAYMENT_TMPL">                                       
-		
-		
+		<form>
+			<input type="text" name>
+		</form>		
 	</script>
 	
 	<script>

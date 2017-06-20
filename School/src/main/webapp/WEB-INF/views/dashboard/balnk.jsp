@@ -1,4 +1,4 @@
-<template:basic htmlTitle="Profile" bodyTitle="Profile">
+<template:basic htmlTitle="Attendance" bodyTitle="Attendance">
 	<!-- ============================================================== -->
 	<!-- Start right Content here -->
 	<div class="content">
