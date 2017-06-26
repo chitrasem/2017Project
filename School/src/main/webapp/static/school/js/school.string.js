@@ -29,6 +29,11 @@ if(!school.string){
 		if(str == null || str == "") return "";
 		return str.replace(/[^0-9\.]/g, '');
 	};
+	school.string.numberWithComma = function(str){
+		if(str == null || str == "") return "0";
+		return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");	
+		
+	}
 	
 	
 	

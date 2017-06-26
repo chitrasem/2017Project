@@ -43,11 +43,10 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 						add(Projections.property(firstName), "firstName").
 						add(Projections.property("student.gender"), "gender"));				
 				
-		Criterion cFirstName = Restrictions.like(firstName, searchName);
-		Criterion cLastName = Restrictions.like(lastName, searchName);
+		Criterion cFirstName = Restrictions.ilike(firstName, searchName);
+		Criterion cLastName = Restrictions.ilike(lastName, searchName);
 		LogicalExpression orExp = Restrictions.or(cFirstName, cLastName);
-				crit.add(orExp);
-				
+				crit.add(orExp);				
 				crit.add(Restrictions.eq("student.user.id", userId));
 				crit.addOrder(Order.asc(lastName));
 				crit.setMaxResults(maxResults);
@@ -157,7 +156,9 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 					.add(Projections.sqlProjection(query2, 
 							new String[]{"biography"}, 
 							new Type[] {StandardBasicTypes.STRING}))
-					).setResultTransformer(Transformers.aliasToBean(Student.class));			
+					).setResultTransformer(Transformers.aliasToBean(Student.class));		
+			
+			
 			
 				crit.add(Restrictions.ilike("id", "%"+id+"%"));
 

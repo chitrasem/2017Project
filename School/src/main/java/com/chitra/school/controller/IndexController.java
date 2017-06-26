@@ -40,6 +40,9 @@ public class IndexController {
 	@RequestMapping(value="/")
 	public ModelAndView indexPage(){		
 		return new ModelAndView("redirect:dashboard/school_1001_0101.act");		
+	}@RequestMapping(value="/dashboard")
+	public ModelAndView indexPageDashboard(){		
+		return new ModelAndView("redirect:school_1001_0101.act");		
 	}
 	@RequestMapping(value="/dashboard/school_1001_0101.act")
 	public String showDashboardForm(Model m){

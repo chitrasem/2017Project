@@ -1,6 +1,7 @@
 package com.chitra.school.controller.rest;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,20 @@ public class PaymentRest {
 			dao.save(p);
 			
 		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return m;
+	}
+	@RequestMapping(value = "/school_1005_0102_r001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
+	public Map<Object, Object> list(){
+		Map<Object, Object> m = new HashMap<Object, Object>();
+		try{
+			List<Payment> list = dao.list();
+			m.put("PAYMENT_REC", list);
+			m.put("message", "success");			
+		}catch(Exception e){
+			m.put("message", "failed");
 			e.printStackTrace();
 		}
 		
