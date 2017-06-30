@@ -22,6 +22,11 @@
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<!-- <div class="table-responsive"> -->
 						<div class="">
+						   <div class="row">
+						   		<div class="col-md-12">
+						   			lkasdjg
+						   		</div>
+						   </div>
 						   <form id="school_1005_0101_form" name="school_1002_0301_form" action="<c:url value="/dashboard/payment/school_1005_0102.act"/>" method="post">
 						   <input type="hidden" name="studentId" id="studentId" value="0">
 							<div class="row">
@@ -37,7 +42,7 @@
                                       </div>
 								</div>
 							</div>
-						   </form>
+						   </form>						   
 							<table class="table table-hover table-striped">
 								<thead>
 									<tr>
@@ -74,15 +79,15 @@
 		<tr>
 			<td class="text-center">
 				<input type="checkbox">
-				<input type="hidden" value="{{= paymentId }}" class="PAYMENT_ID">
+				<input type="hidden" value="{%= paymentId %}" class="PAYMENT_ID">
 			</td>
-			<td class="text-center">{{= school.string.formatDatetime( transactionDate ) }}</td>
-			<td class="text-center">{{= description }}</td>
-			<td class="text-right">{{= school.string.numberWithComma( "1" ) }}</td>
-			<td class="text-right">{{= school.string.numberWithComma( amountUs ) }}</td>
-			<td class="text-right">{{= school.string.numberWithComma( "100000") }}</td>
-			<td class="text-right">{{= school.string.numberWithComma( amountUs ) }} <span class="text-primary">ដុល្លា</span></td>
-			<td class="text-right">{{= school.string.numberWithComma( amountKm ) }} <span class="text-primary">រៀល</span></td>			
+			<td class="text-center">{%= school.string.formatDatetime( transactionDate ) %}</td>
+			<td class="text-center"><a href="javascript:" data-payment-id="{%= id %}" class="descr">{%= description %}</a></td>
+			<td class="text-right">{%= school.string.numberWithComma( "1" ) %}</td>
+			<td class="text-right">{%= school.string.numberWithComma( amountUs ) %}</td>
+			<td class="text-right">{%= school.string.numberWithComma( "100000") %}</td>
+			<td class="text-right">{%= school.string.numberWithComma( amountUs ) %} <span class="text-primary">ដុល្លា</span></td>
+			<td class="text-right">{%= school.string.numberWithComma( amountKm ) %} <span class="text-primary">រៀល</span></td>			
 		</tr>
 	</script>	
 	<script>

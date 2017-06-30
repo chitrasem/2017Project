@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chitra.school.dao.Balance;
 import com.chitra.school.dao.PaymentDao;
 import com.chitra.school.model.Payment;
 import com.chitra.school.utils.SSOIdUtil;
@@ -27,18 +28,30 @@ public class PaymentRest {
 		Payment p = new Payment();
 		p.setAmountKm("1000");
 		p.setAmountUs("1000");
-		p.setDescription("Good");
-		
+		p.setDescription("Good");		
 		try{
 			dao.save(p);
 			
 		}catch(Exception e){
 			e.printStackTrace();
+		}		
+		return m;
+	}
+	@RequestMapping(value = "/school_1005_0102_r001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
+	public Map<Object, Object> listBalance(){
+		Map<Object, Object> m = new HashMap<Object, Object>();
+		try{
+			List<Balance> list = dao.curBalanceList();
+			m.put("BALANCE_REC", list);
+			m.put("success", true);			
+		}catch(Exception e){
+			m.put("success", false);
+			e.printStackTrace();
 		}
 		
 		return m;
 	}
-	@RequestMapping(value = "/school_1005_0102_r001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/school_1005_0102_r002.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<Object, Object> list(){
 		Map<Object, Object> m = new HashMap<Object, Object>();
 		try{

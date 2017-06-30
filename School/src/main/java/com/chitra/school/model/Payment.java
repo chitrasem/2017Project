@@ -35,6 +35,16 @@ public class Payment {
 	private String amountUs;
 	@Column(name="AMOUNT_KM", length = 7)
 	private String amountKm;
+	
+	@Column(name="PAYMENT_TYPE", length=1)	
+	private String paymentType;
+	
+	public String getPaymentType() {
+		return paymentType;
+	}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
 	public final String getPaymentId() {
 		return paymentId;
 	}

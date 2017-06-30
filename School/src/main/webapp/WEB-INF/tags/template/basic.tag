@@ -34,10 +34,14 @@
                             </li>                                                 
                             <li>
                                 <a href="<c:url value="/dashboard/classroom/school_1004_0101.act"/>" class="waves-effect"><i class="md md-event"></i><span> Classroom </span></a>
-                            </li>                       
-                            <li>
-                                <a href="<c:url value="/dashboard/payment/school_1005_0101.act"/>" class="waves-effect"><i class="md  md-attach-money"></i><span> Payment </span></a>
-                            </li>                               
+                            </li>       
+                             <li class="has_sub">
+                                <a href="<c:url value="/dashboard/payment/school_1005_0101.act"/>" class="waves-effect"><i class="md md-attach-money"></i><span> Payment </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="<c:url value="/dashboard/payment/school_1005_0101.act"/>">Income</a></li>
+                                    <li><a href="<c:url value="/dashboard/payment/school_1005_0101.act"/>">Expense</a></li>
+                                </ul>
+                            </li>                         
                             <li>
                                 <a href="<c:url value="/dashboard/attendance/school_1006_0101.act"/>" class="waves-effect"><i class="md md-contacts"></i><span> Attendance </span></a>
                             </li>

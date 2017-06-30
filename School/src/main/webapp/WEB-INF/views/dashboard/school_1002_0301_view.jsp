@@ -77,42 +77,42 @@
 	<script type="text/jquery-tmpl" id="STUDENT_TMPL">                                       
 		<tr>
 			<td><input  type="checkbox">
-				<input type="hidden" value="{{= id }}" class="STUDENT_ID">
+				<input type="hidden" value="{%= id %}" class="STUDENT_ID">
 			</td>
 			<td>			
-			{{if (gender == "M") }}
-				<a href="javascript:"><i class="fa fa-circle text-pink m-r-15"></i>{{= id }}</a>	
-			{{else}}
-				<a href="javascript:"><i class="fa fa-circle text-purple m-r-15"></i>{{= id }}</a>				
-			{{/if}}
+			{%if (gender == "M") %}
+				<a href="javascript:"><i class="fa fa-circle text-pink m-r-15"></i>{%= id %}</a>	
+			{%else%}
+				<a href="javascript:"><i class="fa fa-circle text-purple m-r-15"></i>{%= id %}</a>				
+			{%/if%}
 			</td>
 			<td>
-			<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{{= imagePath }}{{= imageName }}" alt="{{= firstName }} " />
-			<a href="javascript:" class="btn-view">{{= kmLastName }}&nbsp;{{= kmFirstName }}
+			<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{%= imagePath %}{%= imageName %}" alt="{%= firstName %} " />
+			<a href="javascript:" class="btn-view">{%= kmLastName %}&nbsp;{%= kmFirstName %}
 			<span class="driver"></span>
-			{{if (gender === "M") }}
+			{%if (gender === "M") %}
 			<i  class="ion ion-male m-r-15 text-pink"></i>
-			{{else}}
+			{%else%}
 			<i  class="ion ion-female m-r-15 text-purple"></i>
-			{{/if}}
+			{%/if%}
 			</a>
 			
 			</td>		
-			<td>{{= firstName }}&nbsp{{= lastName }}</td>
-			<td>{{= school.string.formatBirthDate( birthDate ) }}</td>
-			<td>{{= phone1 }}</td>
+			<td>{%= firstName %}&nbsp{%= lastName %}</td>
+			<td>{%= school.string.formatBirthDate( birthDate ) %}</td>
+			<td>{%= phone1 %}</td>
 			<td>
 							
 				<button  class="btn btn-edit btn-xs btn-pink waves-effect waves-light m-b-5">
 					 <span>Edit</span> <i class="fa  fa-caret-square-o-down"></i> 
 				</button>
-			{{if (state === "Inactive") }}				
+			{%if (state === "Inactive") %}				
 				<button class="btn btn-xs btn-purple waves-effect waves-light m-b-5">
 					 <span>Pay</span> <i class="fa fa-money"></i> 
 				</button>
-			{{/if}}
+			{%/if%}
 			</td>
-			<td>{{= biography }}</td>
+			<td>{%= biography %}</td>
 		</tr>
 	</script>
 	

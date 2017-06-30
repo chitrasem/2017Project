@@ -7,4 +7,5 @@ import com.chitra.school.model.Payment;
 public interface PaymentDao {
 	void save(Payment payment);
 	List<Payment> list();
+	List<Balance> curBalanceList();
 }

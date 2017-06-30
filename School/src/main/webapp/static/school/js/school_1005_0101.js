@@ -16,7 +16,7 @@ school_1005_0101.getData = function(){
 }
 school_1005_0101.loadData = function(input){
 	if(!input) input = {};
-	var url = 'school_1005_0102_r001.chitra';
+	var url = 'school_1005_0102_r002.chitra';
 	$.ajax({
 		url: url,
 		success: function(resp){
