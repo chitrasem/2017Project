@@ -42,6 +42,7 @@
         <!-- Custom Files -->
         <link href="<c:url value="/static/css/helper.css" />" rel="stylesheet" type="text/css" />
         <link href="<c:url value="/static/css/style.css" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/static/school/css/style.css" />" rel="stylesheet" type="text/css" />
         
         <link href="<c:url value="/static/kms/css/kms.css" />" rel="stylesheet" type="text/css" />
         
@@ -95,14 +96,10 @@
                                 </button>
                                 <span class="clearfix"></span>
                             </div>
-                            <div class="navbar-form pull-left" >                            
-                            
-							
-									
+                            <div class="navbar-form pull-left" >     
                                 <div class="form-group">
                                     <input type="text" id="searchName" class="form-control search-bar" placeholder="Type here for search...">
 									<a href="javascript:" class="right-bar-toggle waves-effect waves-light"><i class="ion-arrow-down-b"></i></a>
-                               
                                 </div>
                                 <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                             </div>
@@ -229,21 +226,12 @@
                                     <li class="active">Blank Page <c:out value="${fn:trim(bodyTitle)}" /></li>
                                 </ol> --%>
                             </div>
-                        </div>
-                        
+                        </div>                        
                         <jsp:doBody />
-                        
-                        
-
                         <!-- Pls Remove -->
                         <!-- <div style="height:600px;"></div> -->
-                       
-
-
-                    </div> <!-- container -->
-                               
+                    </div> <!-- container -->                               
                 </div> <!-- content -->
-
                 <footer class="footer text-right">
                     2015 © Moltran.
                 </footer>

@@ -30,10 +30,16 @@
         <script src="<c:url value="/static/assets/fullcalendar/fullcalendar.js" />"></script>
         <!-- Sweet Alert JS -->
         <script src="<c:url value="/static/assets/sweet-alert/sweet-alert.min.js" />"></script>
+        
+        <script src="<c:url value="/static/js/bignumber.js" />"></script>
+        <script src="<c:url value="/static/js/autoNumeric.js" />"></script>
+        
         <!-- jquery.tmpl.js -->
         <script src="<c:url value="/static/js/jquery.tmpl.js" />"></script>
         <script src="<c:url value="/static/school/js/school.string.js" />"></script>
         <script src="<c:url value="/static/school/js/school.ui.js" />"></script>
-         <!-- CUSTOM JS -->
+         <!-- CUSTOM JS -->         
         <script src="<c:url value="/static/js/jquery.app.js" />"></script>
+        
+        
         

@@ -184,11 +184,9 @@ school_1002_0302.loadData = function(input, callbackFn){
 			type: "GET",
 			url: getStudentUrl,
 			success: function(dat){
-				data.courseId = dat.studentRec.course.id;
-				
+				data.courseId = dat.studentRec.course.id;				
 				var absoluteUrl = $("#absoluteUrl").val();
-				$("#MEMO_RESULT").html();
-				
+				$("#MEMO_RESULT").html();				
 				$("#studentId").val(dat.studentRec.id);
 				$("#firstName").val(dat.studentRec.firstName);
 				$("#lastName").val(dat.studentRec.lastName);
@@ -198,8 +196,7 @@ school_1002_0302.loadData = function(input, callbackFn){
 	        	$("#imgPhoto").attr("src",absoluteUrl+dat.studentRec.imagePath+dat.studentRec.imageName);
 	        	$("#imageName").val(dat.studentRec.imageName);
 	        	$("#imagePath").val(dat.studentRec.imagePath);
-				$("#birthDate").val(school.string.formatBirthDate( dat.studentRec.birthDate) );
-			
+				$("#birthDate").val(school.string.formatBirthDate( dat.studentRec.birthDate) );			
 				$("#birthPlace").val(dat.studentRec.birthPlace);				
 				$("#biography").val(dat.studentRec.biography);
 				$("#phone1").val(dat.studentRec.phone1);
@@ -209,8 +206,7 @@ school_1002_0302.loadData = function(input, callbackFn){
 				$("#motherName").val(dat.studentRec.motherName);
 				$("#motherPhone").val(dat.studentRec.motherPhone);
 				$("#fatherName").val(dat.studentRec.fatherName);
-				$("#fatherPhone").val(dat.studentRec.fatherPhone);
-				
+				$("#fatherPhone").val(dat.studentRec.fatherPhone);				
 				if(dat.memoRec.length>0){
 					$("#MEMO_TMPL").tmpl(dat.memoRec).appendTo("#MEMO_RESULT");
 				}
@@ -223,13 +219,11 @@ school_1002_0302.loadData = function(input, callbackFn){
 		if($.isFunction(callbackFn)){
 			callbackFn(data);
 		}
-	}
-	
+	}	
 };
 var isJpg = function(name) {
     return name.match(/jpg$/i)
-};
-    
+};    
 var isPng = function(name) {
     return name.match(/png$/i)
 };

@@ -1,0 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css?family=Angkor|Arvo|Bayon|Lato');
+@import url("https://fonts.googleapis.com/css?family=Battambang");
+/* 
+font-family: 'Bayon', cursive;
+font-family: 'Arvo', serif;
+font-family: 'Angkor', cursive;
+font-family: 'Lato', sans-serif;
+ */
+ 
+ *{
+font-family: 'Battambang', cursive;
+ }
