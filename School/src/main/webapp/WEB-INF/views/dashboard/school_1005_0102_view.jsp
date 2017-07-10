@@ -1,39 +1,29 @@
-<template:basic htmlTitle="Students" bodyTitle="People">
-
-	<!-- Searching*********************************************************************** -->
-	 <div class="row">                        
-	    <div class="col-lg-12">
-	        <div class="panel panel-default">
-	            <div class="panel-body">
-	                <div class="input-group">
-	                    <input type="text" id="searchName" name="example-input1-group2" class="form-control input-lg" placeholder="Search any name">
-	                    <span class="input-group-btn">
-	                        <button id="btnSearchName" type="button" class="btn-lg btn waves-effect waves-light btn-primary w-md"><i class="fa fa-search"></i></button>
-	                    </span>
-	                </div>
-	            </div>
-	        </div>
-	    </div>	
-	</div>
+<template:basic htmlTitle="Students" bodyTitle="ប្រភពប្រាក់ចំណូល">
 	<div class="row">
-		<div class="col-lg-6">
-			<div class="col-md-6">
-               <div class="form-group">
-                   <label class="control-label col-sm-4" for="payType">Type:</label>
-                    <div class="col-sm-8">
-                    	<select id="payType" class="btn btn-pink btn-sm">
-							<option value="">Choose...</option>
-							<option value="income">Income</option>
-							<option value="expense">Expense</option>
-						</select>
-			 		</div>
-                </div>
-             </div>
-             
-			<div id="resultMethod"></div>
-		</div>
-		<div class="col-lg-6">
-		Book
+		<div class="col-lg-12">
+			<table class="table">
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td>កាលបរិច្ឆេទ</td>
+						<td><input type="text"/></td>
+						<td>អ្នកគិតលុយ(អ្នកទទួលប្រាក់)</td>
+						<td><input disabled="disabled" class="dis" value="${ user.ssoId }" type="text"/></td>
+					</tr>
+					<tr>
+						<td>សូមជ្រើសរើសអ្នកបង់ប្រាក់</td>
+						<td>
+							<input type="text" disabled="disabled" class="dis">
+							<input type="checkbox" name="vehicle" value="Car" checked>
+							<a href="javascript:">ស្វែងរកសិស្ស</a>
+						</td>
+						<td>ជ្រើសរើសសិស្ស</td>
+						<td><input type="text"/></td>
+					</tr>
+				</tbody>
+				
+			</table>
+			
 		</div>
 	</div>
 	<script type="text/jquery-tmpl" id="PAYMENT_TMPL">                                       

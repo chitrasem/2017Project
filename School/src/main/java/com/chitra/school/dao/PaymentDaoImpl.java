@@ -24,13 +24,14 @@ public class PaymentDaoImpl extends AbstractDao<Integer, Payment>  implements Pa
 	}
 
 	public List<Balance> curBalanceList() {
-		String query = "SELECT TOT_INC_AMT_KM"
-				+ ", TOT_INC_AMT_US"
-				+ ", TOT_EXP_AMT_KM"
-				+ ", TOT_EXP_AMT_US"
-				+ ", CUR_BALANCE_KM"
-				+ ", CUR_BALANCE_US"
-				+ " FROM BALANCE";
+		String query = "SELECT"
+				+ "  PAY_ID"
+				+ ", STU_ID"
+				+ ", STAFF_ID"
+				+ ", PAY_DATE"
+				+ ", PAY_NM"
+				+ ", PAY_DESCR"
+				+ " FROM TB_PAYMENT";
 
 		SQLQuery sql = getSession().createSQLQuery(query);// session.createSQLQuery(sql);
 		sql.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);	

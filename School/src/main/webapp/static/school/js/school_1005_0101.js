@@ -5,8 +5,7 @@ $(document).ready(function(event){
 	school_1005_0101.loadData();
 	$("#currKm").val( school_1005_0101.exchangeMoney("us2km") );
 	$("#btnAddPayment").click(function(e){
-		e.preventDefault();
-		//$("#school_1005_0101_form").submit();		
+		$("#school_1005_0102").submit();
 	});
 	$("#qty, #unitPrc, #excRate, #currKm, #currUs").autoNumeric('init',{
 		wEmpty: 'zero',
@@ -87,7 +86,7 @@ school_1005_0101.getData = function(){
 	return input;
 }
 school_1005_0101.loadData = function(input){
-	if(!input) input = {};
+/*	if(!input) input = {};
 	var url = 'school_1005_0102_r002.chitra';
 	$.ajax({
 		url: url,
@@ -96,6 +95,6 @@ school_1005_0101.loadData = function(input){
 			//school.ui.createPagination("#pagination", dat.totalStudent, input.numberOfRecord, input.pageCount, school_1002_0301.loadData);
 		}
 	
-	});
+	});*/
 	
 }

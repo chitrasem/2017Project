@@ -3,47 +3,48 @@ package com.chitra.school.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.chitra.school.utils.StringUtils;
 
 @Entity
 @Table(name="TB_PAYMENT")
 public class Payment {
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="PAYMENT_ID")	
-	private String paymentId;
-	
-	
-	@Column(name="DESCRIPTION")
-	private String description;
+
+    @Id 
+    @GenericGenerator(name = "sequence_payment_id", strategy = "com.chitra.school.id.PaymentIDGenerator")
+    @GeneratedValue(generator = "sequence_payment_id")
+    @Column(name = "PAY_ID",unique = true, nullable = false, length = 10)
+	private String paymentId;	
 	
 	@ManyToOne(optional=true)
 	@JoinColumn(name="USER_ID")
 	private User user;	
+	
 	@ManyToOne(optional=true)
-	@JoinColumn(name="STUDENT_ID")
+	@JoinColumn(name="STU_ID")	
 	private Student student;
-	@Column(name="TRANSACTION_DATE")
+	
+	@Column(name="PAY_DESCR")
+	private String description;
+
+	@Column(name="PAY_DATE")
 	private String transactionDate = StringUtils.getStrDate();
-	@Column(name="AMOUNT_US", length= 4)
-	private String amountUs;
-	@Column(name="AMOUNT_KM", length = 7)
-	private String amountKm;
 	
-	@Column(name="PAYMENT_TYPE", length=1)	
-	private String paymentType;
+	@Column(name="PAY_NM")
+	private String payNm;
 	
-	public String getPaymentType() {
-		return paymentType;
+	
+	public String getPayNm() {
+		return payNm;
 	}
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
+	public void setPayNm(String payNm) {
+		this.payNm = payNm;
 	}
 	public final String getPaymentId() {
 		return paymentId;
@@ -75,23 +76,4 @@ public class Payment {
 	public final void setTransactionDate(String transactionDate) {
 		this.transactionDate = transactionDate;
 	}
-	public final String getAmountUs() {
-		return amountUs;
-	}
-	public final void setAmountUs(String amountUs) {
-		this.amountUs = amountUs;
-	}
-	public final String getAmountKm() {
-		return amountKm;
-	}
-	public final void setAmountKm(String amountKm) {
-		this.amountKm = amountKm;
-	}
-	
-	
-	
-	
-	
-	
-
 }

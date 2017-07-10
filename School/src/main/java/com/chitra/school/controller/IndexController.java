@@ -113,7 +113,8 @@ public class IndexController {
 		return "/dashboard/school_1005_0101_view";
 	}
 	@RequestMapping(value="/dashboard/payment/school_1005_0102.act")
-	public String addPaymentForm(){
+	public String addPaymentForm(Model m){		
+		m.addAttribute("user", getUser());				
 		return "/dashboard/school_1005_0102_view";
 	}
 	
