@@ -8,6 +8,8 @@ import com.chitra.school.model.Student;
 
 public interface StudentDao {
 	
+	List<Student> findStudent(String id, String name, String classroom);
+	
 	List<Student> findAll(String id, int maxResult, int firstResult);
 	long totalRecord(String id);
 	

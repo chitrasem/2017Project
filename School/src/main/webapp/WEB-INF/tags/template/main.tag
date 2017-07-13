@@ -33,11 +33,8 @@
         <link href="<c:url value="/static/css/waves-effect.css" />" rel="stylesheet">
         
         <!-- sweet alerts -->
-        <link href="<c:url value="/static/assets/sweet-alert/sweet-alert.min.css" />" rel="stylesheet">
 
 		<!--calendar css-->
-        <link href="<c:url value="/static/assets/fullcalendar/fullcalendar.css" />" rel="stylesheet" />
-        <link href="<c:url value="/static/assets/select2/select2.css" />" rel="stylesheet" type="text/css" />
         
         <!-- Custom Files -->
         <link href="<c:url value="/static/css/helper.css" />" rel="stylesheet" type="text/css" />
@@ -50,6 +47,7 @@
         
         <link href="<c:url value="/static/assets/timepicker/bootstrap-timepicker.min.css" /> " rel="stylesheet" />
         <link href="<c:url value="/static/assets/timepicker/bootstrap-datepicker.min.css" /> " rel="stylesheet" />
+        <link href="<c:url value="/static/css/bootstrap-datetimepicker.min.css" /> " rel="stylesheet" />
         
         <!-- FileUpload -->
         <!-- blueimp Gallery styles -->

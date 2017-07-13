@@ -8,6 +8,23 @@ font-family: 'Angkor', cursive;
 font-family: 'Lato', sans-serif;
  */
  
- *{
-font-family: 'Battambang', cursive;
- }
+*{
+	font-family: 'Battambang', cursive;
+}
+/** Modal*/
+/* .modal{
+    display: block !important; I added this to see the modal, you don't need this
+} */
+
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 550px;
+    overflow-y: auto;
+}
+/*Ending Modal*/
+.currency input[type=text]{
+	text-align:right
+}

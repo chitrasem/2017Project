@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.dao.Balance;
 import com.chitra.school.dao.PaymentDao;
+import com.chitra.school.dao.StudentDao;
 import com.chitra.school.model.Payment;
 import com.chitra.school.model.Student;
 import com.chitra.school.utils.SSOIdUtil;
@@ -27,6 +28,8 @@ public class PaymentRest {
 	SSOIdUtil ssoIdUtil = new SSOIdUtil();
 	@Autowired
 	PaymentDao dao;
+	@Autowired
+	StudentDao stuDao;
 
 	@RequestMapping(value = "/school_1005_0102_c001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<Object, Object> save(
@@ -76,4 +79,19 @@ public class PaymentRest {
 		
 		return m;
 	}
+	@RequestMapping(value = "/school_1005_0102_r003.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
+	public Map<Object, Object> listStudent(){
+		Map<Object, Object> m = new HashMap<Object, Object>();
+		try{
+			List<Student> list = stuDao.findStudent("", "", "");
+			m.put("STUDENT_REC", list);
+			m.put("success", true);			
+		}catch(Exception e){
+			m.put("success", false);
+			e.printStackTrace();
+		}
+		
+		return m;
+	}
+	
 }

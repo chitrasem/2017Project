@@ -259,4 +259,26 @@ public class StudentDaoImpl extends AbstractDao<Integer, Object> implements Stud
 		return (List<Student>) crit.list();
 	}
 
+	public List<Student> findStudent(String id, String name, String classroom) {
+
+		
+		Criteria crit = getSession().createCriteria(Student.class, "s");
+		
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.property("s.id"),"id")
+				.add(Projections.property("s.firstName"),"firstName")
+				.add(Projections.property("s.lastName"),"lastName")
+				.add(Projections.property("s.kmFirstName"),"kmFirstName")
+				.add(Projections.property("s.kmLastName"),"kmLastName")
+				.add(Projections.property("s.gender"),"gender")
+				.add(Projections.property("s.birthDate"),"birthDate")
+				);
+	//	crit.addOrder(Order.desc("s.id"));
+	//	crit.add(Restrictions.eq("s.classroom.id", clsroomId));
+		crit.setResultTransformer(Transformers.aliasToBean(Student.class));	
+		
+		return (List<Student>) crit.list();
+		
+	}
+
 }
