@@ -2,7 +2,25 @@ var school_1005_0102 = {};
 
 $(document).ready(function(){		
 	school_1005_0102.loadData();
-	// Event
+	school_1005_0102.generatDtl([1]);	
+	$(document).delegate(".UNIT_PRICE, .AMT_DST","keyup",function(){
+		var _this = $(this).parent().parent().parent();
+		var totalAmount = new BigNumber(0);		
+		var unitPrice   = school.string.removeComma(_this.find("input.UNIT_PRICE").val());
+		var amtDst		= school.string.removeComma(_this.find("input.AMT_DST").val());
+		var amtTotal	= _this.find("input.AMT_TOTAL");
+		
+		unitPrice		= new BigNumber(unitPrice);
+		amtDst			= new BigNumber(amtDst);
+		
+		totalAmount		= unitPrice.minus(amtDst);		
+		
+		amtTotal.val(school.string.numberWithComma(totalAmount) );
+		
+	});
+	/**
+	 * Remove DTL
+	 */
 	$(document).delegate(".CLS_REMOVE","click", function(){
 		var _this = $(this);
 		_this.parent().parent().remove();
@@ -32,26 +50,8 @@ $(document).ready(function(){
 					"AMT_TOTAL" :_this.parent().parent().find(".AMT_TOTAL").val(),					
 				});
 			});
-		}
-		$("#PAYMENT_DTL_TMPL").tmpl(dtlRec).appendTo("#PAYMENT_DTL_RESULT");	
-		
-		//Date picker
-	    $('.datetimepicker').datetimepicker({
-	        format: "YYYY-MM",
-	        viewMode: "months", 
-	        minViewMode: "months",
-	        pickTime: false,
-	        showTodayButton: true,
-	    });
-	    
-	    //Format the currency
-	    $(".currency").autoNumeric('init',{
-			wEmpty: 'zero',
-			lZero: 'deny',
-		    aPad: false,
-		    vMax: '999999999999',
-		    vMin: '-999999999999'		
-		});
+		}	
+		school_1005_0102.generatDtl(dtlRec);
 	});
 	/**
 	 * TODO: RADION CLICK EVENT
@@ -138,13 +138,77 @@ $(document).ready(function(){
 		
 	});
 }); // end Ready function
-school_1005_0102.check = function(traget){	
-	console.log(target)
-	$(target).checked = true;
-}
-school_1005_0102.uncheck = function(target){	
-	$(target).checked = false;
+/**
+ * TODO SAVE CHANGE
+ */
+$(document).delegate("#btnSave","click",function(){
+	/**
+	 * Note
+	 * Pay Type 1 = Income
+	 * Pay Type 2 = Expense
+	 * Pay Status(1) 1 = School Fee
+	 * Pay Status(1) 2 = Book Price
+	 * Pay Status(1) 0 = Others
+	 * Pay Status(2) 1 = Salary
+	 * Pay Status(2) 2 = Electricity
+	 * Pay Status(2) 0 = Others
+	 */
+	var student		 		= {};
+	var payment		 		= {};
+	var paymentDtl	 		= [];
+	var input				= {};	
+	student["id"]	= $("#txtPayer").attr("data-stu-id");
+	payment["description"]= "បង់ថ្លៃសាលា";
 	
+	$("#PAYMENT_DTL_RESULT >tr").each(function(e){
+		paymentDtl.push({
+			"payDtlDescr"		: $(this).find(".PAY_DTL_DESCR").val(),	
+			"payDtlAmtKm"	: $(this).find(".UNIT_PRICE").val(),	
+			"payDtlDisc" 		: $(this).find(".AMT_DST").val(),			
+			"pay_status"		: $("#txtPayer").attr("data-status"),
+			"pay_type"			: "1",
+		});
+	});
+	input.student		 = student;
+	input.payment		 = payment;
+	input.paymentDtlRec	 = paymentDtl;
+	school_1005_0102.save(input)
+});
+school_1005_0102.save = function(input){
+	$.ajax({
+		type: "POST",
+		data: JSON.stringify(input),
+        contentType: "application/json; charset=utf-8",
+		url: "school_1005_0102_c001.chitra",
+		success: function(resp){
+			console.log(resp)
+			/*if(dat.success){
+				school.ui.openWindow(url);
+			}*/
+		}
+	});
+	
+};
+school_1005_0102.generatDtl = function(dtlRec){
+	$("#PAYMENT_DTL_TMPL").tmpl(dtlRec).prependTo("#PAYMENT_DTL_RESULT");	
+	
+	//Date picker
+    $('.datetimepicker').datetimepicker({
+        format: "YYYY-MM",
+        viewMode: "months", 
+        minViewMode: "months",
+        pickTime: false,
+        showTodayButton: true,
+    });
+    
+    //Format the currency
+    $(".currency").autoNumeric('init',{
+    	emptyInputBehavior: 'zero',
+		leadingZero: 'deny',
+		allowDecimalPadding: false,
+		maximumValue: '999999999999',
+		minimumValue: '-999999999999'		
+	});	
 }
 school_1005_0102.loadData = function(input){		
 	if(!input) input = {};

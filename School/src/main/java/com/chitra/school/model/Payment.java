@@ -17,8 +17,8 @@ import com.chitra.school.utils.StringUtils;
 public class Payment {
 
     @Id 
-    @GenericGenerator(name = "sequence_payment_id", strategy = "com.chitra.school.id.PaymentIDGenerator")
-    @GeneratedValue(generator = "sequence_payment_id")
+   // @GenericGenerator(name = "sequence_payment_id", strategy = "com.chitra.school.id.PaymentIDGenerator")
+   // @GeneratedValue(generator = "sequence_payment_id")
     @Column(name = "PAY_ID",unique = true, nullable = false, length = 10)
 	private String paymentId;	
 	

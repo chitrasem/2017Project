@@ -19,8 +19,7 @@ public final  class StringUtils {
 		return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date() );
 	}
     public	static  String getYearMonthDay(){
-		return new SimpleDateFormat("yyyyMMdd").format(new Date());
-		
+		return new SimpleDateFormat("yyyyMMdd").format(new Date());		
 	}
 	public static String getPrincipal(){
         String userName = null;

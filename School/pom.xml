@@ -185,6 +185,14 @@
 		    <artifactId>jackson-datatype-hibernate4</artifactId>
 		    <version>${jackson.version}</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20170516</version>
+		</dependency>
+		
 		<!-- Common file upload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
