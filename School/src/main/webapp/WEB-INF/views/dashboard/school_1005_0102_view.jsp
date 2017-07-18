@@ -1,3 +1,4 @@
+<%@page import="org.joda.time.DateTime"%>
 <template:basic htmlTitle="Payment" bodyTitle="ប្រភពប្រាក់ចំណូល">
 <!-- Modal Part -->
 <div class="modal fade bs-example-modal-lg" tabindex="-1" id="payer_modal" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -63,15 +64,14 @@
 										<td><p class="form-control-static">អ្នកគិតលុយ(អ្នកទទួលប្រាក់)</p></td>
 										<td><input disabled="disabled" class="dis form-control" value="${ user.ssoId }" type="text"/></td>
 										<td>										
-	          									<p class="form-control-static">សូមជ្រើសរើសអ្នកបង់ប្រាក់</p>
-	          								</td>
+	          								<p class="form-control-static">សូមជ្រើសរើសអ្នកបង់ប្រាក់</p>
+	          							</td>
 										<td class="form-inline">
 											<div class="form-group">
 												<input class="form-control" data-stu-id="" data-status="" type="text" disabled="disabled" id="txtPayer" class="dis">											
 											</div>											
-												<input type="checkbox" name="vehicle"  id="chkPayer" class="checkbox-info" checked>										
-											
-											<button type="button" class="btn btn-purple btn-sm waves-effect waves-light" data-toggle="modal" id="fnPayer" >
+												<input type="checkbox" name="vehicle"  id="chkPayer" class="checkbox-info" checked>	
+											<button type="button" class="btn btn-default btn-sm waves-effect waves-light" data-toggle="modal" id="fnPayer" >
 												<span>ស្វែងរកសិស្ស</span><i class="ion ion-android-search"></i>												
 											</button>
 										</td>
@@ -85,7 +85,7 @@
 									<tr>
 										<th >										
 											<div class="btn-group">								    
-												<button id="ADD_PAY_DTL" type="button" class="btn btn-sm btn-purple waves-effect waves-light">
+												<button id="ADD_PAY_DTL" type="button" class="btn  form-control-staticbtn-sm btn-default waves-effect waves-light">
 													<i class="ion ion-plus"></i>
 												</button>
 											</div>
@@ -95,10 +95,34 @@
 										<th class="text-center">តម្លៃ</th>
 										<th class="text-center">បញ្ចុះតម្លៃ</th>
 										<th class="text-center">សរុប</th>
-										<th class="text-center"></th>
+										<th class="text-center"></th>	
 									</tr>
+										
+									<tr>
+										<th class="text-center form-control-static" colspan="3">សរុប</th>
+										<th class="text-center" id="">
+											 <div class="input-group currency pull-right">
+								             <span class="input-group-addon">រៀល</span>
+										  	 <input type="text" class="form-control currency" id="TOT_UNIT_PRICE" disabled="disabled" value="0">
+								           </div>										
+										</th>
+										<th class="text-center" >
+											 <div class="input-group currency pull-right">
+								             <span class="input-group-addon">រៀល</span>
+										  	 <input type="text" class="form-control currency" id="TOT_AMT_DST" disabled="disabled" value="0">
+								           </div>
+										</th>
+										<th class="text-center" >
+										 <div class="input-group currency pull-right">
+								             <span class="input-group-addon">រៀល</span>
+										  	 <input type="text" class="form-control currency" id="TOT_AMT_TOTAL" disabled="disabled" value="0">
+								           </div>										
+										</th>																		
+								          
+										<td class="text-center"></td>
+									</tr>	
 								</thead>
-								<tbody id="PAYMENT_DTL_RESULT" style="hight: 100px;">									
+								<tbody id="PAYMENT_DTL_RESULT" style="hight: 100px;">																
 								</tbody>
 							</table>
 							
@@ -150,11 +174,11 @@
              <input type="text" disabled="disabled" class="form-control currency AMT_TOTAL" value="{%= AMT_TOTAL %}">
            </div>
 		</td>
-			<td>
-				<button class="btn btn-sm btn-purple waves-effect waves-light CLS_REMOVE">
+			<th>
+				<button class="btn btn-sm btn-default waves-effect waves-light CLS_REMOVE">
 					<i class="ion ion-minus"></i>
 				</button>					
-			</td>
+			</th>
 		</tr>				
 	</script>
 	<script type="text/jquery-tmpl" id="STUDENT_LIST_TMPL">    
@@ -176,5 +200,5 @@
 	<script>
 	</script>
     <%@include file="../../views/dashboard/footer.jsp" %>
-    <script src="<c:url value="/static/school/js/school_1005_0102.js" />"></script>
+    <script src="<c:url value="/static/school/js/school_1005_0102.js"/>?<joda:format value="<%= new DateTime() %>" style="SM" />"></script>
 </template:basic>

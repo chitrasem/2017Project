@@ -7,6 +7,7 @@ import java.lang.reflect.ParameterizedType;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
  
 public abstract class AbstractDao<PK extends Serializable, T> {
@@ -22,7 +23,9 @@ public abstract class AbstractDao<PK extends Serializable, T> {
     private SessionFactory sessionFactory;
  
     protected Session getSession(){
+    	
         return sessionFactory.getCurrentSession();
+        
     }
  
     @SuppressWarnings("unchecked")

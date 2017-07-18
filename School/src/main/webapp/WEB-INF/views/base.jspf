@@ -5,3 +5,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/template" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>

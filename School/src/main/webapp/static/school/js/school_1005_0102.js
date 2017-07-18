@@ -16,14 +16,21 @@ $(document).ready(function(){
 		totalAmount		= unitPrice.minus(amtDst);		
 		
 		amtTotal.val(school.string.numberWithComma(totalAmount) );
+		school_1005_0102.calculateDtl();
 		
 	});
 	/**
 	 * Remove DTL
 	 */
 	$(document).delegate(".CLS_REMOVE","click", function(){
+		var dtlSize = $('#PAYMENT_DTL_RESULT >tr').length;
+		if(dtlSize<=1){
+			alert("មិនអាចលុបចោលទាំងអស់នោះទេ!");
+			return false;			
+		}
 		var _this = $(this);
 		_this.parent().parent().remove();
+		school_1005_0102.calculateDtl();
 	});
 	/**
 	 * TODO: ADD DETAIL
@@ -52,6 +59,7 @@ $(document).ready(function(){
 			});
 		}	
 		school_1005_0102.generatDtl(dtlRec);
+		school_1005_0102.calculateDtl();
 	});
 	/**
 	 * TODO: RADION CLICK EVENT
@@ -162,8 +170,8 @@ $(document).delegate("#btnSave","click",function(){
 	
 	$("#PAYMENT_DTL_RESULT >tr").each(function(e){
 		paymentDtl.push({
-			"payDtlDescr"		: $(this).find(".PAY_DTL_DESCR").val(),	
-			"payDtlAmtKm"	: $(this).find(".UNIT_PRICE").val(),	
+			"payDtlDescr"		: school.string.removeAllString( $(this).find(".PAY_DTL_DESCR").val() ),	
+			"payDtlAmtKm"		: $(this).find(".UNIT_PRICE").val(),	
 			"payDtlDisc" 		: $(this).find(".AMT_DST").val(),			
 			"pay_status"		: $("#txtPayer").attr("data-status"),
 			"pay_type"			: "1",
@@ -172,8 +180,31 @@ $(document).delegate("#btnSave","click",function(){
 	input.student		 = student;
 	input.payment		 = payment;
 	input.paymentDtlRec	 = paymentDtl;
+	console.log(input);
 	school_1005_0102.save(input)
 });
+school_1005_0102.calculateDtl = function(){
+	var totAmt 		= new BigNumber(0);
+	var totDist		= new BigNumber(0);
+	var remainTotAmt	= new BigNumber(0);
+	$("#PAYMENT_DTL_RESULT >tr").each(function(e){
+		var _this = $(this);
+		_this.css("background","grey");
+		var unitPrice   = school.string.removeComma(_this.find("input.UNIT_PRICE").val());
+		var amtDist		= school.string.removeComma(_this.find("input.AMT_DST").val());	
+		unitPrice = new BigNumber(unitPrice);
+		amtDist = new BigNumber(amtDist);
+		
+		totAmt = totAmt.plus(unitPrice);
+		totDist = totDist.plus(amtDist)
+	});	
+	remainTotAmt = totAmt.minus(totDist);
+	$("#TOT_UNIT_PRICE").val( school.string.numberWithComma( totAmt ) );
+	$("#TOT_AMT_DST").val( school.string.numberWithComma( totDist ) );
+	$("#TOT_AMT_TOTAL").val( school.string.numberWithComma (remainTotAmt) );
+	
+	
+};
 school_1005_0102.save = function(input){
 	$.ajax({
 		type: "POST",

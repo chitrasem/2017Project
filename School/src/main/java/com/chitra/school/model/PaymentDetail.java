@@ -46,7 +46,7 @@ public class PaymentDetail {
 	private Payment payment;
 	
 	@ManyToOne(optional=true)
-	@JoinColumn(name="STU_ID")
+	@JoinColumn(name="STUDENT_ID")
 	private Student student;
 	
 	@ManyToOne(optional=true)
