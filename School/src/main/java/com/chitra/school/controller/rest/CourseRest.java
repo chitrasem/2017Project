@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.dao.CourseDao;
-import com.chitra.school.model.Course;
+import com.chitra.school.entities.Course;
 import com.chitra.school.utils.StringUtils;
 
 @RestController

@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.dao.StudentDao;
-import com.chitra.school.model.Course;
-import com.chitra.school.model.Memo;
-import com.chitra.school.model.Student;
-import com.chitra.school.model.User;
+import com.chitra.school.entities.Course;
+import com.chitra.school.entities.Memo;
+import com.chitra.school.entities.Student;
+import com.chitra.school.entities.User;
 import com.chitra.school.service.MemoService;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;

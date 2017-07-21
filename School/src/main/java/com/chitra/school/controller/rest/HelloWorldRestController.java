@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chitra.school.model.User;
+import com.chitra.school.entities.User;
 import com.chitra.school.service.UserService;
   
 @RestController

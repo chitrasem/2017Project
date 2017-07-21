@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chitra.school.dao.Balance;
+import com.chitra.school.bean.PaymentBean;
 import com.chitra.school.dao.PaymentDao;
 import com.chitra.school.dao.StudentDao;
-import com.chitra.school.model.Payment;
-import com.chitra.school.model.PaymentDetail;
-import com.chitra.school.model.Student;
-import com.chitra.school.model.User;
+import com.chitra.school.entities.Payment;
+import com.chitra.school.entities.PaymentDetail;
+import com.chitra.school.entities.Student;
+import com.chitra.school.entities.User;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -48,8 +48,6 @@ public class PaymentRest {
 			@RequestBody String str
 			) throws JsonProcessingException, IOException{
 		Map<Object, Object> m = new HashMap<Object, Object>();
-		System.out.println(str);
-		
 		ObjectMapper mapper = new ObjectMapper();		
 		try{
 			JsonNode node = mapper.readTree(str);	
@@ -71,7 +69,7 @@ public class PaymentRest {
 	public Map<Object, Object> listBalance(){
 		Map<Object, Object> m = new HashMap<Object, Object>();
 		try{
-			List<Balance> list = dao.curBalanceList();
+			List<PaymentBean> list = dao.curBalanceList();
 			m.put("BALANCE_REC", list);
 			m.put("success", true);			
 		}catch(Exception e){

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chitra.school.bean.DashboardBean;
 import com.chitra.school.dao.DashboardDao;
-import com.chitra.school.model.Dashboard;
 
 @RestController
 @RequestMapping("/dashboard")
@@ -23,7 +23,7 @@ public class DashboardRest {
 	public Map<Object, Object> dashboardInfo(){
 		Map<Object, Object> m = new HashMap<Object, Object>();
 		try{
-			List<Dashboard> dsList = dao.list();
+			List<DashboardBean> dsList = dao.list();
 			m.put("status", true);
 			m.put("dsRec", dsList);
 		}catch(Exception e){

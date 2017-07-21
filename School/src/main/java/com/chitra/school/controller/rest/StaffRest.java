@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.dao.StaffDao;
-import com.chitra.school.model.Staff;
+import com.chitra.school.entities.Staff;
 
 @RestController
 @RequestMapping("/service")
