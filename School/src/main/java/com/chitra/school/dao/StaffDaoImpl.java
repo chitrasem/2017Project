@@ -7,7 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chitra.school.model.Staff;
+import com.chitra.school.entities.Staff;
 
 @Repository("StaffDao")
 @Transactional

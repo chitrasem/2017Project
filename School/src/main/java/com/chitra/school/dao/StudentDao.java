@@ -2,8 +2,8 @@ package com.chitra.school.dao;
 
 import java.util.List;
 
-import com.chitra.school.model.Memo;
-import com.chitra.school.model.Student;
+import com.chitra.school.entities.Memo;
+import com.chitra.school.entities.Student;
 
 
 public interface StudentDao {

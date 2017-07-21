@@ -14,8 +14,8 @@ import org.hibernate.type.Type;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chitra.school.model.Memo;
-import com.chitra.school.model.Student;
+import com.chitra.school.entities.Memo;
+import com.chitra.school.entities.Student;
 import com.chitra.school.utils.StringUtils;
 import com.chitra.school.utils.UserUtil;
 

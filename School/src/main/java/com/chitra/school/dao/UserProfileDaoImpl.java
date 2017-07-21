@@ -9,7 +9,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.chitra.school.model.UserProfile;
+import com.chitra.school.entities.UserProfile;
 
 @Repository("userProfileDao")
 public class UserProfileDaoImpl extends AbstractDao<Integer, UserProfile> implements UserProfileDao{
