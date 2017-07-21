@@ -2,10 +2,11 @@ package com.chitra.school.dao;
 
 import java.util.List;
 
-import com.chitra.school.model.Payment;
-import com.chitra.school.model.PaymentDetail;
-import com.chitra.school.model.Student;
-import com.chitra.school.model.User;
+import com.chitra.school.bean.PaymentBean;
+import com.chitra.school.entities.Payment;
+import com.chitra.school.entities.PaymentDetail;
+import com.chitra.school.entities.Student;
+import com.chitra.school.entities.User;
 
 public interface PaymentDao {
 	void save(Payment payment
@@ -14,7 +15,7 @@ public interface PaymentDao {
 			, User user
 			)throws Exception;
 	List<Payment> list();
-	List<Balance> curBalanceList();
+	List<PaymentBean> curBalanceList();
 	void save(PaymentDetail paymentDetail);
 	boolean isPaid(String studentId, String payDtlDescr);
 }

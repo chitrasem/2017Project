@@ -10,7 +10,7 @@ import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chitra.school.model.Memo;
+import com.chitra.school.entities.Memo;
 
 @Repository("memoDao")
 @Transactional

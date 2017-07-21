@@ -9,7 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chitra.school.model.Course;
+import com.chitra.school.entities.Course;
 import com.chitra.school.utils.AliasToBeanNestedResultTransformer;
 
 

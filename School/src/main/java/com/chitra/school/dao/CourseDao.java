@@ -2,7 +2,7 @@ package com.chitra.school.dao;
 
 import java.util.List;
 
-import com.chitra.school.model.Course;
+import com.chitra.school.entities.Course;
 
 public interface CourseDao {
 	
