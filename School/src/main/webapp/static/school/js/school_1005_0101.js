@@ -86,15 +86,16 @@ school_1005_0101.getData = function(){
 	return input;
 }
 school_1005_0101.loadData = function(input){
-/*	if(!input) input = {};
-	var url = 'school_1005_0102_r002.chitra';
+	if(!input) input = {};
+	var url = 'school_1005_0102_r001.chitra';
 	$.ajax({
 		url: url,
 		success: function(resp){
-			$("#PAYMENT_TMPL").tmpl(resp.PAYMENT_REC).appendTo("#PAYMENT_RESULT");
+			console.log(resp)
+			$("#PAYMENT_TMPL").tmpl(resp.BALANCE_REC).appendTo("#PAYMENT_RESULT");
 			//school.ui.createPagination("#pagination", dat.totalStudent, input.numberOfRecord, input.pageCount, school_1002_0301.loadData);
 		}
 	
-	});*/
+	});
 	
 }

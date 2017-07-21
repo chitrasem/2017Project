@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chitra.school.dao.UserDao;
-import com.chitra.school.model.User;
+import com.chitra.school.entities.User;
  
 @Service("userService")
 @Transactional

@@ -15,7 +15,7 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 
-import com.chitra.school.model.Book;
+import com.chitra.school.bean.BookBean;
 
 /**
  * This class builds an Excel spreadsheet document using Apache POI library.
@@ -29,7 +29,7 @@ public class ExcelBuilder extends AbstractExcelView {
 			HSSFWorkbook workbook, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// get data model which is passed by the Spring container
-		List<Book> listBooks = (List<Book>) model.get("listBooks");
+		List<BookBean> listBooks = (List<BookBean>) model.get("listBooks");
 		
 		// create a new Excel sheet
 		HSSFSheet sheet = workbook.createSheet("Java Books");
@@ -66,7 +66,7 @@ public class ExcelBuilder extends AbstractExcelView {
 		// create data rows
 		int rowCount = 1;
 		
-		for (Book aBook : listBooks) {
+		for (BookBean aBook : listBooks) {
 			HSSFRow aRow = sheet.createRow(rowCount++);
 			aRow.createCell(0).setCellValue(aBook.getTitle());
 			aRow.createCell(1).setCellValue(aBook.getAuthor());

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.chitra.school.model.User;
+import com.chitra.school.entities.User;
 import com.chitra.school.service.UserService;
 
 public class SSOIdUtil {

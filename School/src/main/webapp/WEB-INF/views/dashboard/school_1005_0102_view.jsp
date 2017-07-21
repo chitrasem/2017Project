@@ -50,9 +50,9 @@
 										<button id="btnSave" type="button" class="btn btn-purple waves-effect waves-light">
 											<span>រកស្សទុក</span> <i class="ion ion-checkmark-circled"></i>
 										</button>      
-										<button type="button" class="btn btn-purple waves-effect waves-light">
+										<a href="<c:url value="school_1005_0101.act" />" class="btn btn-purple waves-effect waves-light">
 											<span>ត្រឡប់ក្រោយវិញ</span> <i class="ion ion-android-system-back"></i>
-										</button> 
+										</a> 
 									</div>                              
 								</div>
 								<span>&nbsp;</span>
@@ -80,7 +80,7 @@
 							</table>
 							</div>
 							<div class="row">
-							<table class="table table-hover table-striped">
+							<table class="table table-hover table-striped table-condensed ">
 								<thead>
 									<tr>
 										<th >										
@@ -135,7 +135,7 @@
 		</div>
 	</div><!-- End .row -->
 	<script type="text/jquery-tmpl" id="PAYMENT_DTL_TMPL"> 
-		<tr>		
+		<tr style="background: #A0A0A0">		
 		<td>
 			<input class="form-control-static myRadio pull-right" name="myRadio" type="radio">
 		</td>

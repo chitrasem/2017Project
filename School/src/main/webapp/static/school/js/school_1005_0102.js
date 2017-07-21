@@ -171,8 +171,8 @@ $(document).delegate("#btnSave","click",function(){
 	$("#PAYMENT_DTL_RESULT >tr").each(function(e){
 		paymentDtl.push({
 			"payDtlDescr"		: school.string.removeAllString( $(this).find(".PAY_DTL_DESCR").val() ),	
-			"payDtlAmtKm"		: $(this).find(".UNIT_PRICE").val(),	
-			"payDtlDisc" 		: $(this).find(".AMT_DST").val(),			
+			"payDtlAmtKm"		: school.string.removeAllString( $(this).find(".UNIT_PRICE").val() ),	
+			"payDtlDisc" 		: school.string.removeAllString( $(this).find(".AMT_DST").val() ),			
 			"pay_status"		: $("#txtPayer").attr("data-status"),
 			"pay_type"			: "1",
 		});
@@ -183,13 +183,15 @@ $(document).delegate("#btnSave","click",function(){
 	console.log(input);
 	school_1005_0102.save(input)
 });
+/**
+ *TODO FUNCTION CALCULATE Calculation of total amount
+ */
 school_1005_0102.calculateDtl = function(){
 	var totAmt 		= new BigNumber(0);
 	var totDist		= new BigNumber(0);
 	var remainTotAmt	= new BigNumber(0);
 	$("#PAYMENT_DTL_RESULT >tr").each(function(e){
 		var _this = $(this);
-		_this.css("background","grey");
 		var unitPrice   = school.string.removeComma(_this.find("input.UNIT_PRICE").val());
 		var amtDist		= school.string.removeComma(_this.find("input.AMT_DST").val());	
 		unitPrice = new BigNumber(unitPrice);
@@ -203,7 +205,6 @@ school_1005_0102.calculateDtl = function(){
 	$("#TOT_AMT_DST").val( school.string.numberWithComma( totDist ) );
 	$("#TOT_AMT_TOTAL").val( school.string.numberWithComma (remainTotAmt) );
 	
-	
 };
 school_1005_0102.save = function(input){
 	$.ajax({
@@ -212,6 +213,11 @@ school_1005_0102.save = function(input){
         contentType: "application/json; charset=utf-8",
 		url: "school_1005_0102_c001.chitra",
 		success: function(resp){
+			if(resp.success){
+				alert("Success!");
+			}else{
+				alert(resp.message);
+			}		
 			console.log(resp)
 			/*if(dat.success){
 				school.ui.openWindow(url);
@@ -221,8 +227,7 @@ school_1005_0102.save = function(input){
 	
 };
 school_1005_0102.generatDtl = function(dtlRec){
-	$("#PAYMENT_DTL_TMPL").tmpl(dtlRec).prependTo("#PAYMENT_DTL_RESULT");	
-	
+	$("#PAYMENT_DTL_TMPL").tmpl(dtlRec).prependTo("#PAYMENT_DTL_RESULT");		
 	//Date picker
     $('.datetimepicker').datetimepicker({
         format: "YYYY-MM",
@@ -230,8 +235,7 @@ school_1005_0102.generatDtl = function(dtlRec){
         minViewMode: "months",
         pickTime: false,
         showTodayButton: true,
-    });
-    
+    });    
     //Format the currency
     $(".currency").autoNumeric('init',{
     	emptyInputBehavior: 'zero',
