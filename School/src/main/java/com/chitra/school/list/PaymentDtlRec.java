@@ -2,7 +2,7 @@ package com.chitra.school.list;
 
 import java.util.List;
 
-import com.chitra.school.model.PaymentDetail;
+import com.chitra.school.entities.PaymentDetail;
 
 public class PaymentDtlRec {
 	

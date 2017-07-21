@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chitra.school.model.User;
-import com.chitra.school.model.UserProfile;
+import com.chitra.school.entities.User;
+import com.chitra.school.entities.UserProfile;
  
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{

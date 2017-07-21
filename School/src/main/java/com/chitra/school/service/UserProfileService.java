@@ -2,7 +2,7 @@ package com.chitra.school.service;
 
 import java.util.List;
 
-import com.chitra.school.model.UserProfile;
+import com.chitra.school.entities.UserProfile;
 
 public interface UserProfileService {
 	

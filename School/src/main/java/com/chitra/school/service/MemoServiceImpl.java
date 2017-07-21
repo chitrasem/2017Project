@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chitra.school.dao.MemoDao;
-import com.chitra.school.model.Memo;
+import com.chitra.school.entities.Memo;
 
 @Service("memoService")
 @Transactional

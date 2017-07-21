@@ -23,7 +23,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 
-import com.chitra.school.model.Student;
+import com.chitra.school.entities.Student;
 import com.chitra.school.utils.StringUtils;
 
 public class DownloadStudent extends  AbstractExcelView {

@@ -15,7 +15,7 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 
-import com.chitra.school.model.Student;
+import com.chitra.school.entities.Student;
 
 /**
  * This class builds an Excel spreadsheet document using Apache POI library.
