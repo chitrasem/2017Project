@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.chitra.school.bean.BookBean;
 import com.chitra.school.dao.StudentDao;
-import com.chitra.school.model.Book;
-import com.chitra.school.model.Student;
-import com.chitra.school.model.User;
+import com.chitra.school.entities.Student;
+import com.chitra.school.entities.User;
 import com.chitra.school.service.UserService;
 import com.chitra.school.utils.SSOIdUtil;
 
@@ -138,16 +138,16 @@ public class IndexController {
 	@RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
 	public ModelAndView downloadExcel() {
 		// create some sample data
-		List<Book> listBooks = new ArrayList<Book>();
-		listBooks.add(new Book("Effective Java", "Joshua Bloch", "0321356683",
+		List<BookBean> listBooks = new ArrayList<BookBean>();
+		listBooks.add(new BookBean("Effective Java", "Joshua Bloch", "0321356683",
 				"May 28, 2008", 38.11F));
-		listBooks.add(new Book("Head First Java", "Kathy Sierra & Bert Bates",
+		listBooks.add(new BookBean("Head First Java", "Kathy Sierra & Bert Bates",
 				"0596009208", "February 9, 2005", 30.80F));
-		listBooks.add(new Book("Java Generics and Collections",
+		listBooks.add(new BookBean("Java Generics and Collections",
 				"Philip Wadler", "0596527756", "Oct 24, 2006", 29.52F));
-		listBooks.add(new Book("Thinking in Java", "Bruce Eckel", "0596527756",
+		listBooks.add(new BookBean("Thinking in Java", "Bruce Eckel", "0596527756",
 				"February 20, 2006", 43.97F));
-		listBooks.add(new Book("Spring in Action", "Craig Walls", "1935182358",
+		listBooks.add(new BookBean("Spring in Action", "Craig Walls", "1935182358",
 				"June 29, 2011", 31.98F));
 
 		// return a view which will be resolved by an excel view resolver

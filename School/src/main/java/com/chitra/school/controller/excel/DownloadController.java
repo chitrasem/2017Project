@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chitra.school.dao.StudentDao;
-import com.chitra.school.model.Student;
+import com.chitra.school.entities.Student;
 
 @Controller
 @RequestMapping("/dashboard")
