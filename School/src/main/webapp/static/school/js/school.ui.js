@@ -5,6 +5,19 @@ if(!school.ui) {
 	school.ui.openWindow = function(url){
 		window.location.href = url;
 	};
+	/**
+	 * Create Date time picker with format yyyy-mm
+	 * @param target
+	 */
+	school.ui.datetimepickerYYYYMM = function(target){
+	  $(target).datetimepicker({
+	        format: "YYYY-MM",
+	        viewMode: "months", 
+	        minViewMode: "months",
+	        pickTime: false,
+	        showTodayButton: true,
+	    });
+	}
 	school.ui.sweetConfrim = function(msg){
 		var isConfirmed = false;
 		swal({
