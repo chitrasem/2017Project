@@ -6,16 +6,53 @@ if(!school.ui) {
 		window.location.href = url;
 	};
 	/**
+	 * 
+	 * @param calback
+	 */
+	school.ui.blogUi = function(callbackFn){
+		$.blockUI({ 
+			css: { 
+	            border: 'none', 
+	            padding: '15px', 
+	            backgroundColor: '#000', 
+	            '-webkit-border-radius': '10px', 
+	            '-moz-border-radius': '10px', 
+	            opacity: .5, 
+	            color: '#fff' 
+			},
+			message: "<h1 class='khFont'>សូមមេត្តារង់ចាំ...</h1>",
+	        fadeIn: 1000, 
+	        timeout:   2000, 
+	        onBlock: function() {    	
+	        } 
+	    }); 
+		if($.isFunction(callbackFn)){
+			callbackFn();
+		}
+		
+	};
+	/**
 	 * Create Date time picker with format yyyy-mm
 	 * @param target
 	 */
-	school.ui.datetimepickerYYYYMM = function(target){
+	school.ui.datetimepicker = function(target,input){
+		if(typeof input == "undefined") var input = {};		
+		
+		var _format = "YYYY-MM-DD";		
+		var _defaultDate = new Date();
+		var _viewMode = "days";
+		
+		if("format" in input) _format = input.format;
+		if("viewMode" in input) _viewMode = input.viewMode;
+		if("defaultDate" in input) _defaultDate = input.defaultDate;
+		
 	  $(target).datetimepicker({
-	        format: "YYYY-MM",
-	        viewMode: "months", 
-	        minViewMode: "months",
+	        format: _format,
+	        viewMode: _viewMode, 
+	        minViewMode: _viewMode,
 	        pickTime: false,
 	        showTodayButton: true,
+	        defaultDate: _defaultDate,
 	    });
 	}
 	school.ui.sweetConfrim = function(msg){
