@@ -2,6 +2,12 @@
 var school_1005_0101 = {};
 
 $(document).ready(function(event){
+
+	//Date picker	
+	school.ui.datetimepicker(".datetimepickerYYYYMMDD",{
+		
+	});
+	
 	school_1005_0101.loadData();
 	$("#currKm").val( school_1005_0101.exchangeMoney("us2km") );
 	$("#btnAddPayment").click(function(e){

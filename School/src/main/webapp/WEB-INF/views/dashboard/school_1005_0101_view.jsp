@@ -3,7 +3,31 @@
 	       	<div class="row">                        
 	    <div class="col-lg-12">
 	        <div class="panel panel-default">
-	            <div class="panel-body">
+	            <div class="panel-body">	
+	            <table>
+	            	<tr>
+	            		<td>	            			            
+							<div class="form-group">
+				              <div class='input-group datetimepickerYYYYMMDD'>
+				                  <input type='text' value="" class="form-control dt_yyyymmdd" />
+				                  <span class="input-group-addon">
+				                      <span class="glyphicon glyphicon-calendar"></span>
+				                  </span>
+				              </div>
+				          	</div>
+	            		</td>
+	            		<td>	            			            
+							<div class="form-group">
+				              <div class='input-group datetimepickerYYYYMMDD'>
+				                  <input type='text' value="" class="form-control dt_yyyymmdd" />
+				                  <span class="input-group-addon">
+				                      <span class="glyphicon glyphicon-calendar"></span>
+				                  </span>
+				              </div>
+				          	</div>
+	            		</td>
+	            	</tr>
+	            </table>
 	                <div class="input-group">
 	                    <input type="text" id="searchName" name="example-input1-group2" class="form-control input-lg" placeholder="Search any name">
 	                    <span class="input-group-btn">
@@ -118,9 +142,9 @@
 			<td class="text-left">{%= receiver %}</td>
 			<td class="text-left">{%= payer_km %}</td>
 			<td class="text-right">{%= school.string.numberWithComma( count_unit ) %}</td>		
-			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_amt_km ) %}</td>	
-			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_disc ) %}</td>	
-			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_amt_km - pay_dtl_disc ) %}</td>
+			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_amt_km ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_disc ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_amt_km - pay_dtl_disc ) %} <span> &#6107;</span></td>
 			<td><a href="javascript:"><span class="btnDtl ion ion-edit" title="កែតម្រូវ"></span></a></td>
 		</tr>	
 	</script>	
