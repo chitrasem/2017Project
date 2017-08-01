@@ -5,7 +5,7 @@ $(document).ready(function(event){
 
 	//Date picker	
 	school.ui.datetimepicker(".datetimepickerYYYYMMDD",{
-		
+		"pickTime"	: false,
 	});
 	
 	school_1005_0101.loadData();

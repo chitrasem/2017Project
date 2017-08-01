@@ -41,17 +41,18 @@ if(!school.ui) {
 		var _format = "YYYY-MM-DD";		
 		var _defaultDate = new Date();
 		var _viewMode = "days";
+		var _pickTime = true;
 		
 		if("format" in input) _format = input.format;
 		if("viewMode" in input) _viewMode = input.viewMode;
 		if("defaultDate" in input) _defaultDate = input.defaultDate;
+		if("pickTime" in input) _pickTime;
 		
 	  $(target).datetimepicker({
 	        format: _format,
 	        viewMode: _viewMode, 
 	        minViewMode: _viewMode,
-	        pickTime: false,
-	        showTodayButton: true,
+	        pickTime: _pickTime,
 	        defaultDate: _defaultDate,
 	    });
 	}

@@ -29,6 +29,10 @@ public class PaymentDetail {
 	@Column(name="PAY_DTL_DESCR", length=50)
 	private String payDtlDescr;
 	
+	
+	@Column(name="PAY_DTL_DT", length=6)
+	private String payDtlDt;
+	
 	@Column(name="PAY_DTL_AMT_US")
 	private BigDecimal payDtlAmtUs;
 	@Column(name="PAY_DTL_AMT_KM")
@@ -55,6 +59,13 @@ public class PaymentDetail {
 	@ManyToOne(optional=true)
 	@JoinColumn(name="STAFF_ID")
 	private User user;
+	public String getPayDtlDt() {
+		return payDtlDt;
+	}
+
+	public void setPayDtlDt(String payDtlDt) {
+		this.payDtlDt = payDtlDt;
+	}
 
 	public long getPayDtlSeq() {
 		return payDtlSeq;
