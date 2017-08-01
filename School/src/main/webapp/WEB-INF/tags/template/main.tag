@@ -33,15 +33,7 @@
         <link href="<c:url value="/static/css/waves-effect.css" />" rel="stylesheet">
         
         <!-- sweet alerts -->
-
-		<!--calendar css-->
         
-        <!-- Custom Files -->
-        <link href="<c:url value="/static/css/helper.css" />" rel="stylesheet" type="text/css" />
-        <link href="<c:url value="/static/css/style.css" />" rel="stylesheet" type="text/css" />
-        <link href="<c:url value="/static/school/css/style.css" />" rel="stylesheet" type="text/css" />
-        
-        <link href="<c:url value="/static/kms/css/kms.css" />" rel="stylesheet" type="text/css" />
         
         <!-- Datepicker -->
         
@@ -58,6 +50,16 @@
 		<!-- CSS adjustments for browsers with JavaScript disabled -->
 		<noscript><link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload-noscript.css" />"></noscript>
 		<noscript><link rel="stylesheet" href="<c:url value="/static/css/jquery.fileupload-ui-noscript.css" />"></noscript>
+		
+		
+		
+        <!-- Custom Files -->
+        <link href="<c:url value="/static/css/helper.css" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/static/css/style.css" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/static/school/css/style.css" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/static/school/css/constant.css" />" rel="stylesheet" type="text/css" />
+        
+        <link href="<c:url value="/static/kms/css/kms.css" />" rel="stylesheet" type="text/css" />
 		
 		<!-- end File upload -->
 
