@@ -90,32 +90,33 @@
 												</button>
 											</div>
 										</th>
-										<th class="text-center">ជម្រើស</th>
-										<th class="text-center">បង់សម្រាប់</th>
-										<th class="text-center">តម្លៃ</th>
-										<th class="text-center">បញ្ចុះតម្លៃ</th>
-										<th class="text-center">សរុប</th>
-										<th class="text-center"></th>	
+										<th class="text-left">ជម្រើស</th>
+										<th class="text-left"></th>
+										<th class="text-left">បង់សម្រាប់</th>
+										<th class="text-right">តម្លៃ</th>
+										<th class="text-right">បញ្ចុះតម្លៃ</th>
+										<th class="text-right">សរុប</th>
+										<th class="text-right"></th>	
 									</tr>
 										
 									<tr>
-										<th class="text-center form-control-static" colspan="3">សរុប</th>
+										<th class="text-center form-control-static" colspan="4">សរុប</th>
 										<th class="text-center" id="">
 											 <div class="input-group currency pull-right">
-								             <span class="input-group-addon">រៀល</span>
-										  	 <input type="text" class="form-control currency" id="TOT_UNIT_PRICE" disabled="disabled" value="0">
+											  	 <input type="text" class="form-control currency" id="TOT_UNIT_PRICE" disabled="disabled" value="0">
+            									 <span class="input-group-addon text-primary"><span>&#6107;</span></span>
 								           </div>										
 										</th>
 										<th class="text-center" >
 											 <div class="input-group currency pull-right">
-								             <span class="input-group-addon">រៀល</span>
-										  	 <input type="text" class="form-control currency" id="TOT_AMT_DST" disabled="disabled" value="0">
+										  	 	<input type="text" class="form-control currency" id="TOT_AMT_DST" disabled="disabled" value="0">
+             									<span class="input-group-addon text-primary"><span>&#6107;</span></span>
 								           </div>
 										</th>
 										<th class="text-center" >
 										 <div class="input-group currency pull-right">
-								             <span class="input-group-addon">រៀល</span>
 										  	 <input type="text" class="form-control currency" id="TOT_AMT_TOTAL" disabled="disabled" value="0">
+             								<span class="input-group-addon text-primary text-primary"><span>&#6107;</span></span>
 								           </div>										
 										</th>																		
 								          
@@ -143,13 +144,19 @@
 			<select style="width:160px;" class="form-control PAY_STATUS">
 				<option>បង់ថ្លៃសាលា</option>
 				<option>បង់ថ្លៃសៀវភៅ</option>
-				<option>កុំព្យូទ័រ</option>
+				<option>ជំនួយកុំព្យូទ័រ</option>
+				<option>ផ្សេងៗ</option>
 			</select>
+		</td>
+		<td>
+			<button class="btn btn-sm btn-default waves-effect waves-light">
+				<i class="ion ion-plus"></i>
+			</button>
 		</td>
 		<td>
 			<div class="form-group">
               <div class='input-group date datetimepicker'>
-                  <input type='text' value="{%= PAY_DTL_DESCR %}" class="form-control PAY_DTL_DESCR" />
+                  <input type='text' value="{%= PAY_DTL_DESCR %}" class="form-control PAY_DTL_DESCR dt_yyyymm" />
                   <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                   </span>
@@ -158,20 +165,20 @@
 		</td>
 		<td>											
           <div class="input-group currency" style="text-align:right;">
-             	<span class="input-group-addon">រៀល</span>
 			<input  type="text" class="form-control currency UNIT_PRICE" value="{%= UNIT_PRICE %}">
+             <span class="input-group-addon text-primary"><span>&#6107;</span></span>
            </div>
 		</td>
 		<td>											
            <div class="input-group currency pull-right">
-             <span class="input-group-addon">រៀល</span>
 		  	 <input type="text" class="form-control currency AMT_DST" value="{%= AMT_DST %}">
+             <span class="input-group-addon text-primary"><span>&#6107;</span></span>
            </div>
 		</td>
 		<td>											
            <div class="input-group currency">
-             <span class="input-group-addon">រៀល</span>
              <input type="text" disabled="disabled" class="form-control currency AMT_TOTAL" value="{%= AMT_TOTAL %}">
+             <span class="input-group-addon text-primary"><span>&#6107;</span></span>
            </div>
 		</td>
 			<th>

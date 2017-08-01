@@ -229,13 +229,11 @@ school_1005_0102.save = function(input){
 school_1005_0102.generatDtl = function(dtlRec){
 	$("#PAYMENT_DTL_TMPL").tmpl(dtlRec).prependTo("#PAYMENT_DTL_RESULT");		
 	//Date picker
-    $('.datetimepicker').datetimepicker({
-        format: "YYYY-MM",
-        viewMode: "months", 
-        minViewMode: "months",
-        pickTime: false,
-        showTodayButton: true,
-    });    
+	school.ui.datetimepicker(".datetimepicker",{
+		"format"	: "YYYY-MM",
+		"viewMode"	: "months",
+	});
+      
     //Format the currency
     $(".currency").autoNumeric('init',{
     	emptyInputBehavior: 'zero',

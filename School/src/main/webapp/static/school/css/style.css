@@ -7,7 +7,9 @@ font-family: 'Arvo', serif;
 font-family: 'Angkor', cursive;
 font-family: 'Lato', sans-serif;
  */
- 
+khFont{
+	font-family: 'Battambang', cursive;	
+}
 *{
 	font-family: 'Battambang', cursive;
 }
