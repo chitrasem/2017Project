@@ -4,15 +4,13 @@
 	    <div class="col-lg-12">
 	        <div class="panel panel-default">
 	            <div class="panel-body">	
-	            <table>
+	            <table class="table">
 	            	<tr>
 	            		<td>	            			            
 							<div class="form-group">
-				              <div class='input-group datetimepickerYYYYMMDD'>
-				                  <input type='text' value="" class="form-control dt_yyyymmdd" />
-				                  <span class="input-group-addon">
-				                      <span class="glyphicon glyphicon-calendar"></span>
-				                  </span>
+				              <div class='input-group'>				              		
+								  <select class="selectpicker form-control" style="width:80px;" id="proYear">
+								  </select>
 				              </div>
 				          	</div>
 	            		</td>
@@ -21,55 +19,19 @@
 				              <div class='input-group datetimepickerYYYYMMDD'>
 				                  <input type='text' value="" class="form-control dt_yyyymmdd" />
 				                  <span class="input-group-addon">
-				                      <span class="glyphicon glyphicon-calendar"></span>
+				                      <span class="glyphicon glyphicon-calendar">ClassRoom</span>
 				                  </span>
 				              </div>
 				          	</div>
 	            		</td>
 	            	</tr>
 	            </table>
-	                <div class="input-group">
-	                    <input type="text" id="searchName" name="example-input1-group2" class="form-control input-lg" placeholder="Search any name">
-	                    <span class="input-group-btn">
-	                        <button id="btnSearchName" type="button" class="btn-lg btn waves-effect waves-light btn-primary w-md"><i class="fa fa-search"></i></button>
-	                    </span>
-	                </div>
+	              
 	            </div>
 	        </div>
 	    </div>	
 	</div>
-	<div class="row">
-	<!-- Modal -->
-	  <div class="modal fade" id="addIncome" role="dialog">
-	    <div class="modal-dialog modal-lg">	 
-	      <!-- Modal content-->
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title" style="font-family: Battambang;" >ការបង់ប្រាក់លំអិត</h4>
-	        </div>
-	        
-	    <div class="col-md-12">
-	    	<div class="col-md-3">	    
-	    		<div class="row modal-body">
-	    		</div>
-	    	</div>	    	
-	    	<div class="col-md-1"></div>	 
-	    	<div class="col-md-8">	    
-	        <div class="modal-body">
-				<form class="form-horizontal" id="school_1005_0101_f001">					  
-				</form>
-	        </div>	    	
-	    	</div>
-	    </div>   
-	        <div class="modal-footer">
-	          <button type="button" class="btn btn-purple" data-dismiss="modal">ចាកចេញ</button>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	  <!-- End Modal -->
-	  
+	<div class="row">	  
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -87,33 +49,120 @@
 									<div class="btn-group">														
 										<button data-toggle="modal" id="payPop" data-target="#addIncome"class="btn btn-purple waves-effect waves-light">
 											<i class="ion ion-plus"></i>
-											<span>បន្ថែមប្រាក់ចំណូលទូរទៅ</span>
+											<span>aa</span>
 										</button>
                                       </div>	                                     		
 										<div class="btn-group">	
 	                                      <form id="school_1005_0102" action="school_1005_0102.act" method="GET">	 								
 											<button id="btnAddPayment" class="btn btn-purple waves-effect waves-light">
 												<i class="ion ion-plus"></i>
-												<span>បន្ថែមនប្រាក់ចំណូលថ្លៃសិក្សា</span>
+												<span>aa</span>
 											</button>
 	                                      </form>
 	                                    </div>
 								</div>			
 							</div>					   
-							<table class="table table-hover table-striped">
-								<thead>
+							<table class="table table-bordered table-hover table-striped row-border order-column" cellspacing="0" width="100%" id="dtTable">
+								<thead id="PAYMENT_TOT_RESULT">
 									<tr>
-										<th class="text-center">
-										<input type="checkbox">
+										<th class="text-left text-middle" rowspan="2">អត្ថលេខ</th>
+										<th class="text-left"  rowspan="2">KhmerName</th>
+										<th class="text-left" rowspan="2">EnglishName</th>
+										<th class="text-center" rowspan="2">ភេទ</th>
+										<th colspan="3" class="text-center">
+											<span>សរុបប្រចាំឆ្នាំ</span>
 										</th>
-										<th class="text-left">កាលបរិច្ឆេទចុះក្នុងបញ្ចី</th>
-										<th class="text-left">អ្នកទទួលប្រាក់</th>
-										<th class="text-left">អ្នកបង់ប្រាក់</th>
-										<th class="text-right">ចំនួន</th>
-										<th class="text-right">តម្លៃសរុប</th>
-										<th class="text-right">បញ្ចុះតម្លៃ</th>
-										<th class="text-right">បញ្ចុះតម្លៃរួច</th>
-										<th></th>
+										<th colspan="3" class="text-center">
+											<span>ខែមករា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>កុម្ភៈ</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>មិនា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>មេសា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>ឧសភា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>មិថុនា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>កក្កដា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>សីហា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>កញ្ញា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>តុលា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>វិច្ឆិកា</span>
+										</th>
+										<th colspan="3" class="text-center">
+											<span>ឆ្នូ</span>
+										</th>
+									</tr>
+									<tr>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+									
+										<th class="text-right">AmountIncome</th>
+										<th class="text-right">DiscountAmount</th>
+										<th class="text-right">RemainAmount</th>
+										
 									</tr>
 								</thead>
 								<tbody id="PAYMENT_RESULT" style="hight: 100px;">
@@ -132,22 +181,129 @@
 	</div>
 </div>
 <!-- End row -->
-	<script type="text/jquery-tmpl" id="PAYMENT_TMPL">
+	<script type="text/jquery-tmpl" id="PAYMENT_TOT_TMPL">
+	 {%if status == "2"%}
 		<tr>
-			<td class="text-center">
-				<input type="checkbox">
-				<input type="hidden" value="{%= PAY_ID %}" class="pay_id">
-			</td>
-			<td class="text-left"><a href="javascript:" data-toggle="modal" data-target="#addIncome" title="ចូលមើល"><i class="ion ion-ios7-timer" title="ចូលមើល"></i><span> </span> {%= school.string.formatDatetime( pay_date ) %}</a></td>
-			<td class="text-left">{%= receiver %}</td>
-			<td class="text-left">{%= payer_km %}</td>
-			<td class="text-right">{%= school.string.numberWithComma( count_unit ) %}</td>		
-			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_amt_km ) %} <span> &#6107;</span></td>	
-			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_disc ) %} <span> &#6107;</span></td>	
-			<td class="text-right">{%= school.string.numberWithComma( pay_dtl_amt_km - pay_dtl_disc ) %} <span> &#6107;</span></td>
-			<td><a href="javascript:"><span class="btnDtl ion ion-edit" title="កែតម្រូវ"></span></a></td>
+			<td colspan="4" class="text-center">សរុប</td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_yyyy_tot ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_yyyy_tot ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( sum_amt_tot ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jan ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jan ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jan ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_feb ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_feb ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_feb ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_mar ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_mar ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_mar ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_apr ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_apr ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_apr ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_may ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_may ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_may ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jun ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jun ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jun ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jul ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jul ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jul ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_aug ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_aug ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_aug ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_sep ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_sep ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_sep ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_oct ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_oct ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_oct ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_nov ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_nov ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_nov ) %} <span> &#6107;</span></td>
+
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_dec ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_dec ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_dec ) %} <span> &#6107;</span></td>
 		</tr>	
+	  {%/if%}
+	</script>
+	<script type="text/jquery-tmpl" id="PAYMENT_TMPL">
+	 {%if status == "1"%}
+		<tr>
+			<td>{%= student_id %}</td>
+			<td class="text-left">{%= full_name_km %}</td>
+			<td class="text-left"><span>{%= full_name_en %}</span></td>
+			<td class="text-center">{%if gender == "F"%}ស្រី{%else%}ប្រុស{%/if%}</td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_yyyy_tot ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_yyyy_tot ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( sum_amt_tot ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jan ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jan ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jan ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_feb ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_feb ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_feb ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_mar ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_mar ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_mar ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_apr ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_apr ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_apr ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_may ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_may ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_may ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jun ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jun ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jun ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jul ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jul ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jul ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_aug ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_aug ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_aug ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_sep ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_sep ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_sep ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_oct ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_oct ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_oct ) %} <span> &#6107;</span></td>
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_nov ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_nov ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_nov ) %} <span> &#6107;</span></td>
+
+	
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_dec ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_dec ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_dec ) %} <span> &#6107;</span></td>
+		</tr>	
+	  {%/if%}
 	</script>	
     <%@include file="../../views/dashboard/footer.jsp" %>
-    <script src="<c:url value="/static/school/js/school_1005_0101.js" />"></script>
+    <script src="<c:url value="/static/school/js/school_1005_0201.js" />"></script>
 </template:basic>
