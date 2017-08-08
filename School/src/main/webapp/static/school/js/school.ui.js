@@ -5,6 +5,21 @@ if(!school.ui) {
 	school.ui.openWindow = function(url){
 		window.location.href = url;
 	};
+	school.ui.setYearCombo = function(target){
+		var start_year 			 = 2017 //PROJECT_STARTED_YEAR,
+			current_year 		 = new Date().getFullYear(),
+		    combo				 = "";
+		// Current year cant be less than start year
+		if(current_year < start_year){
+			alert("CURRENT YEAR CAN'T BE LESS THAN START YEAR PLEASE UPDATE YOUR COMPUTER DATE");
+			return false;
+		}
+		for(var i = start_year; i<= current_year; i++){
+			combo += "<option value="+i+">"+i+"</option>";
+		}
+		$(target).html(combo);
+		$(target).val(current_year);
+	};
 	/**
 	 * 
 	 * @param calback
@@ -46,7 +61,7 @@ if(!school.ui) {
 		if("format" in input) _format = input.format;
 		if("viewMode" in input) _viewMode = input.viewMode;
 		if("defaultDate" in input) _defaultDate = input.defaultDate;
-		if("pickTime" in input) _pickTime;
+		if("pickTime" in input) _pickTime = input.pickTime;
 		
 	  $(target).datetimepicker({
 	        format: _format,
