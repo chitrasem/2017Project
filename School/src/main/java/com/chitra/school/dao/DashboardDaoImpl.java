@@ -14,11 +14,10 @@ import com.chitra.school.bean.DashboardBean;
 public class DashboardDaoImpl extends AbstractDao<Integer, Object>  implements DashboardDao {
 	public List<DashboardBean> list() {		
 		String sql = "SELECT "
-				+ "AMT_US"
-				+ ",AMT_KM"
-				+ ",TOT_USER"
+				+ "PAY_DTL_AMT_KM "
+				+ ",TOT_USER "
 				+ ",TOT_STU "
-				+ "FROM DASHBOARD";
+				+ "FROM DASHBOARD ";
 		SQLQuery query = getSession().createSQLQuery(sql);// session.createSQLQuery(sql);
 		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);		
 		
