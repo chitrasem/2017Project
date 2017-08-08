@@ -95,22 +95,6 @@
 		                </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="lastName">គោតនាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
-                             	<div class="col-sm-7">
-									<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name">
-						 		</div>
-                            </div>
-                        </div>
-                     	<div class="col-md-5">
-                     		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="firstName">នាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
-                             	<div class="col-sm-7">
-									<input type="text" class="form-control" data-firstName name="firstName" id="firstName" placeholder="Enter first name">
-						 		</div>
-                            </div>
-                        </div>
-                     	<div class="col-md-5">
-                     		<div class="form-group">
                             	<label class="control-label col-sm-5" for="kmLastName">គោតនាមជាភាសាខ្មែរ<span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
 									<input type="text" class="form-control" name="kmLastName" id="kmLastName" placeholder="Last name in Khmer">
@@ -124,7 +108,23 @@
 									<input type="text" class="form-control" name="kmFirstName" id="kmFirstName" placeholder="First name in Khmer">
 						 		</div>
                             </div>
-                        </div>	    
+                        </div>	
+                     	<div class="col-md-5">
+                     		<div class="form-group">
+                            	<label class="control-label col-sm-5" for="lastName">គោតនាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
+                             	<div class="col-sm-7">
+									<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name">
+						 		</div>
+                            </div>
+                        </div>
+                     	<div class="col-md-5">
+                     		<div class="form-group">
+                            	<label class="control-label col-sm-5" for="firstName">នាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
+                             	<div class="col-sm-7">
+									<input type="text" class="form-control" data-firstName name="firstName" id="firstName" placeholder="Enter first name">
+						 		</div>
+                            </div>
+                        </div>    
                         
                         
                      	<div class="col-md-5">
