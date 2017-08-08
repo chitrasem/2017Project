@@ -52,7 +52,7 @@
 										<th>English Name</th>
 										<th>Birth Date</th>
 										<th>Phone</th>
-										<th>Actions</th>
+										<th>Options</th>
 										<th>Memo</th>
 									</tr>
 								</thead>
@@ -87,7 +87,7 @@
 			{%/if%}
 			</td>
 			<td>
-			<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{%= imagePath %}{%= imageName %}" alt="{%= firstName %} " />
+			<!--<image class="thumb-sm img-circle" src="${pageContext.request.contextPath}{%= imagePath %}{%= imageName %}" alt="{%= firstName %} " />-->
 			<a href="javascript:" class="btn-view">{%= kmLastName %}&nbsp;{%= kmFirstName %}
 			<span class="driver"></span>
 			{%if (gender === "M") %}
@@ -103,12 +103,12 @@
 			<td>{%= phone1 %}</td>
 			<td>
 							
-				<button  class="btn btn-edit btn-xs btn-pink waves-effect waves-light m-b-5">
-					 <span>Edit</span> <i class="fa  fa-caret-square-o-down"></i> 
+				<button  class="btn btn-edit btn-xs btn-default waves-effect waves-light m-b-5">
+					  <i class="fa  fa-caret-square-o-down"></i> 
 				</button>
 			{%if (state === "Inactive") %}				
-				<button class="btn btn-xs btn-purple waves-effect waves-light m-b-5">
-					 <span>Pay</span> <i class="fa fa-money"></i> 
+				<button class="btn btn-xs btn-default waves-effect waves-light m-b-5">
+					  <i class="fa fa-money"></i> 
 				</button>
 			{%/if%}
 			</td>
