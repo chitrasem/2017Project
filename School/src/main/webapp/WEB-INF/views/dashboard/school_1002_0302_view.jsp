@@ -63,7 +63,7 @@
 						<table class="table">
 							<thead>
 								<tr>
-								<td>កំណត់ចំណាំ</td>
+								<td>កំណត់ចំណាំ <span class="text-danger">*</span></td>
 								<td colspan="2">
 									<input type="text" class="form-control"  name="content" id="content" placeholder="សូមវាយបញ្ចូលកំណត់ចំណាំ">
 								</td>
@@ -88,11 +88,19 @@
 						<legend> <strong><i>Student Information</i></strong></legend>				
 						<div class="col-md-2">		
 		                  	<a class="pull-left col-sm-" href="javascript:" data-toggle="modal" data-target="#uploadModal" >
-		                    	<img id="imgPhoto" class="thumb-lg img-circle" src="<c:url value="/static/images/users/avatar-2.jpg" />" alt="">
+		                    	<img id="imgPhoto" class=" img-thumbnail" src="<c:url value="/static/images/users/avatar-2.jpg" />" alt="">
 		                    </a>
 		                   <input type="hidden" id="imageName" name="imageName" value="avatar1.png"/>
 		                   <input type="hidden" id="imagePath" name="imagePath" value="/static/avatars/"/>
 		                </div>
+                     	<div class="col-md-5">
+                     		<div class="form-group">
+                            	<label class="control-label col-sm-5" for="lastName">គោតនាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
+                             	<div class="col-sm-7">
+									<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name">
+						 		</div>
+                            </div>
+                        </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
                             	<label class="control-label col-sm-5" for="firstName">នាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
@@ -103,13 +111,12 @@
                         </div>
                      	<div class="col-md-5">
                      		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="lastName">គោតនាមជាភាសាអង់គ្លេស <span class="text-danger">*</span></label>
+                            	<label class="control-label col-sm-5" for="kmLastName">គោតនាមជាភាសាខ្មែរ<span class="text-danger">*</span></label>
                              	<div class="col-sm-7">
-									<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter last name">
+									<input type="text" class="form-control" name="kmLastName" id="kmLastName" placeholder="Last name in Khmer">
 						 		</div>
                             </div>
-                        </div>
-                        
+                        </div>                        
                      	<div class="col-md-5">
                      		<div class="form-group">
                             	<label class="control-label col-sm-5" for="kmFirstName">នាមជាភាសាខ្មែរ <span class="text-danger">*</span></label>
@@ -117,45 +124,39 @@
 									<input type="text" class="form-control" name="kmFirstName" id="kmFirstName" placeholder="First name in Khmer">
 						 		</div>
                             </div>
-                        </div>
-                     	<div class="col-md-5">
-                     		<div class="form-group">
-                            	<label class="control-label col-sm-5" for="kmLastName">គោតនាមជាភាសាខ្មែរ<span class="text-danger">*</span></label>
-                             	<div class="col-sm-7">
-									<input type="text" class="form-control" name="kmLastName" id="kmLastName" placeholder="Last name in Khmer">
-						 		</div>
-                            </div>
                         </div>	    
                         
-		                 							 
-                        <div class="clearfix"></div>
-						<div style="height:10px;"></div> 
-						<hr>
-						
-                     	<div class="col-md-2">
-                     		<div class="form-group">
-                            	<label class="control-label col-sm-4">ភេទ <span class="text-danger">*</span></label>
-                             	<div class="col-sm-8 ">
-                             		<select class="btn btn-sm btn-purple" name="gender" id="gender">
-                             			<option value="">ជ្រើសរើសភេទ--</option>
+                        
+                     	<div class="col-md-5">
+                            <div class="form-group">
+                            	<label class="control-label col-sm-5" for="gender">ភេទ <span class="text-danger">*</span></label>
+                             	<div class="col-sm-7 ">
+                             		<select class="btn form-control btn-sm btn-default" name="gender" id="gender">
+                             			<option value="0">ជ្រើសរើសភេទ---</option>
                              			<option value="M">ប្រុស</option>
                              			<option value="F">ស្រី</option>
                              		</select>
 						 		</div>
                             </div>
-                        </div>	
-                     	<div class="col-md-6">
-                     		<div class="form-group">
-                            	<label class="control-label col-sm-4" for="birthDate">ថ្ងៃ ខែ ឆ្នាំកំណើត <span class="text-danger">*</span></label>
-                             	<div class="col-sm-8">
-							 		<div class="input-group">
-	                                    <input type="text" class="form-control span2" readonly="readonly" data-date-format="yyyy-mm-dd" name="birthDate" placeholder="yyyy/mm/dd" id="birthDate">
-	                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-	                              
-									</div>
-						 		</div>
-                            </div>
                         </div>
+                        <div class="col-md-5">
+                     		<div class="form-group">
+                            	<label class="control-label col-sm-5" for="birthDate">ឆ្នាំ-ខែ-ថ្ងៃ កំណើត <span class="text-danger">*</span></label>
+						 		<div class="col-sm-7">
+					              <div class='input-group datetimepickerYYYYMMDD'>
+					                  <span class="input-group-addon">
+					                      <span class="glyphicon glyphicon-calendar"></span>
+					                  </span>
+					                  <input type='text' name="birthDate" id="birthDate" class="form-control" />
+					              </div>						 		
+						 		</div>
+						 		
+                            </div>
+                        
+                        </div>		 
+                        <div class="clearfix"></div>
+						<div style="height:10px;"></div> 
+						<hr>
                      	<div class="col-md-8">
                      		<div class="form-group">
                             	<label class="control-label col-sm-2" for="birthPlace">ទីកន្លែងកំណើត</label>
@@ -164,7 +165,7 @@
 						 		</div>
                             </div>
                      		<div class="form-group">
-                            	<label class="control-label col-sm-2" for="biography">ការណែនាំ</label>
+                            	<label class="control-label col-sm-2" for="biography">អំពីសិស្ស</label>
                              	<div class="col-sm-10">
                              		<textarea rows="5" cols="100" name="biography" id="biography" placeholder="Enter biography"></textarea>
 						 		</div>
@@ -243,7 +244,7 @@
                         </div>
                         
 					</fieldset>   
-					
+<!-- 					
 					<fieldset>
 						<legend><strong><i>Course</i></strong></legend>
                         <div class="col-md-6">
@@ -277,10 +278,9 @@
 						 		</div>
                             </div>
                         </div>
-					</fieldset>                     							 
+					</fieldset>   -->                   							 
                         <div class="clearfix"></div>
                         <input id="btnSave" type="button" class="btn btn-info " value="Save">
-                        <input id="btnClear" type="button" class="btn btn-danger " value="Clear">
                         <input id="btnCancel" type="button" class="btn btn-warning " value="Cancel">
 					  <!-- <button type="submit" class="btn btn-default">Submit</button> -->
 					</form>
