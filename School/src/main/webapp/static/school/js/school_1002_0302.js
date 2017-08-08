@@ -8,7 +8,12 @@ $(document).ready(function(e){
 		e.preventDefault();
 	});
 	school_1002_0302.loadData("",function(dat){
-		$("#birthDate").datepicker();
+		var isConfirm = school.ui.sweetConfrim("Hello?");
+		alert(isConfirm);
+		school.ui.datetimepicker(".datetimepickerYYYYMMDD",{
+			"pickTime"	: false,
+		});
+		//$("#birthDate").datepicker();
 		school.ui.addCourseCombo("#sbCourse", courseUrl,dat.courseId);
 	});
 	
@@ -51,9 +56,6 @@ $(document).ready(function(e){
     		
     	}
     });
-
-	
-	
 	/**
 	 * Save event ==============================================================================
 	 */
@@ -71,25 +73,25 @@ $(document).ready(function(e){
 			if(field.name==="content"){
 				memo.content = field.value;
 			}
-			if(field.name==="courseId"){
+			/*if(field.name==="courseId"){
 				course.id = field.value;
-			}
-			if(field.name==="sessionId"){
+			}*/
+			/*if(field.name==="sessionId"){
 				session.id = field.value;
-			}
+			}*/
 			if(field.name==="birthDate"){
 				formData.birthDate = school.string.removeAllString(formData.birthDate);
 			}
 		});		
 		
 		delete formData.content;
-		delete formData.courseId;
-		delete formData.sessionId;
+		//delete formData.courseId;
+		//delete formData.sessionId;
 		
 		input.student 	= formData;
 		input.memo 		= memo;
-		input.course 	= course;
-		input.session 	= session;
+		//input.course 	= course;
+		//input.session 	= session;
 		
 		console.log(input);
 		school_1002_0302.saveData(input);
@@ -98,9 +100,6 @@ $(document).ready(function(e){
 	//==================================End Save==================================================
 	$("#btnCancel").click(function(){
 		school.ui.openWindow(url);
-	});
-	$("#btnClear").click(function(){
-		school_1002_0302.clearData(this);
 	});
 });
 //Helper function for calculation of progress
@@ -147,6 +146,8 @@ school_1002_0302.saveData = function(input){
 		url: saveUpdateUrl,
 		success: function(dat){
 			if(dat.success){
+				var confirm = school.ui.sweetConfrim("Are you sure?");
+				
 				school.ui.openWindow(url);
 			}
 		}
@@ -164,17 +165,12 @@ school_1002_0302.getData = function(){
 /**
  * load data
  */
-
-school_1002_0302.clearData = function(target){
-    $(target).closest('form').find("input[type=text] ,select, textarea").val("");
-}
 school_1002_0302.loadData = function(input, callbackFn){
 	if(typeof input =="undefined") input = {};	
 	$("#firstName").focus();	
 	$.extend(input, school_1002_0302.getData());
 	
 	var data = {};
-	
 	school_1002_0302.isUpdate = false;
 	if(studentId.length===10){
 		var studentIDHtml = '<input type="hidden" id="studentId" name="id">';
@@ -184,7 +180,7 @@ school_1002_0302.loadData = function(input, callbackFn){
 			type: "GET",
 			url: getStudentUrl,
 			success: function(dat){
-				data.courseId = dat.studentRec.course.id;				
+			//	data.courseId = dat.studentRec.course.id;				
 				var absoluteUrl = $("#absoluteUrl").val();
 				$("#MEMO_RESULT").html();				
 				$("#studentId").val(dat.studentRec.id);
