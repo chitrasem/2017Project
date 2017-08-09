@@ -158,26 +158,28 @@ school_1002_0302.saveData = function(input){
 		url: saveUpdateUrl,
 		success: function(dat){
 			if(dat.success){
-			swal({
-				title: "រកស្សាទុក!",
-				text: "សិស្សថ្មីបានបញ្ចូលក្នុងទិន្នរួចរាល់ហើយា.", 
-				type: "success",
-				},
-				function(isConfirm){
-					if(isConfirm){
-						school.ui.openWindow(studentUrlDtl);
-					}else{
-						swal("Cancelled", "error");
-					}
-				});
-			}else{
-				console.log(dat.message)
 				swal({
-					title: "មិនត្រឹមត្រូវ",
-					text: "សូមទំនាក់ទំនងទៅកាន់អ្នកបច្ចេកទេសដើម្បីត្រួតពិនិត្យ", 
-					type: "error",
+					title: "រកស្សាទុក!",
+					text: "សិស្សថ្មីបានបញ្ចូលក្នុងទិន្នរួចរាល់ហើយា.", 
+					type: "success",
+					},
+					function(isConfirm){
+						if(isConfirm){
+							//school.ui.openWindow(studentUrlDtl);
+							$("#studentUrlDtl").val(dat.studentId);
+							$("#stuDtl").submit();
+						}else{
+							swal("Cancelled", "error");
+						}
 					});
-			}
+				}else{
+					console.log(dat.message)
+					swal({
+						title: "មិនត្រឹមត្រូវ",
+						text: "សូមទំនាក់ទំនងទៅកាន់អ្នកបច្ចេកទេសដើម្បីត្រួតពិនិត្យ", 
+						type: "error",
+					});
+				}
 			
 		}
 	});
