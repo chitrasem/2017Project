@@ -8,8 +8,6 @@ $(document).ready(function(e){
 		e.preventDefault();
 	});
 	school_1002_0302.loadData("",function(dat){
-		var isConfirm = school.ui.sweetConfrim("Hello?");
-		alert(isConfirm);
 		school.ui.datetimepicker(".datetimepickerYYYYMMDD",{
 			"pickTime"	: false,
 		});
@@ -91,10 +89,24 @@ $(document).ready(function(e){
 		input.student 	= formData;
 		input.memo 		= memo;
 		//input.course 	= course;
-		//input.session 	= session;
-		
-		console.log(input);
-		school_1002_0302.saveData(input);
+		//input.session 	= session;		
+		swal({
+			  title: "បញ្ចូលសិស្សថ្មី",
+			  text: "តើលោកអ្នកពិតជាចង់បញ្ចូលសិស្សថ្មីឫ?",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: "បាទ/ច៎ា",
+			  cancelButtonText: "ទេ",
+			  closeOnConfirm: false
+			},
+			function(isConfirm){
+				if(isConfirm){
+					school_1002_0302.saveData(input);
+				}else{
+					swal("Cancelled", "error");
+				}
+			});
 		
 	});
 	//==================================End Save==================================================
@@ -146,10 +158,27 @@ school_1002_0302.saveData = function(input){
 		url: saveUpdateUrl,
 		success: function(dat){
 			if(dat.success){
-				var confirm = school.ui.sweetConfrim("Are you sure?");
-				
-				school.ui.openWindow(url);
+			swal({
+				title: "រកស្សាទុក!",
+				text: "សិស្សថ្មីបានបញ្ចូលក្នុងទិន្នរួចរាល់ហើយា.", 
+				type: "success",
+				},
+				function(isConfirm){
+					if(isConfirm){
+						school.ui.openWindow(studentUrlDtl);
+					}else{
+						swal("Cancelled", "error");
+					}
+				});
+			}else{
+				console.log(dat.message)
+				swal({
+					title: "មិនត្រឹមត្រូវ",
+					text: "សូមទំនាក់ទំនងទៅកាន់អ្នកបច្ចេកទេសដើម្បីត្រួតពិនិត្យ", 
+					type: "error",
+					});
 			}
+			
 		}
 	});
 }
