@@ -12,7 +12,7 @@ $(document).ready(function(e){
 			"pickTime"	: false,
 		});
 		//$("#birthDate").datepicker();
-		school.ui.addCourseCombo("#sbCourse", courseUrl,dat.courseId);
+		//school.ui.addCourseCombo("#sbCourse", courseUrl,dat.courseId);
 	});
 	
 	// Initialize the jQuery File Upload widget:
@@ -157,6 +157,7 @@ school_1002_0302.saveData = function(input){
         contentType: "application/json; charset=utf-8",
 		url: saveUpdateUrl,
 		success: function(dat){
+			console.log(dat)
 			if(dat.success){
 				swal({
 					title: "រកស្សាទុក!",
@@ -166,8 +167,9 @@ school_1002_0302.saveData = function(input){
 					function(isConfirm){
 						if(isConfirm){
 							//school.ui.openWindow(studentUrlDtl);
-							$("#studentUrlDtl").val(dat.studentId);
-							$("#stuDtl").submit();
+							alert(dat.studentId)
+							$("#viewStudentId").val(dat.studentId);
+							$("#school_1002_0303_form").submit();
 						}else{
 							swal("Cancelled", "error");
 						}
@@ -211,6 +213,7 @@ school_1002_0302.loadData = function(input, callbackFn){
 			type: "GET",
 			url: getStudentUrl,
 			success: function(dat){
+				console.log(dat);
 			//	data.courseId = dat.studentRec.course.id;				
 				var absoluteUrl = $("#absoluteUrl").val();
 				$("#MEMO_RESULT").html();				
