@@ -1,7 +1,5 @@
 <template:basic htmlTitle="New Student" bodyTitle="People">
 	<!-- ============================================================== -->
-	
-<input type="hidden" id="courseUrl" value="<c:url value="/dashboard/course/school_1004_0101_r001.chitra"/> "  >
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
@@ -365,23 +363,34 @@
     </tr>
 {% } %}
 </script>
+
+	
+<input type="hidden" id="courseUrl" value="<c:url value="/dashboard/course/school_1004_0101_r001.chitra"/> "  >
+<input type="hidden" id="studentUrlDtl" value="<c:url value="/dashboard/people/school_1002_0303.act"/> "  >
 <input type="hidden" id="absoluteUrl" value="<c:url value="/"/> ">
 <input type="hidden" id="studentUrl" value="<c:url value="/dashboard/people/school_1002_0302_r001.chitra/"/> ">
+<%-- <form id="school_1002_0303_form" action="<c:url value="/dashboard/people/school_1002_0303.act"/>" method="post" >
+	<input name="studentId" id="studentId" type="hidden"  >
+</form> --%>
+<form id="school_1002_0303_form" action="school_1002_0303.act" method="post">
+	<input type="hidden" name="studentId" id="viewStudentId" value="0">
+</form>
 
 <script>
 
  var studentId = "${studentId}";
  var url = "school_1002_0301.act";
  var getStudentUrl = $("#studentUrl").val()+studentId;
+ var studentUrlDtl = $("#studentUrlDtl").val();
  
  
 </script>
 
 <script type="text/x-jquery-tmpl" id="MEMO_TMPL">
 	<tr>
-      	<td>{{= school.string.formatDatetime(registerDate) }}</td>
-      	<td>{{= content }}</td>
-      	<td>{{= registerPerson }}</td>
+      	<td>{%= school.string.formatDatetime(registerDate) %}</td>
+      	<td>{%= content %}</td>
+      	<td>{%= registerPerson %}</td>
      </tr>
 </script>
     <%@include file="../../views/dashboard/footer.jsp" %>
