@@ -140,7 +140,7 @@ public class StudentRest {
 			memo.setStudent(student);		
 			
 			studentDao.save(student, memo);	
-			map.put("firstname", student.getFirstName());
+			map.put("lastName", student.getLastName());
 			map.put("success", true);		
 			map.put("studentId", student.getId());
 		}catch(Exception e){
@@ -173,6 +173,7 @@ public class StudentRest {
 			studentDao.update(student, memo);
 			map.put("studentId", student.getId());
 			map.put("success", true);
+			map.put("lastName", student.getLastName());
 			
 		}catch(Exception e){
 			map.put("success", false);
