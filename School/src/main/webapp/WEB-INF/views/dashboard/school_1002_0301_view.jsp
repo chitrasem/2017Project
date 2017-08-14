@@ -1,8 +1,5 @@
 <template:basic htmlTitle="Students" bodyTitle="People">
-	<!-- ============================================================== -->	
-	
-	
-	
+<!-- ============================================================== -->	
 <form id="school_1002_0301_download" action="<c:url value="/dashboard/people/school_1002_0301_download"/> " method="post">
 	<input type="hidden" name="srcStudentId" id="srcStudentId">
 </form>
