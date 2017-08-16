@@ -19,31 +19,36 @@ $(document).ready(function(e){
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: 'http://chitra.com.kh:8080/School/upload/test',
+        url: 'http://schoolkm.com.kh:8080/School/upload/test',
         change: function(e, data){
         	$.each(data.files, function(index, file){
         	})
         }
     });
-    $("#fileupload").bind("fileuploaddone", function(e, data){  	
+    $("#fileupload").bind("fileuploaddone", function(e, data){  
+    	console.log(data);
     	var str = $("#imgPhoto").attr("src");
     	str  = str.substr(0, str.lastIndexOf("/static"))
     	
-    	var imagePath = data.result.path;   	
-    	var imageName = data.result.name;
-    	var imageUrl = str+imagePath+imageName;
-    	    imageUrl = imageUrl.replace("\\", "/");
-    	    imageUrl = imageUrl.replace("\\", "/");
-    	    imageUrl = imageUrl.replace("\\", "/");
-    	
-    	var imgPhoto = $("#imgPhoto");   
+    	var imageUrl = data.result.path;   	
+    	var imageName = data.result.name;    	
+    	    imageUrl  = imageUrl.replace("\\", "/");
+    	    imageUrl  = imageUrl.replace("\\", "/");
+    	    imageName = imageName.replace("\\", "/");    	
+    	var imgPhoto = $("#imgPhoto");       	
     	$("#uploadModal").modal("hide");  
+    	var absoluteUrl = $("#absoluteUrl").val();
+    	absoluteUrl = absoluteUrl.substring(0, absoluteUrl.length - 2 );
     	
+    	imgPhoto.attr("src",absoluteUrl+imageUrl+imageName);
+    	$("#imageName").val(imageName);
+    	$("#imagePath").val(imageUrl);
+    	/*
     	setTimeout(function(){        	
-        	imgPhoto.attr("src",imageUrl);
+        	imgPhoto.attr("src",absoluteUrl+imageUrl+imageName);
         	$("#imageName").val(imageName);
-        	$("#imagePath").val(imagePath);
-    	}, 3000);
+        	$("#imagePath").val(imageUrl);
+    	}, 3000);*/
     	
     });
     $("#fileupload").fileupload({
@@ -91,8 +96,8 @@ $(document).ready(function(e){
 		//input.course 	= course;
 		//input.session 	= session;		
 		swal({
-			  title: "បញ្ចូលសិស្សថ្មី",
-			  text: "តើលោកអ្នកពិតជាចង់បញ្ចូលសិស្សថ្មីឫ?",
+			  title: "រក្សាទុក",
+			  text: "តើលោកអ្នកពិតជាចង់រក្សាទុកឫ?",
 			  type: "warning",
 			  showCancelButton: true,
 			  confirmButtonColor: "#DD6B55",
@@ -157,17 +162,15 @@ school_1002_0302.saveData = function(input){
         contentType: "application/json; charset=utf-8",
 		url: saveUpdateUrl,
 		success: function(dat){
-			console.log(dat)
 			if(dat.success){
 				swal({
 					title: "រកស្សាទុក!",
-					text: "សិស្សថ្មីបានបញ្ចូលក្នុងទិន្នរួចរាល់ហើយា.", 
+					text: "សិស្សឈ្មោះ "+dat.lastName+" បានរក្សាទុកក្នុងទិន្នរួចរាល់ហើយ.", 
 					type: "success",
 					},
 					function(isConfirm){
 						if(isConfirm){
 							//school.ui.openWindow(studentUrlDtl);
-							alert(dat.studentId)
 							$("#viewStudentId").val(dat.studentId);
 							$("#school_1002_0303_form").submit();
 						}else{
