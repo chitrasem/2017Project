@@ -389,7 +389,7 @@
 <script type="text/x-jquery-tmpl" id="MEMO_TMPL">
 	<tr>
       	<td>{%= school.string.formatDatetime(registerDate) %}</td>
-      	<td>{%= content %}</td>
+      	<td><a href="javascript:" id="mmo_content">{%= content %}</a></td>
       	<td>{%= registerPerson %}</td>
      </tr>
 </script>
