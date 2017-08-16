@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.bean.PaymentBean;
+import com.chitra.school.bean.PaymentYearlyBean;
 import com.chitra.school.dao.PaymentDao;
 import com.chitra.school.dao.StudentDao;
 import com.chitra.school.entities.Payment;
@@ -99,6 +100,20 @@ public class PaymentRest {
 		try{
 			List<Student> list = stuDao.findStudent("", "", "");
 			m.put("STUDENT_REC", list);
+			m.put("success", true);			
+		}catch(Exception e){
+			m.put("success", false);
+			e.printStackTrace();
+		}
+		
+		return m;
+	}
+	@RequestMapping(value = "/school_1005_0201_r001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
+	public Map<Object, Object> listYearlyPayment(){
+		Map<Object, Object> m = new HashMap<Object, Object>();
+		try{
+			//List<PaymentYearlyBean> //list = dao.yearlyReport();
+			m.put("YEARLY_REC", dao.yearlyReport());
 			m.put("success", true);			
 		}catch(Exception e){
 			m.put("success", false);

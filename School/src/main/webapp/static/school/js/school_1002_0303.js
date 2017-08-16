@@ -1,3 +1,4 @@
+var school_1002_0303 = {};
 $(document).ready(function(){
 	school_1002_0303.loadData();
 });
@@ -15,8 +16,9 @@ school_1002_0303.loadData = function(input){
 	$.ajax({
 		url: viewURL,
 		success: function(resp){
+			console.log(resp)
 			if(resp.studentRec.length>0){
-				
+				console.log(resp)
 			}
 		}
 	});

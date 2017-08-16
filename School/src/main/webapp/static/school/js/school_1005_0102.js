@@ -51,7 +51,7 @@ $(document).ready(function(){
 				var _this = $(this);
 				dtlRec.push({
 					"PAY_STATUS" :_this.parent().parent().find(".PAY_STATUS").val(),	
-					"PAY_DTL_DESCR" :_this.parent().parent().find(".PAY_DTL_DESCR").val(),	
+					"PAY_DTL_DT" :_this.parent().parent().find(".PAY_DTL_DT").val(),	
 					"UNIT_PRICE" :_this.parent().parent().find(".UNIT_PRICE").val(),	
 					"AMT_DST" :_this.parent().parent().find(".AMT_DST").val(),	
 					"AMT_TOTAL" :_this.parent().parent().find(".AMT_TOTAL").val(),					
@@ -170,7 +170,7 @@ $(document).delegate("#btnSave","click",function(){
 	
 	$("#PAYMENT_DTL_RESULT >tr").each(function(e){
 		paymentDtl.push({
-			"payDtlDescr"		: school.string.removeAllString( $(this).find(".PAY_DTL_DESCR").val() ),	
+			"payDtlDt"		: school.string.removeAllString( $(this).find(".PAY_DTL_DT").val() ),	
 			"payDtlAmtKm"		: school.string.removeAllString( $(this).find(".UNIT_PRICE").val() ),	
 			"payDtlDisc" 		: school.string.removeAllString( $(this).find(".AMT_DST").val() ),			
 			"pay_status"		: $("#txtPayer").attr("data-status"),
@@ -180,7 +180,6 @@ $(document).delegate("#btnSave","click",function(){
 	input.student		 = student;
 	input.payment		 = payment;
 	input.paymentDtlRec	 = paymentDtl;
-	console.log(input);
 	school_1005_0102.save(input)
 });
 /**

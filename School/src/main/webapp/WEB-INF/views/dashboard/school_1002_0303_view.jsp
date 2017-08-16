@@ -15,10 +15,16 @@
          </div>
      </div>
      <div class="row user-tabs">
-         <div class="col-lg-6 col-md-9 col-sm-9">
+         <div class="col-lg-9 col-md-9 col-sm-9">
              <ul class="nav nav-tabs tabs">
              <li class="active tab">
-                 <a href="#home-2" data-toggle="tab" aria-expanded="false" class="active"> 
+                 <a href="#class_room" data-toggle="tab" aria-expanded="false" class="active"> 
+                     <span class="visible-xs"><i class="fa fa-home"></i></span> 
+                     <span class="hidden-xs">Class Room</span> 
+                 </a> 
+             </li> 
+             <li class="tab">
+                 <a href="#home-2" data-toggle="tab" aria-expanded="false" class=""> 
                      <span class="visible-xs"><i class="fa fa-home"></i></span> 
                      <span class="hidden-xs">About Me</span> 
                  </a> 
@@ -41,9 +47,10 @@
                      <span class="hidden-xs">Settings</span> 
                  </a> 
              </li> 
-         <div class="indicator"></div></ul> 
+         <div class="indicator"></div>
+         </ul> 
          </div>
-         <div class="col-lg-6 col-md-3 col-sm-3 hidden-xs">
+         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
              <div class="pull-right">             
 		         <input id="btnEdit" type="button" class="btn btn-purple btn-rounded " value="Edit">
 		         <input id="btnBack" type="button" class="btn btn-purple btn-rounded " value="Back">
@@ -54,7 +61,96 @@
          <div class="col-lg-12"> 
          
          <div class="tab-content profile-tab-content"> 
-             <div class="tab-pane active" id="home-2"> 
+                      
+             
+
+             <div class="tab-pane active" id="class_room">
+                 <!-- Personal-Information -->
+                 <div class="panel panel-default panel-fill">
+                     <div class="panel-heading"> 
+                         <h3 class="panel-title">My Projects</h3> 
+                     </div> 
+                     <div class="panel-body"> 
+				      <c:set var = "salary" scope = "session" value = "${ student.course }"/>
+				      <p>Your salary is : <c:out value = "${salary}"/></p>
+				      <c:choose>
+				         
+				         <c:when test = "${salary == 'Nataly'}">
+				            Salary is very low to survive.
+				         </c:when>
+				         <%-- 
+				         <c:when test = "${salary > 1000}">
+				            Salary is very good.
+				         </c:when> --%>
+				         
+				         <c:otherwise>
+				            No comment sir...
+				         </c:otherwise>
+				      </c:choose>
+                     	
+                         <div class="table-responsive">
+                                             <table class="table">
+                                                 <thead>
+                                                     <tr>
+                                                         <th>#</th>
+                                                         <th>Project Name</th>
+                                                         <th>Start Date</th>
+                                                         <th>Due Date</th>
+                                                         <th>Status</th>
+                                                         <th>Assign</th>
+                                                     </tr>
+                                                 </thead>
+                                                 <tbody>
+                                                     <tr>
+                                                         <td>1</td>
+                                                         <td>Moltran Admin</td>
+                                                         <td>01/01/2015</td>
+                                                         <td>07/05/2015</td>
+                                                         <td><span class="label label-info">Work in Progress</span></td>
+                                                         <td>Coderthemes</td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>2</td>
+                                                         <td>Moltran Frontend</td>
+                                                         <td>01/01/2015</td>
+                                                         <td>07/05/2015</td>
+                                                         <td><span class="label label-success">Pending</span></td>
+                                                         <td>Coderthemes</td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>3</td>
+                                                         <td>Moltran Admin</td>
+                                                         <td>01/01/2015</td>
+                                                         <td>07/05/2015</td>
+                                                         <td><span class="label label-pink">Done</span></td>
+                                                         <td>Coderthemes</td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>4</td>
+                                                         <td>Moltran Frontend</td>
+                                                         <td>01/01/2015</td>
+                                                         <td>07/05/2015</td>
+                                                         <td><span class="label label-purple">Work in Progress</span></td>
+                                                         <td>Coderthemes</td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>5</td>
+                                                         <td>Moltran Admin</td>
+                                                         <td>01/01/2015</td>
+                                                         <td>07/05/2015</td>
+                                                         <td><span class="label label-warning">Coming soon</span></td>
+                                                         <td>Coderthemes</td>
+                                                     </tr>
+                                                     
+                                                 </tbody>
+                                             </table>
+                                         </div>
+
+                     </div> 
+                 </div>
+                 <!-- Personal-Information -->
+             </div> <!-- Class Room -->
+             <div class="tab-pane" id="home-2"> 
                  <div class="row">
                      <div class="col-md-4">
                          <!-- Personal-Information -->
@@ -235,8 +331,6 @@
                  </div>
                  <!-- Personal-Information -->
              </div> 
-
-
 
              <div class="tab-pane" id="messages-2">
                  <!-- Personal-Information -->

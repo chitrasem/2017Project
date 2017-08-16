@@ -2,11 +2,6 @@ var school;
 if(!school) school = {};
 if(!school.string){
 	school.string = {};
-	
-	school.string.formatBirthDate = function(str){
-		
-		return "";
-	}
 	school.string.formatDatetime = function(str){
 		if(str=="" || str==null){
 			return "";

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chitra.school.bean.BookBean;
+import com.chitra.school.dao.CourseDao;
 import com.chitra.school.dao.StudentDao;
+import com.chitra.school.entities.Course;
 import com.chitra.school.entities.Student;
 import com.chitra.school.entities.User;
 import com.chitra.school.service.UserService;
@@ -26,6 +28,9 @@ public class IndexController {
 	@Autowired
 	StudentDao studentDao;
 	SSOIdUtil sSOIdUtil = new SSOIdUtil();
+	
+	@Autowired
+	CourseDao courseDao;
 
     public User getUser(){
 		User user = userService.findBySso(sSOIdUtil.getPrincipal());
@@ -89,10 +94,12 @@ public class IndexController {
 	public String addViewStudent(Model m, 
 			@RequestParam(required = false) String studentId){
 		try{
-			Student student = studentDao.findById(studentId);
+			//Student student = studentDao.findById(studentId);
+
+			//Course student = courseDao.findCourseByStudentId(studentId);
 			m.addAttribute("user", getUser());
 			m.addAttribute("studentId", studentId);
-			m.addAttribute("student", student);
+		//	m.addAttribute("student", student);
 			
 		}catch(Exception e){
 			e.printStackTrace();

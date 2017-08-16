@@ -39,10 +39,12 @@ public class UploadController {
 		
 		
 		
-		fileUploadPath = fileUploadPath.substring(0,fileUploadPath.lastIndexOf("\\.metadata"));
-	//fileUploadPath = fileUploadPath+"\\web\\static\\images";
-		
-	fileUploadPath += "\\2017Project\\School\\src\\main\\webapp\\static\\temp";
+//		fileUploadPath = fileUploadPath.substring(0,fileUploadPath.lastIndexOf("\\.metadata"));
+		//fileUploadPath = fileUploadPath+"\\web\\static\\images";
+
+		fileUploadPath = fileUploadPath+"\\static\\images";
+			
+	//fileUploadPath += "\\2017Project\\School\\src\\main\\webapp\\static\\temp";
 		
 
 	System.out.println("=======================================================Path 2");
@@ -77,12 +79,12 @@ public class UploadController {
     						file = new File(fileUploadPath, fileName.substring( fileName.lastIndexOf("\\")));
     						 // Create directory if it not exists.
     						if(!file.exists()){
-    						//	file.mkdirs();
+    							file.mkdirs();
     						}
   						}else{
   							file = new File(fileUploadPath, fileName.substring( fileName.lastIndexOf("\\")+1));
   							if(!file.exists()){
-    						//	file.mkdirs();
+    							file.mkdirs();
     						}
   						}
     					// rename if file exists
@@ -108,6 +110,11 @@ public class UploadController {
     					System.out.println("File Part");
     					
     					newFilename = newFilename.substring(newFilename.lastIndexOf("\\"));
+
+    					System.out.println("FILE NAME");
+    					System.out.println(newFilename);
+    					System.out.println("File Part");
+    					
     							
     					map.put("name", newFilename);
     					map.put("size", item.getSize());

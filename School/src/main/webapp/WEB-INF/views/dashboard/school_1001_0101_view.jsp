@@ -7,8 +7,8 @@
          <div class="mini-stat clearfix bx-shadow">
              <a class="{%= classMini %}" href="<c:url value="{%= url %}"/>"><i class="{%= classIcon %}"></i></a>
              <div class="mini-stat-info text-right text-muted">
+				ចំនួន
                  <span class="counter">{%= count %}</span>
-                 New Users
              </div>
              <div class="tiles-progress">
                  <div class="m-t-20">

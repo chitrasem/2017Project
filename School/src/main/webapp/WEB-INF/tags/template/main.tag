@@ -33,7 +33,11 @@
         <link href="<c:url value="/static/css/waves-effect.css" />" rel="stylesheet">
         
         <!-- sweet alerts -->
+        <link href="<c:url value="/static/assets/sweet-alert/sweet-alert.min.css" />" rel="stylesheet" />
         
+        <!-- Datatable -->        
+        <link href="<c:url value="/static/assets/datatables/jquery.dataTables.min.css" />" rel="stylesheet" />
+        <link href="<c:url value="/static/school/css/fixedColumns.bootstrap.min.css" />" rel="stylesheet" type="text/css" />
         
         <!-- Datepicker -->
         

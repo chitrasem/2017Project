@@ -8,7 +8,7 @@ public interface CourseDao {
 	
 	void save(Course course);
 	Course findCourseById(String id);
-	Course findCourseByStudentId(String id);
+	Object findCourseByStudentId(String id);
 	List<Course> findAllCourses();
 	void updateCourse(Course course);
 

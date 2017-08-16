@@ -24,10 +24,10 @@ public class DashboardRest {
 		Map<Object, Object> m = new HashMap<Object, Object>();
 		try{
 			List<DashboardBean> dsList = dao.list();
-			m.put("status", true);
+			m.put("success", true);
 			m.put("dsRec", dsList);
 		}catch(Exception e){
-			m.put("status", false);
+			m.put("success", false);
 			m.put("message", e.getMessage());
 			e.printStackTrace();			
 		}		

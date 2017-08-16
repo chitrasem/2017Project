@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chitra.school.dao.CourseDao;
 import com.chitra.school.dao.StudentDao;
 import com.chitra.school.entities.Course;
 import com.chitra.school.entities.Memo;
@@ -37,6 +38,9 @@ public class StudentRest {
 	
 	@Autowired
 	StudentDao studentDao;
+	
+	@Autowired
+	CourseDao courseDao;
 
 	@RequestMapping(value = "/school_1002_0101_r001.chitra" , method = RequestMethod.GET ,  produces=MediaType.APPLICATION_JSON_VALUE)
 	public Map<Object, Object> getUsers(SSOIdUtil ssoIdUtil) {
@@ -75,7 +79,8 @@ public class StudentRest {
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		
 		try{
-			Student student = studentDao.findById(studentId);		
+			Student student = studentDao.findById(studentId);	
+			//Course student = courseDao.findCourseByStudentId(studentId);			
 			List<Memo> memoes = memoService.listMemoByStudentId(studentId);
 			map.put("memoRec", memoes);
 			map.put("studentRec", student);

@@ -156,7 +156,7 @@
 		<td>
 			<div class="form-group">
               <div class='input-group date datetimepicker'>
-                  <input type='text' value="{%= PAY_DTL_DESCR %}" class="form-control PAY_DTL_DESCR dt_yyyymm" />
+                  <input type='text' value="{%= PAY_DTL_DT %}" class="form-control PAY_DTL_DT dt_yyyymm" />
                   <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                   </span>
