@@ -65,6 +65,9 @@
                             <li>
                                 <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
+                            <li>
+                                <a href="javascript:" id="cropImage" data-toggle="modal" data-target="#cropModal" class="waves-effect"><i class="md md-person"></i><span> Crop Image </span></a>
+                            </li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>

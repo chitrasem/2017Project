@@ -69,20 +69,9 @@
 								
 							
 							</thead>
-							<tbody id="MEMO_RESULT">							
+							<tbody id="MEMO_RESULT">					
 							</tbody>
 						</table>
-                     	<!-- <div class="col-md-12">
-                     		<div class="form-group">
-                            	<label class="control-label col-sm-2" for="content">Memo:</label>
-                             	<div class="col-sm-10">
-									<input type="text" class="form-control" value="សូមបង់ប្រាក់ដើប្បីចូលរៀន" name="content" id="content" placeholder="Enter memo">
-						 		
-						 		</div>
-                            </div>
-                        </div>                        
-                     	<div class="col-md-12" id="MEMO_RESULT">
-                        </div> -->
 						<legend> <strong><i>Student Information</i></strong></legend>				
 						<div class="col-md-2">		
 		                  	<a class="pull-left col-sm-" href="javascript:" data-toggle="modal" data-target="#uploadModal" >

@@ -1,61 +1,104 @@
 var school_1002_0201 = {};
 $(document).ready(function(){
 	//Load data
+$("#searchName").focus();
 	school_1002_0201.loadData();
 	
 	//Dropdown Action
-	school.string.appendAction("#dropDownResult");	
+	school.ui.appendAction("#dropDownResult");	
 	
 	
 	$('input[type="checkbox"]').click(function(){
 		_this = this;
-		school.string.checkboxAll(_this);
+		school.ui.checkboxAll(_this);
 	});
 	$(document).delegate("#btnView","click", function(){
-		var checkbox = $("#STAFF_RESULT >tr").find('input[type="checkbox"]:checked');
+		var checkbox = $("#STUDENT_RESULT >tr").find('input[type="checkbox"]:checked');
 		var studentId = checkbox.parent().find('input[type="hidden"]').val();
 		$("#studentId").val(studentId);
 		$("#school_1002_0201").submit();
+	});	
+	$(document).delegate("td a.btn-view", "click", function(){
+		
+		var _this = $(this);
+		
+		var studentId = _this.parent().parent().find('input[type="hidden"]').val();
+		$("#viewStudentId").val(studentId);
+		$("#school_1002_0303_form").submit();
+		
+		
 	});
-	
+	$(document).delegate("td button.btn-edit", "click", function(){
+		
+		var _this = $(this);
+		
+		var studentId = _this.parent().parent().find('input[type="hidden"]').val();
+		$("#studentId").val(studentId);
+		$("#school_1002_0202_form").submit();
+		
+	});
+		
 	$(document).delegate('input[type="checkbox"]', "click", function(){
 		var dataRec =[];
-		$('#STAFF_RESULT >tr').find('input[type="checkbox"]:checked').each(function(e){				
+		$('#STUDENT_RESULT >tr').find('input[type="checkbox"]:checked').each(function(e){				
 			dataRec.push($(this).length);
 		});	
 		if(dataRec.length===0){	
-			school.string.appendAction("#dropDownResult");		
+			school.ui.appendAction("#dropDownResult");		
 		}else if(dataRec.length===1){
-			school.string.appendActionView("#dropDownResult");
+			school.ui.appendActionView("#dropDownResult");
 		}else{
-			school.string.appendActionMoreEdit("#dropDownResult");
+			school.ui.appendActionMoreEdit("#dropDownResult");
 		}
 	})
-	$(document).delegate("#downloadExcel", "click", function(){
-		alert();
+	$(document).delegate("#downloadExcel, #btnDownload", "click", function(e){
+		e.preventDefault();
+		
+		var input = {};
+		
+		$.extend(input, school_1002_0201.getInput());
+		
+		$("#srcStudentId").val(input.id);
+		
+		$("#school_1002_0201_download").submit();
+		
 	});
-	$(document).delegate("#addNew","click",function(){
-		school.ui.openWindow(staffFormUrl);
+	$(document).delegate("#addNew, #btnAdd","click",function(){
+		school.ui.openWindow(studentForm);
+	});
+	
+	$("#btnSearchName").click(function(){
+		school_1002_0201.loadData();
+	});
+	$("#searchName").on("keyup", function(e){
+		if(e.keyCode===13){
+			school_1002_0201.loadData();
+		}
 	});
 });
 school_1002_0201.getInput = function(){
 	var input = {};
+	input.id = $("#searchName").val();
 	return input;
 }
 school_1002_0201.loadData = function(input){
 	if(!input) input = {};
 	$.extend(input, school_1002_0201.getInput() );
+	if(!input.pageCount || !input.pageCount === null) input.pageCount = 1;
+
+	input.numberOfRecord = 10;
 	
-	var url = "service/school_1002_0201_r001.chitra";
-	$("#STAFF_RESULT").html();
+	var url = "school_1002_0301_r001.chitra";
+	$("#STUDENT_RESULT").html("");
 	$.ajax({
 		url: url,
 		type: "get",
+		data: input,
 		success: function(dat){
-			console.log(dat);
-			
-			if(dat.success && dat["staffRec"].length>0){
-				$("#STAFF_TMPL").tmpl(dat.staffRec).appendTo("#STAFF_RESULT");
+			console.log(dat)
+			if(dat.success && dat.studentRec.length>0){
+				$("#STUDENT_TMPL").tmpl(dat.studentRec).appendTo("#STUDENT_RESULT");				
+				school.ui.createPagination("#pagination", dat.totalStudent, input.numberOfRecord, input.pageCount, school_1002_0201.loadData);
 			}
 		}
 	});

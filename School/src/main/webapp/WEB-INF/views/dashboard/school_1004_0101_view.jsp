@@ -1,4 +1,4 @@
-<template:basic htmlTitle="Classroom" bodyTitle="classroom">
+<template:basic htmlTitle="Classroom" bodyTitle="បន្ទប់រៀន">
 <input id="STUDENT-URL" type="hidden" value="<c:url value="/dashboard/people/school_1002_0302_r002.chitra"/> ">
 <div class="row">
 	<div class="col-md-12">
@@ -10,9 +10,12 @@
 					<table class="table table-hover table-striped">
 						<thead>
 						<tr>			
-						<th class="col-md-2 ">CLASSROOM_ID</th>
-						<th class="col-md-8 ">CLASSROOM</th>
-						<th class="col-md-2 ">Action</th>
+						<th class="">បន្ទប់</th>
+						<th class="">កំរិតថ្នាក់</th>
+						<th class="">ឆ្នាំសិក្សា</th>
+						<th class="">ចំនួនសិស្ស</th>
+						<th class="">គ្រូបង្រៀន</th>
+						<th class="col-md- ">កំណត់ចំណាំ</th>
 						</tr>
 						
 						</thead>
