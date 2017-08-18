@@ -36,7 +36,21 @@ public class Course{
 	 @JoinColumn(name="ACY_ID")
 	 private AcademicYear academicYear;
 	 
-	 @Column(name="STATE")
+	 @ManyToOne(optional=true, fetch = FetchType.LAZY)
+	 @JoinColumn(name="grade_id")
+	 private Grade grade;
+	 
+	 
+	 
+	 public Grade getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
+
+	@Column(name="STATE")
 	 private String state;// = State.ACTIVE.getState();
 	 
 	

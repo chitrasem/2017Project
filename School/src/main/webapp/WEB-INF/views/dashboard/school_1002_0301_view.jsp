@@ -92,27 +92,24 @@
 			{%else%}
 			<i  class="ion ion-female m-r-15 text-purple"></i>
 			{%/if%}
-			</a>
-			
+			</a>			
 			</td>		
 			<td>{%= firstName %}&nbsp{%= lastName %}</td>
 			<td>{%= school.string.formatBirthDate( birthDate ) %}</td>
 			<td>{%= phone1 %}</td>
-			<td>
-							
+			<td>							
 				<button  class="btn btn-edit btn-xs btn-default waves-effect waves-light m-b-5">
-					  <i class="fa  fa-caret-square-o-down"></i> 
+					<i class="fa  fa-caret-square-o-down"></i> 
 				</button>
 			{%if (state === "Inactive") %}				
 				<button class="btn btn-xs btn-default waves-effect waves-light m-b-5">
-					  <i class="fa fa-money"></i> 
+					<i class="fa fa-money"></i> 
 				</button>
 			{%/if%}
 			</td>
 			<td>{%= biography %}</td>
 		</tr>
-	</script>
-	
+	</script>	
 	<script>
 	var studentForm = "school_1002_0302.act";
 	</script>
