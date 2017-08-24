@@ -35,6 +35,19 @@ $("#searchName").focus();
 			school.string.appendActionMoreEdit("#dropDownResult");
 		}
 	});*/
+	$(document).delegate(".pop_img_over","mousemove",function(e){
+		$(this).next('img').css({
+			//top: e.pageY - 260,
+			//left: e.pageX + 1,//10,
+		});
+	});
+	$(document).delegate(".pop_img_over","mouseenter",function(){
+        var big = $('<img />', {'class': 'big_img', src: this.src});
+        $(this).after(big);
+	});
+	$(document).delegate(".pop_img_over","mouseleave",function(){
+        $('.big_img').remove();
+	});
 	
 	$(document).delegate("td a.btn-view", "click", function(){
 		

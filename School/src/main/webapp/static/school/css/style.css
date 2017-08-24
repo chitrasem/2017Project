@@ -33,3 +33,7 @@ font-family: 'Lato', sans-serif;
 .trBgk{
 	background: #808080;
 }
+
+
+.big_img {height: 250px; position: absolute;}
+.trBg{background: #A0A0A0}

@@ -10,7 +10,12 @@ $(document).ready(function(){
 	
 	//Load Data;
 	school_1004_0101.loadData();
-	
+	$("#btnAdd").click(function(){
+		$("#classroom_modal").modal({
+			backdrop	: 'static', 
+			keyboard	: false,
+		});	
+	});
 	$(document).delegate(".list-students","click", function(){
 		var input = {};
 		var _this = $(this);
@@ -18,7 +23,7 @@ $(document).ready(function(){
 		if(upAndDown.hasClass("ion-chevron-down")){			
 			upAndDown.removeClass("ion-chevron-down").addClass("ion-chevron-up");	
 			// Show students						
-			school_1004_0101.clsroomId 		= _this.parent().parent().find("td.CLSROOM-ID").text();			
+			school_1004_0101.clsroomId 		    = _this.parent().parent().find("td.CLSROOM-ID").text();			
 			school_1004_0101.target 			= _this.parent().parent().next("tr.show-students").find("td .STUDENTS-RESULT");
 			school_1004_0101.pagination 		= _this.parent().parent().next("tr.show-students").find("td .STUDENTS-PAGING");
 			

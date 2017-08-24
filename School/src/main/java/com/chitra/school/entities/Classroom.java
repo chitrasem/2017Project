@@ -34,6 +34,16 @@ public class Classroom {
 	 private String status;
 	@Column(name="REMARKS", length = 50)
 	 private String remarks;
+	@ManyToOne(optional=true, fetch = FetchType.LAZY)
+	@JoinColumn(name="SESSION_ID")
+	private STSession session;
+	
+	public STSession getSession() {
+		return session;
+	}
+	public void setSession(STSession session) {
+		this.session = session;
+	}
 	public String getId() {
 		return id;
 	}

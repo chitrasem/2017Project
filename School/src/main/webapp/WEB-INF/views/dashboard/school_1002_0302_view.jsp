@@ -39,21 +39,15 @@
 						        </div>
 						        The table listing the files available for upload/download
 						        <table role="presentation" class="table table-striped"><tbody class="files" id="fileList"></tbody></table>
-						 
 						   	</form> 
-                            </div>
-                                                       
+                            </div>                                                       
                              <div class="modal-footer">
                                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
                                  <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
                              </div>
                             </div><!-- /.modal-content -->    
-                        </div><!-- /.modal-dialog -->
-                        
-                    </div>
-					
-					
-                                        
+                        </div><!-- /.modal-dialog -->                        
+                    </div>               
                                         
 					<form class="form-horizontal" id="school_1002_0302_form">
 					<fieldset>
@@ -65,9 +59,7 @@
 								<td colspan="2">
 									<input type="text" class="form-control"  name="content" id="content" placeholder="សូមវាយបញ្ចូលកំណត់ចំណាំ">
 								</td>
-								</tr>
-								
-							
+								</tr>		
 							</thead>
 							<tbody id="MEMO_RESULT">					
 							</tbody>
