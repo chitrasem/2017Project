@@ -256,10 +256,15 @@
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jan ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jan ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jan ) %} <span> &#6107;</span></td>
-	
-			<td class="text-right">{%= school.string.numberWithComma( amt_mm_feb ) %} <span> &#6107;</span></td>	
-			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_feb ) %} <span> &#6107;</span></td>	
-			<td class="text-right">{%= school.string.numberWithComma( tot_mm_feb ) %} <span> &#6107;</span></td>
+			{%if amt_mm_jan == "" %}
+				<td class="bg-danger"></td>
+				<td class="bg-danger"></td>
+				<td class="bg-danger"></td>				
+				{%else%}
+				<td class="text-right">{%= school.string.numberWithComma( amt_mm_feb ) %} <span> &#6107;</span></td>	
+				<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_feb ) %} <span> &#6107;</span></td>	
+				<td class="text-right">{%= school.string.numberWithComma( tot_mm_feb ) %} <span> &#6107;</span></td>
+			{%/if %}
 	
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_mar ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_mar ) %} <span> &#6107;</span></td>	

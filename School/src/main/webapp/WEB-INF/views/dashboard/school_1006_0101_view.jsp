@@ -2,8 +2,10 @@
 	<!-- ============================================================== -->
 	<!-- Start right Content here -->
 	<div class="content">
-		<div class="container">
-		GO HOME NOW IS THE BEST TIME OF ALL YOU SHOULD GO RIGHT NOW... YES YES YES
+		<div class="container">		
+		<div id="app">
+		  <p>{{ message }}</p>
+		</div>
 		
 		</div>
 		<!-- container -->
@@ -12,4 +14,6 @@
 	<!-- content -->
 
 
+<%@include file="../../views/dashboard/footer.jsp" %>    
+<script src="<c:url value="/static/school/js/school_1006_0101.js" />"></script>
 </template:basic>
