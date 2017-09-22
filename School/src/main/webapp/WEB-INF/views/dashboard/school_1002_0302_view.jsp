@@ -12,7 +12,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                                    <h4 class="modal-title" id="myLargeModalLabel">ផ្ទុករូបភាព</h4>
                                 </div>
                                 <div class="modal-body">
                                 <form id="fileupload" name="fileupload" action="<c:url value="/upload/test"/>" method="POST" enctype="multipart/form-data">
@@ -278,6 +278,7 @@
         </td>
         <td>
             <p class="name">{%=file.name%}</p>
+			<img src="{%=file.url%}">
             <strong class="error text-danger"></strong>
         </td>
         <td>

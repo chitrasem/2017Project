@@ -44,13 +44,12 @@
 										<th >
 										<input type="checkbox">
 										</th>
-										<th>Student ID</th>
-										<th>Khmer Name</th>
-										<th>English Name</th>
-										<th>Birth Date</th>
-										<th>Phone</th>
-										<th>Options</th>
-										<th>Memo</th>
+										<th>ឈ្មោះជាភាសាខ្មែរ</th>
+										<th>ឈ្មោះជាភាសាអង់គ្លេស</th>
+										<th>ថ្ងៃខែឆ្នាំកំណើត</th>
+										<th>លេខទូរស័ព្ទ</th>
+										<th>ជម្រើស</th>
+										<th>កំណត់ចំណាំ</th>
 									</tr>
 								</thead>
 								<tbody id="STUDENT_RESULT" style="hight: 100px;">
@@ -75,13 +74,6 @@
 		<tr>
 			<td><input  type="checkbox">
 				<input type="hidden" value="{%= id %}" class="STUDENT_ID">
-			</td>
-			<td>			
-			{%if (gender == "M") %}
-				<a href="javascript:"><i class="fa fa-circle text-pink m-r-15"></i>{%= id %}</a>	
-			{%else%}
-				<a href="javascript:"><i class="fa fa-circle text-purple m-r-15"></i>{%= id %}</a>				
-			{%/if%}
 			</td>
 			<td>
 			<image class="thumb-sm pop_img_over img-circle" src="${pageContext.request.contextPath}{%= imagePath %}{%= imageName %}" alt="{%= firstName %} " />

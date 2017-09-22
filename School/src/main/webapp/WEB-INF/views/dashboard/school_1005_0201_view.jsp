@@ -252,61 +252,126 @@
 			<td class="text-right">{%= school.string.numberWithComma( amt_yyyy_tot ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_yyyy_tot ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( sum_amt_tot ) %} <span> &#6107;</span></td>
-	
+
+			{%if amt_mm_jan === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jan ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jan ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jan ) %} <span> &#6107;</span></td>
-			{%if amt_mm_jan == "" %}
-				<td class="bg-danger"></td>
-				<td class="bg-danger"></td>
-				<td class="bg-danger"></td>				
-				{%else%}
-				<td class="text-right">{%= school.string.numberWithComma( amt_mm_feb ) %} <span> &#6107;</span></td>	
-				<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_feb ) %} <span> &#6107;</span></td>	
-				<td class="text-right">{%= school.string.numberWithComma( tot_mm_feb ) %} <span> &#6107;</span></td>
-			{%/if %}
-	
+			{%/if%}
+
+			{%if amt_mm_feb === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
+			<td class="text-right">{%= school.string.numberWithComma( amt_mm_feb ) %} <span> &#6107;</span></td>	
+			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_feb ) %} <span> &#6107;</span></td>	
+			<td class="text-right">{%= school.string.numberWithComma( tot_mm_feb ) %} <span> &#6107;</span></td>
+			{%/if%}
+
+			{%if amt_mm_mar === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_mar ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_mar ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_mar ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_apr === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_apr ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_apr ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_apr ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_may === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_may ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_may ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_may ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_jun === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jun ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jun ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jun ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_jul === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_jul ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_jul ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_jul ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_aug === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_aug ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_aug ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_aug ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_sep === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_sep ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_sep ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_sep ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_oct === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_oct ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_oct ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_oct ) %} <span> &#6107;</span></td>
-	
+			{%/if%}
+
+			{%if amt_mm_nov === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_nov ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_nov ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_nov ) %} <span> &#6107;</span></td>
+			{%/if%}
 
-	
+			{%if amt_mm_dec === null %}
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			<td class="bg-danger"></td>
+			{%else%}
 			<td class="text-right">{%= school.string.numberWithComma( amt_mm_dec ) %} <span> &#6107;</span></td>	
 			<td class="text-right"  class="dt_yyyymm">{%= school.string.numberWithComma( disc_mm_dec ) %} <span> &#6107;</span></td>	
 			<td class="text-right">{%= school.string.numberWithComma( tot_mm_dec ) %} <span> &#6107;</span></td>
-		</tr>	
+			{%/if%}
 	  {%/if%}
 	</script>	
     <%@include file="../../views/dashboard/footer.jsp" %>

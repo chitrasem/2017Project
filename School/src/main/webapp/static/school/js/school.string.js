@@ -11,6 +11,7 @@ if(!school.string){
 		}
 		return str;
 	}
+	
 	school.string.formatBirthDate = function(str){
 		if(str=="" || str==null){
 			return "";

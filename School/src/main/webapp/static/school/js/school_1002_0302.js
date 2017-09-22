@@ -4,6 +4,7 @@ var courseUrl = $("#courseUrl").val();
  * When Form is loaded
  */
 $(document).ready(function(e){
+	//school.ui.launchIntoFullscreen(document.documentElement)
 	$("button").click(function(e){
 		e.preventDefault();
 	});
@@ -22,6 +23,7 @@ $(document).ready(function(e){
         url: 'http://schoolkm.com.kh:8080/School/upload/test',
         change: function(e, data){
         	$.each(data.files, function(index, file){
+        		console.log(file)
         	})
         }
     });

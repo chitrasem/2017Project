@@ -7,7 +7,6 @@
 
 !function($) {
     "use strict";
-
     var Sidemenu = function() {
         this.$body = $("body"),
         this.$openLeftBtn = $(".open-left"),
