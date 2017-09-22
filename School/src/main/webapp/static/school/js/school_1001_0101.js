@@ -1,6 +1,5 @@
 var school_1001_0101 = {};
 $(document).ready(function() {
-
 	school_1001_0101.loadData();
 
 });

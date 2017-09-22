@@ -80,7 +80,6 @@
 
 function($) {
     "use strict";
-
     var FullScreen = function() {
         this.$body = $("body"),
         this.$fullscreenBtn = $("#btn-fullscreen")

@@ -4,11 +4,11 @@ var courseUrl = $("#courseUrl").val();
  * When Form is loaded
  */
 $(document).ready(function(e){
-	//school.ui.launchIntoFullscreen(document.documentElement)
+	
 	$("button").click(function(e){
 		e.preventDefault();
 	});
-	school_1002_0302.loadData("",function(dat){
+	school_1002_0302.loadData("",function(dat){		
 		school.ui.datetimepicker(".datetimepickerYYYYMMDD",{
 			"pickTime"	: false,
 		});
