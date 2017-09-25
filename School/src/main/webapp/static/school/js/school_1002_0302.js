@@ -19,7 +19,7 @@ $(document).ready(function(e){
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: 'http://schoolkm.com.kh:8080/School/upload/test',
+        url: 'http://localhost:8080/School/upload/test',
         change: function(e, data){
         	$.each(data.files, function(index, file){
         	})
