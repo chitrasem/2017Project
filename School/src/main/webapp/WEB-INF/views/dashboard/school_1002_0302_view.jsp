@@ -24,10 +24,10 @@
 						                    <span>Add files...</span>
 						                    <input type="file" name="files[]" multiple data-url="<c:url value="/upload/test"/>">
 						                </span>
-						                <button type="submit" id="btnUpload" class="btn btn-primary start">
+						                <!-- <button type="submit" id="btnUpload" class="btn btn-primary start">
 						                    <i class="glyphicon glyphicon-upload"></i>
 						                    <span>Start upload</span>
-						                </button>
+						                </button> -->
 						            </div>
 						            <div class="col-lg-5 fileupload-progress fade">
 						                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
@@ -38,12 +38,18 @@
 						            </div>
 						        </div>
 						        The table listing the files available for upload/download
-						        <table role="presentation" class="table table-striped"><tbody class="files" id="fileList"></tbody></table>
+						        <table role="presentation" class="table table-striped">
+						        <tbody class="files" id="fileList">
+						        </tbody>
+						        </table>
+						        <div>
+						        	<img id="resultImg" class=" img-thumbnail" src="<c:url value="/static/images/users/avatar-2.jpg" />">
+						        </div>
 						   	</form> 
                             </div>                                                       
                              <div class="modal-footer">
                                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                 <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                <!--  <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button> -->
                              </div>
                             </div><!-- /.modal-content -->    
                         </div><!-- /.modal-dialog -->                        
