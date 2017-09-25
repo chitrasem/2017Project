@@ -7,7 +7,6 @@
 
 !function($) {
     "use strict";
-
     var Sidemenu = function() {
         this.$body = $("body"),
         this.$openLeftBtn = $(".open-left"),
@@ -81,7 +80,6 @@
 
 function($) {
     "use strict";
-
     var FullScreen = function() {
         this.$body = $("body"),
         this.$fullscreenBtn = $("#btn-fullscreen")

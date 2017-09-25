@@ -106,18 +106,38 @@
 						</thead>
 						<tbody id="CLSROOM-RESULT">
 							<tr>
-								<td>10A</td>
-								<td>10</td>
-								<td>2016-2017</td>
-								<td>50</td>
-								<td>Sem Chitra</td>
-								<td>ព្រឹក</td>							
+								<td>
+								<input type="text">
+								</td>
+								<td>									
+									<select>
+										<option>Grade 12</option>
+										<option>Grade 12</option>
+										<option>Grade 12</option>
+									</select>
+								</td>
+								<td>																		
+									<select>
+										<option>2016-2017</option>
+										<option>2015-2016</option>
+										<option>2014-2015</option>
+									</select>						
+								</td>
+								<td><input style="width:30px" class="text-right" readonly="readonly" disabled="disabled" value="0" type="text"></td>
+								<td><input type="text"></td>
+								<td>																		
+									<select>
+										<option>ព្រឹក</option>
+										<option>រសៀល</option>
+										<option>ល្ងាច</option>
+									</select>
+								</td>							
 							</tr>
 							<tr>
 								<td>10B</td>
 								<td>10</td>
 								<td>2016-2017</td>
-								<td>50</td>
+								<td class="text-right">50</td>
 								<td>Sem Chitra</td>
 								<td>រសៀល</td>							
 							</tr>
@@ -125,7 +145,7 @@
 								<td>10C</td>
 								<td>10</td>
 								<td>2016-2017</td>
-								<td>50</td>
+								<td class="text-right">50</td>
 								<td>Sem Chitra</td>
 								<td>ល្ងាច</td>							
 							</tr>						

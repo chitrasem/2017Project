@@ -44,6 +44,7 @@
         <script src="<c:url value="/static/school/js/school.ui.js" />"></script>
          <!-- CUSTOM JS -->         
         <script src="<c:url value="/static/js/jquery.app.js" />"></script>
+     <%--    <script src="<c:url value="/static/js/vue.js" />"></script> --%>
         
         
         

@@ -4,10 +4,11 @@ var courseUrl = $("#courseUrl").val();
  * When Form is loaded
  */
 $(document).ready(function(e){
+	
 	$("button").click(function(e){
 		e.preventDefault();
 	});
-	school_1002_0302.loadData("",function(dat){
+	school_1002_0302.loadData("",function(dat){		
 		school.ui.datetimepicker(".datetimepickerYYYYMMDD",{
 			"pickTime"	: false,
 		});
@@ -22,6 +23,7 @@ $(document).ready(function(e){
         url: 'http://localhost:8080/School/upload/test',
         change: function(e, data){
         	$.each(data.files, function(index, file){
+        		console.log(file)
         	})
         }
     });

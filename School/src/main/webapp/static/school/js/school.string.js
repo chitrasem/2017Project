@@ -11,6 +11,7 @@ if(!school.string){
 		}
 		return str;
 	}
+	
 	school.string.formatBirthDate = function(str){
 		if(str=="" || str==null){
 			return "";
@@ -25,7 +26,7 @@ if(!school.string){
 		return str.replace(/[^0-9\.]/g, '');
 	};
 	school.string.numberWithComma = function(str){
-		if(str == null || str == "") return "0";
+		if(str == null || str == "") return "";// "0";
 		return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");			
 	};
 	school.string.removeComma = function(str){

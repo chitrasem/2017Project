@@ -1,7 +1,7 @@
 if(!school) school = {};
 if(!school.ui) {
 	school.ui = {};
-	
+
 	school.ui.openWindow = function(url){
 		window.location.href = url;
 	};

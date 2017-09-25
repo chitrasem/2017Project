@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chitra.school.bean.PaymentBean;
-import com.chitra.school.bean.PaymentYearlyBean;
 import com.chitra.school.dao.PaymentDao;
 import com.chitra.school.dao.StudentDao;
 import com.chitra.school.entities.Payment;
