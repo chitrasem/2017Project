@@ -45,6 +45,21 @@
          <!-- CUSTOM JS -->         
         <script src="<c:url value="/static/js/jquery.app.js" />"></script>
      <%--    <script src="<c:url value="/static/js/vue.js" />"></script> --%>
-        
+        <script>
+        $(document).ajaxStart($.blockUI({
+    		message: "<h1 class='khFont'>សូមមេត្តារង់ចាំ...</h1>",
+    		css: { 
+                border: 'none', 
+                padding: '15px', 
+                backgroundColor: '#000', 
+                '-webkit-border-radius': '10px', 
+                '-moz-border-radius': '10px', 
+                opacity: .5, 
+                color: '#fff' 
+    		},
+            fadeIn: 1000, 
+            timeout:   2000,     	
+    })).ajaxStop($.unblockUI);
+        </script>
         
         

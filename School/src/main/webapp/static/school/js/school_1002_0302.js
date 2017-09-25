@@ -21,14 +21,17 @@ $(document).ready(function(e){
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: 'http://localhost:8080/School/upload/test',
+        //uploadTemplateId: null,
+        downloadTemplateId: null,
         change: function(e, data){
         	$.each(data.files, function(index, file){
-        		console.log(file)
         	})
         }
     });
     $("#fileupload").bind("fileuploaddone", function(e, data){  
-    	console.log(data);
+
+		console.log("E",e)
+    	console.log("DATA",data);
     	var str = $("#imgPhoto").attr("src");
     	str  = str.substr(0, str.lastIndexOf("/static"))
     	
@@ -38,11 +41,13 @@ $(document).ready(function(e){
     	    imageUrl  = imageUrl.replace("\\", "/");
     	    imageName = imageName.replace("\\", "/");    	
     	var imgPhoto = $("#imgPhoto");       	
-    	$("#uploadModal").modal("hide");  
+    	//$("#uploadModal").modal("hide");  
     	var absoluteUrl = $("#absoluteUrl").val();
     	absoluteUrl = absoluteUrl.substring(0, absoluteUrl.length - 2 );
+    	var imgSrc = absoluteUrl+imageUrl+imageName;
+    	imgPhoto.attr("src", imgSrc);
+    	$("#resultImg").attr("src", imgSrc);
     	
-    	imgPhoto.attr("src",absoluteUrl+imageUrl+imageName);
     	$("#imageName").val(imageName);
     	$("#imagePath").val(imageUrl);
     	/*

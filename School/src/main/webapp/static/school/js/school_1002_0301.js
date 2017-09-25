@@ -2,6 +2,7 @@ var school_1002_0301 = {};
 $(document).ready(function(){
 	//Load data
 $("#searchName").focus();
+
 	school_1002_0301.loadData();
 	
 	//Dropdown Action

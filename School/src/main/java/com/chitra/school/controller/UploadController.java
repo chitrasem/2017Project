@@ -20,7 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class UploadController {
 	
 	
-	
+
+	@RequestMapping(value="/test")
+	public Map<Object, Object> getFile(){
+		Map<Object, Object> map = new HashMap<Object, Object>();	
+		map.put("TESTING", "TEST");
+		return map;
+		
+	}
 	@RequestMapping(value="/test", method = RequestMethod.POST)
 	public Map<Object, Object> uploadFile(HttpServletRequest request, 
 			HttpServletResponse response )throws Exception{

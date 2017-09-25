@@ -38,6 +38,7 @@
 								</div>
 							</div>
 						   </form>
+						   <div style="min-height:500px;">
 							<table class="table table-hover table-striped">
 								<thead>
 									<tr>
@@ -56,8 +57,9 @@
 
 								</tbody>
 							</table>
+							</div>
 							<!-- Pagination -->
-							<div class="group">
+							<div class="group text-right">
 	                          	<nav id="pagination">
 								</nav>
                           	

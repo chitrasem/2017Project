@@ -19,7 +19,7 @@
 	      				<th class="text-right text-default form-control-static">កំរិតថ្នាក់៖</th>
 						<td class="text-left">
 							 <div class="input-group">							 		
-					           <select style="width:160px;" class="form-control PAY_STATUS">
+					           <select style="width:160px;" class="form-control">
 									<option>បង់ថ្លៃសាលា</option>
 									<option>បង់ថ្លៃសៀវភៅ</option>
 									<option>ជំនួយកុំព្យូទ័រ</option>
@@ -36,7 +36,7 @@
 	      				<th class="text-right text-default form-control-static">កំរិតថ្នាក់៖</th>
 						<td class="text-left">
 							 <div class="input-group">							 		
-					           <select style="width:160px;" class="form-control PAY_STATUS">
+					           <select style="width:160px;" class="form-control">
 									<option>បង់ថ្លៃសាលា</option>
 									<option>បង់ថ្លៃសៀវភៅ</option>
 									<option>ជំនួយកុំព្យូទ័រ</option>
@@ -99,55 +99,85 @@
 						<th class="">បន្ទប់</th>
 						<th class="">កំរិតថ្នាក់</th>
 						<th class="">ឆ្នាំសិក្សា</th>
-						<th class="">ចំនួនសិស្ស</th>
+						<th class="" style="width:85px;">ចំនួនសិស្ស</th>
 						<th class="">គ្រូបង្រៀន</th>
 						<th class="col-md- ">វេន</th>
+						<th class="">ជម្រើស</th>
+						</tr>
+						<tr style="background: #A0A0A0">
+							<th>
+							<input type="text" class="form-control">
+							</th>
+							<th>		
+								<div class="input-group">							
+								<select class="form-control">
+									<option>Grade 12</option>
+									<option>Grade 12</option>
+									<option>Grade 12</option>
+								</select>								
+								<div class="input-group-btn">
+									<button class=" btn waves-effect waves-light btn-primary"><i class="ion ion-plus"></i></button>
+								</div>
+								</div>
+							</th>
+							<th>		
+							<div class="input-group">																
+								<select class="form-control">
+									<option>2016-2017</option>
+									<option>2015-2016</option>
+									<option>2014-2015</option>
+								</select>									
+								<div class="input-group-btn">
+									<button class=" btn waves-effect waves-light btn-primary"><i class="ion ion-plus"></i></button>
+								</div>
+							</div>					
+							</th>								
+							<th></th>
+							<th>
+							<div class="input-group">
+								<input type="text" class="form-control" disabled="disabled">								
+								<div class="input-group-btn">
+									<button class=" btn waves-effect waves-light btn-primary"><i class="ion ion-search"></i></button>
+								</div>
+							</div>					
+							
+							</th>
+							<th>		
+							<div class="input-group">															
+								<select class="form-control">
+									<option>ព្រឹក</option>
+									<option>រសៀល</option>
+									<option>ល្ងាច</option>
+								</select>
+								<div class="input-group-btn">
+									<button class=" btn waves-effect waves-light btn-primary"><i class="ion ion-plus"></i></button>
+								</div>
+							</div>	
+							</th>				
+							<th>
+								<button class="btn waves-effect waves-light btn-purple"><i class="glyphicon glyphicon-search"></i></button>
+								<button class="btn waves-effect waves-light btn-purple"><i class="glyphicon glyphicon-floppy-save"></i></button>
+							</th>			
 						</tr>
 						</thead>
 						<tbody id="CLSROOM-RESULT">
 							<tr>
-								<td>
-								<input type="text">
-								</td>
-								<td>									
-									<select>
-										<option>Grade 12</option>
-										<option>Grade 12</option>
-										<option>Grade 12</option>
-									</select>
-								</td>
-								<td>																		
-									<select>
-										<option>2016-2017</option>
-										<option>2015-2016</option>
-										<option>2014-2015</option>
-									</select>						
-								</td>
-								<td><input style="width:30px" class="text-right" readonly="readonly" disabled="disabled" value="0" type="text"></td>
-								<td><input type="text"></td>
-								<td>																		
-									<select>
-										<option>ព្រឹក</option>
-										<option>រសៀល</option>
-										<option>ល្ងាច</option>
-									</select>
-								</td>							
-							</tr>
-							<tr>
 								<td>10B</td>
-								<td>10</td>
-								<td>2016-2017</td>
+								<td>10</td>		
+								<td>2016-2017</td>		
 								<td class="text-right">50</td>
 								<td>Sem Chitra</td>
-								<td>រសៀល</td>							
+								<td>រសៀល</td>			
+								<td></td>				
 							</tr>
 							<tr>
 								<td>10C</td>
-								<td>10</td>
-								<td>2016-2017</td>
+								<td>10</td>		
+								<td>2016-2017</td>	
 								<td class="text-right">50</td>
 								<td>Sem Chitra</td>
-								<td>ល្ងាច</td>							
+								<td>ល្ងាច</td>			
+								<td></td>								
 							</tr>						
 						</tbody>						
 					</table>
