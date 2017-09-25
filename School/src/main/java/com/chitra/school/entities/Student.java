@@ -86,7 +86,7 @@ public class Student {
     @Column(name="IMG_NAME")
     private String imageName;
     
-    @ManyToOne(optional=false, fetch=FetchType.LAZY)
+    @ManyToOne(optional=true, fetch=FetchType.LAZY) // Optional True Mean This id can be null
 	@JoinColumn(name="COURSE_ID")
 	private Course course;
     
