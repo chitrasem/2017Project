@@ -10,11 +10,9 @@ $(document).ready(function(){
 	
 	//Load Data;
 	school_1004_0101.loadData();
-	$("#btnAdd").click(function(){
-		$("#classroom_modal").modal({
-			backdrop	: 'static', 
-			keyboard	: false,
-		});	
+	$("#addGrade").click(function(){
+		school_1004_0101.openModal("#classroom_modal");
+		school_1004_0101.listGrade();
 	});
 	$(document).delegate(".list-students","click", function(){
 		var input = {};
@@ -30,14 +28,36 @@ $(document).ready(function(){
 			school_1004_0101.showStudents(input);
 			_this.parent().parent().next("tr.show-students").show();
 			
-		}else{
-			
+		}else{			
 			upAndDown.removeClass("ion-chevron-up").addClass("ion-chevron-down");
 			_this.parent().parent().next("tr.show-students").hide();
 		}
 	});
 	
 });
+school_1004_0101.openModal = function(modalId){
+	$(modalId).modal({
+		backdrop	: 'static', 
+		keyboard	: false,
+	});	
+}
+school_1004_0101.listGrade = function(){
+	$("#GRADE_RESULT").empty();
+	$.ajax({
+		url : "school_1004_0101_r001.chitra",
+		success: function(resp){
+			if(resp.success){
+				$("#GRADE_TMPL").tmpl(resp.GradeRec).appendTo("#GRADE_RESULT")
+			}else{
+				
+			}
+		},
+		error: function(e){
+			console.log("e",e);
+		}
+	});
+	
+}
 school_1004_0101.getData = function(){
 	var input = {};
 	/*var payment = {};

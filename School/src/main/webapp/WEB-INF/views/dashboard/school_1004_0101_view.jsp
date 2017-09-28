@@ -1,72 +1,35 @@
 <template:basic htmlTitle="Classroom" bodyTitle="បន្ទប់រៀន">
 <!-- Modal Part -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" id="classroom_modal" role="dialog" aria-labelledby="classroom_modal">
-  <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade " tabindex="-1" id="classroom_modal" role="dialog" aria-labelledby="classroom_modal">
+  <div class="modal-dialog " role="document">
     <div class="modal-content">
 	    <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">បន្ថែមបន្ទប់រៀន</h4>
+	        <h4 class="modal-title">បន្ថែមកំរិត</h4>
 	      </div>
 	      <div class="modal-body">
-	      	<table class="table">
-	      			<tr class="trBg" >
-	      				<th class="text-right text-default form-control-static">បន្ទប់៖</th>
-						<td class="text-center">
-							 <div class="input-group">
-							  	 <input type="text" class="form-control">
-				           </div>										
-						</td>
-	      				<th class="text-right text-default form-control-static">កំរិតថ្នាក់៖</th>
-						<td class="text-left">
-							 <div class="input-group">							 		
-					           <select style="width:160px;" class="form-control">
-									<option>បង់ថ្លៃសាលា</option>
-									<option>បង់ថ្លៃសៀវភៅ</option>
-									<option>ជំនួយកុំព្យូទ័រ</option>
-									<option>ផ្សេងៗ</option>
-								</select>
-								&nbsp;
-								<button class="btn btn-default waves-effect waves-light">
-								<i class="ion ion-plus"></i>
-							</button>
-				            </div>								
-						</td>	
-	      			</tr>
-	      			<tr class="trBg">	      									
-	      				<th class="text-right text-default form-control-static">កំរិតថ្នាក់៖</th>
-						<td class="text-left">
-							 <div class="input-group">							 		
-					           <select style="width:160px;" class="form-control">
-									<option>បង់ថ្លៃសាលា</option>
-									<option>បង់ថ្លៃសៀវភៅ</option>
-									<option>ជំនួយកុំព្យូទ័រ</option>
-									<option>ផ្សេងៗ</option>
-								</select>
-								&nbsp;
-								<button class="btn btn-default waves-effect waves-light">
-								<i class="ion ion-plus"></i>
-							</button>
-				            </div>								
-						</td>    									
-	      				<th class="text-right text-default form-control-static">កំរិតថ្នាក់៖</th>
-						<td class="text-left">
-							 <div class="input-group">							 		
-					           <select style="width:160px;" class="form-control PAY_STATUS">
-									<option>បង់ថ្លៃសាលា</option>
-									<option>បង់ថ្លៃសៀវភៅ</option>
-									<option>ជំនួយកុំព្យូទ័រ</option>
-									<option>ផ្សេងៗ</option>
-								</select>
-								&nbsp;
-								<button class="btn btn-default waves-effect waves-light">
-								<i class="ion ion-plus"></i>
-							</button>
-				            </div>								
-						</td>
-	      			</tr>
-	      		<tbody id="STUDENT_LIST_RESULT">
-	      		</tbody>
-	      	</table>
+        <form>
+          <div class="form-group">
+            <label for="grade" class="control-label">កម្រិត:</label>
+            <input type="text" name="grade" class="form-control" id="grade">
+          </div>
+          <div class="form-group">
+            <label for="descr" class="control-label">ពិពណ៌នា:</label>
+            <input type="text" name="descr" class="form-control" id="descr">
+          </div>
+        </form>
+	      <table class="table table-strip">
+	      	<thead>
+	      		<tr>
+	      			<th>កម្រិត</th>
+	      			<th>ពិពណ៌នា</th>
+	      			<th>កាលបរិច្ឆេទបន្ថែម</th>
+	      			<th>អ្នកបន្ថែម</th>
+	      		</tr>
+	      	</thead>
+	      	<tbody id="GRADE_RESULT">
+	      	</tbody>
+	      </table>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">បិទ</button>
@@ -96,13 +59,13 @@
 					<table class="table table-hover table-striped">
 						<thead>
 						<tr>			
-						<th class="">បន្ទប់</th>
+						<th class="" >បន្ទប់</th>
 						<th class="">កំរិតថ្នាក់</th>
-						<th class="">ឆ្នាំសិក្សា</th>
+						<th class="" style="width:177px;">ឆ្នាំសិក្សា</th>
 						<th class="" style="width:85px;">ចំនួនសិស្ស</th>
 						<th class="">គ្រូបង្រៀន</th>
 						<th class="col-md- ">វេន</th>
-						<th class="">ជម្រើស</th>
+						<th class="" style="width:103px;">ជម្រើស</th>
 						</tr>
 						<tr style="background: #A0A0A0">
 							<th>
@@ -116,7 +79,7 @@
 									<option>Grade 12</option>
 								</select>								
 								<div class="input-group-btn">
-									<button class=" btn waves-effect waves-light btn-primary"><i class="ion ion-plus"></i></button>
+									<button id="addGrade" class=" btn waves-effect waves-light btn-primary"><i class="ion ion-plus"></i></button>
 								</div>
 								</div>
 							</th>
@@ -190,8 +153,8 @@
 <script id="CLSROOM-TMPL" type="text/jquery-tmpl">
 	<tr>
 		
-		<td class="CLSROOM-ID">{{= id }}</td>
-		<td>{{= classroom }}</td>
+		<td class="CLSROOM-ID">{%= id %}</td>
+		<td>{%= classroom %}</td>
 		<td><a href="javascript:" class="list-students"><span class="ion text-purple ion-chevron-down"></span></a></td>
 	</tr>
 	<tr style="display:none;" class="show-students">
@@ -226,17 +189,23 @@
 	</tr>
 
 </script>
- <script type="text/jquery-tmpl" id="STUDENTS_TMPL">
-
+ <script type="text/jquery-tmpl" id="GRADE_TMPL">
 		<tr>
-			<td>{{= id }}</td>
-			<td>{{= kmLastName }} {{= kmFirstName }}</td>
-			<td>{{= firstName }} {{= lastName }}</td>
-			<td>
-				
+			<td>{%= name %}</td>
+			<td>{%= descr %}</td>
+			<td>{%= reg_dt %}</td>
+			<td>{%= reg_nm %}</td>	
 			</td>
 		</tr>
-
+ </script>
+ <script type="text/jquery-tmpl" id="STUDENTS_TMPL">
+		<tr>
+			<td>{%= id %}</td>
+			<td>{%= kmLastName %} {%= kmFirstName %}</td>
+			<td>{%= firstName %} {%= lastName %}</td>
+			<td>				
+			</td>
+		</tr>
  </script>
 <%@include file="../../views/dashboard/footer.jsp" %>
 <script src="<c:url value="/static/school/js/school_1004_0101.js" />"></script>
