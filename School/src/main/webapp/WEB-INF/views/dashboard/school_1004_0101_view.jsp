@@ -18,6 +18,11 @@
             <input type="text" name="descr" class="form-control" id="descr">
           </div>
         </form>
+        <div>        	                                 
+		<button id="" type="button" class="btn btn-purple waves-effect waves-light" data-toggle="modal">
+			<i class="ion ion-plus-round"></i>
+		</button> 
+        </div>
 	      <table class="table table-strip">
 	      	<thead>
 	      		<tr>
