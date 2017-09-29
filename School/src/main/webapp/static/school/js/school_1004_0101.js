@@ -33,7 +33,7 @@ school_1004_0101.openModal = function(modalId){
 
 school_1004_0101.appendGrade = function(dat, tmpl){
 	$(tmpl).tmpl(dat).appendTo("#GRADE_RESULT")
-}
+};
 school_1004_0101.listGrade = function(){
 	$("#GRADE_RESULT").empty();
 	$.ajax({
